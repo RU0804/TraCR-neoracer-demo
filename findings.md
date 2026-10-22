@@ -15,3 +15,5 @@ Final verification: 28 tests and Chromium checks passed in Slurm A100-40GB job 1
 User confirmed GitHub owner RU0804. New repository visibility defaults to private. Remote lookup returns 404; current connection cannot create repositories and local GitHub authentication is unavailable. Waiting for an accessible empty remote, not another owner confirmation.
 
 Repository creation/access blocker resolved by user: public RU0804/TraCR-neoracer-demo, initially empty. Map builder only creates straight rectangular strips; curves, markings, foam walls and photo textures are not currently implemented.
+
+Public repository upload succeeded through connected GitHub Git-data tools. First create_commit call timed out; retry with explicit additional_parent_shas=[] succeeded. Full 50-file source tree matched local. Keep the pre-publication local history on a backup branch when adopting remote main.

@@ -21,3 +21,7 @@
 
 - User created RU0804/TraCR-neoracer-demo as public. Confirmed repository is empty and current connection has push permission. Preparing source publication through GitHub API.
 - Added MAP_WORKFLOW.md explaining measured foam-board map reconstruction, coordinate alignment, current straight-segment importer limits, and optional future photo-texture workflow. No physical map has been fabricated.
+
+- GitHub source tree upload matched the local Git tree. First create_commit call timed out after 300 s; inspecting remote refs before retry. No full-publication claim made.
+
+- Retry with explicit empty additional-parent list succeeded. Published the complete 50-file source snapshot to public main and verified identical local/remote Git trees. Final publication notes are included in the follow-up documentation commit.

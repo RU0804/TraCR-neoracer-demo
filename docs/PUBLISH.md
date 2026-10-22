@@ -1,6 +1,6 @@
 # GitHub 发布与更新
 
-用户已创建公开仓库：[RU0804/TraCR-neoracer-demo](https://github.com/RU0804/TraCR-neoracer-demo)。Public 是用户明确选择，保留该设置。此工作区的 origin 已配置为 `https://github.com/RU0804/TraCR-neoracer-demo.git`。
+用户已创建公开仓库：[RU0804/TraCR-neoracer-demo](https://github.com/RU0804/TraCR-neoracer-demo)。Public 是用户明确选择，保留该设置。此工作区的 origin 已配置为 `https://github.com/RU0804/TraCR-neoracer-demo.git`。源码、测试记录、界面截图和地图制作说明已上传；首次完整发布核对了本地与远端 Git 文件树一致性。
 
 源码、小型验证截图和文档进入 Git；Python 环境、Unity 工程下载、二进制、录像和本地标定不进入版本库。提交前检查 `git status --short` 和 `git diff --cached --stat`。本地配置使用 `configs/local*.json`，token 只放环境变量。
 

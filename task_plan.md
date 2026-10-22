@@ -8,7 +8,7 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 2. Implement bounded timestamped ingest, paired display, source adapters, and Unity integration source — complete; hardware and Unity execution pending.
 3. Add configuration, measured-map workflow, laptop runbook and provenance — complete.
 4. Validate software in Slurm on allowed resources and package a clean Git repository — complete.
-5. Record remaining hardware/Unity acceptance tasks — complete; GitHub owner RU0804 and public visibility confirmed; repository accessible, publication in progress.
+5. Record remaining hardware/Unity acceptance tasks — complete; GitHub publication complete at public RU0804/TraCR-neoracer-demo; source tree verified against local Git. Hardware/Unity acceptance remains pending.
 
 ## Constraints
 - Laptop OS/GPU, video transport and localization are unknown. GitHub owner is confirmed RU0804.
