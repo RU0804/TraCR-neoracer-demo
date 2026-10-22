@@ -1,0 +1,23 @@
+# Progress
+
+- Read handoff, GPU preferences, source-level CoSim mapping and baseline README.
+- Asked for laptop platform and current camera/localization interfaces; awaiting answer.
+- Created independent project directory. Original baseline and d2s-diffusion were not modified.
+
+- Implemented bounded video/pose buffers, finite-value/frame validation, timestamp pairing and one outstanding Unity render ticket.
+- Added local browser display with explicit self-test watermark, stale-state indicators and pair timestamp metrics.
+- Added USB/RTSP/MJPEG, read-only ROS 2 and optional AprilTag source adapters. Hardware integration remains unverified.
+- Added AutoDRIVE CoSim HTTP follower and Unity editor road-layout importer. C# source has not been compiled or executed.
+- Upstream simulator pinned to 75b7df5216524a3c6b3150d698139190c6c44f8f; editor 2022.3.52f1 confirmed from primary source.
+- First software validation: 26 tests and browser checks passed on Slurm A100-40GB job 12006837 (36 s). No real car or Unity validation.
+- Review found freshness should depend on source timestamp, not recent render arrival; fixed and added a regression case. Added loopback Host validation.
+- One documentation-writing tool call had a JavaScript string syntax error before execution; retried in smaller calls, no partial writes from the failed call.
+
+- Final software validation: 28 tests passed; browser checks passed; six GPU-selection/guard checks passed. Slurm job 12006850, A100-40GB normal, 33 s, completed.
+- Wrote Chinese setup, Unity integration, calibration, runbook, provenance, publishing and validation documentation; snapshots explicitly label self-test.
+- Prepared standalone Git repository and source archive, excluding environments and upstream assets. Hardware/Unity acceptance and GitHub destination remain pending.
+
+- User confirmed RU0804 as GitHub owner. Target RU0804/TraCR-neoracer-demo queried via connected GitHub API: 404 (missing or inaccessible). No create-repository tool, local gh login, token environment or SSH agent. Configured origin and updated publication instructions; no upload claimed.
+
+- User created RU0804/TraCR-neoracer-demo as public. Confirmed repository is empty and current connection has push permission. Preparing source publication through GitHub API.
+- Added MAP_WORKFLOW.md explaining measured foam-board map reconstruction, coordinate alignment, current straight-segment importer limits, and optional future photo-texture workflow. No physical map has been fabricated.

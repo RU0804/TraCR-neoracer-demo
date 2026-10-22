@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-22",
+  "job_id": "12006850",
+  "partition": "a100-40gb",
+  "qos": "normal",
+  "account": "sukkusur",
+  "state": "COMPLETED",
+  "elapsed_s": 33,
+  "python_tests": {
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": true,
+    "selftest_images_labeled": true,
+    "desktop_and_mobile_no_overflow": true,
+    "heartbeat_16s": true,
+    "disconnect_marks_frozen_images_stale": true,
+    "live_mode_does_not_fabricate_input": true,
+    "javascript_errors": [],
+    "hardware_tested": false,
+    "unity_tested": false
+  },
+  "scheduler": {
+    "free": "passed",
+    "busy": "passed",
+    "queued": "passed",
+    "changed_a30": "passed",
+    "bad": "passed",
+    "a10_runtime_guard": "passed"
+  },
+  "physical_vehicle_tested": false,
+  "unity_compiled_or_run": false,
+  "field_synchronization_verified": false
+}

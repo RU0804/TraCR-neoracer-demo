@@ -1,0 +1,11 @@
+{
+  "host": "127.0.0.1",
+  "port": 8080,
+  "buffer_size": 40,
+  "max_age_s": 2.0,
+  "stale_s": 0.75,
+  "max_skew_s": 0.08,
+  "render_timeout_s": 0.6,
+  "clock_verified": false,
+  "map_label": "5 m × 5 m · illustrative layout, survey pending"
+}

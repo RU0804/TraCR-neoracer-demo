@@ -1,0 +1,1 @@
+{"calibrated": false, "source_frame": "odom", "x": 0, "y": 0, "z": 0, "yaw": 0, "note": "Measure initial rigid alignment. Odometry remains relative and drifts."}

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "selftest_images_labeled": true,
+  "desktop_and_mobile_no_overflow": true,
+  "heartbeat_16s": true,
+  "disconnect_marks_frozen_images_stale": true,
+  "live_mode_does_not_fabricate_input": true,
+  "javascript_errors": [],
+  "hardware_tested": false,
+  "unity_tested": false
+}

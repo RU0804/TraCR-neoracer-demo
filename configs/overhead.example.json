@@ -1,0 +1,13 @@
+{
+  "calibrated": false,
+  "image_size": [1920, 1080],
+  "tag_id": 0,
+  "minimum_area_px": 400,
+  "camera_matrix": [[1000, 0, 960], [0, 1000, 540], [0, 0, 1]],
+  "distortion": [0, 0, 0, 0, 0],
+  "pixel_to_map": [[0.0026, 0, 0], [0, -0.0046, 5], [0, 0, 1]],
+  "yaw_offset_rad": 0,
+  "tag_to_base_xy_m": [0, 0],
+  "base_z_m": 0,
+  "note": "PLACEHOLDER. Calibrate homography on a horizontal plane at tag height, not floor height. Intrinsics must match image_size. Printed top edge defines forward before yaw_offset."
+}

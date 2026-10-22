@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-10-22",
+  "simulator": {
+    "url": "https://github.com/Tinker-Twins/AutoDRIVE.git",
+    "branch": "AutoDRIVE-Simulator",
+    "commit": "75b7df5216524a3c6b3150d698139190c6c44f8f",
+    "unity_editor": "2022.3.52f1",
+    "neoracer_prefab": "Assets/Prefabs/NeoRacer/NeoRacer.prefab",
+    "status": "source integration target; not built or run in this repository"
+  },
+  "devkit": {
+    "url": "https://github.com/Tinker-Twins/AutoDRIVE.git",
+    "branch": "AutoDRIVE-Devkit",
+    "commit": "655787beae254eef1f98308f5d8bac9538440639",
+    "status": "interface reference; ROS simulator-control bridge is not launched"
+  },
+  "prior_baseline": {
+    "simulator_release": "Simulator-0.2.0",
+    "vehicle": "Nigel",
+    "scene": "Tiny Town",
+    "status": "previous separate experiment; not evidence of NeoRacer operation"
+  }
+}

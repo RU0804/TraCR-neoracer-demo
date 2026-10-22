@@ -1,0 +1,12 @@
+{
+  "label": "Illustrative 5 m x 5 m loop — not a reconstruction of the foam-board map",
+  "measured": false,
+  "width_m": 5,
+  "height_m": 5,
+  "roads": [
+    {"x0": 0.8, "y0": 0.8, "x1": 4.2, "y1": 0.8, "width": 0.65},
+    {"x0": 4.2, "y0": 0.8, "x1": 4.2, "y1": 4.2, "width": 0.65},
+    {"x0": 4.2, "y0": 4.2, "x1": 0.8, "y1": 4.2, "width": 0.65},
+    {"x0": 0.8, "y0": 4.2, "x1": 0.8, "y1": 0.8, "width": 0.65}
+  ]
+}
