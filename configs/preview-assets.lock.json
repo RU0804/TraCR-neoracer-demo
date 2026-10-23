@@ -1,0 +1,455 @@
+{
+  "purpose": "NeoRacer geometry-only preview; not a Unity build",
+  "autodrive_commit": "75b7df5216524a3c6b3150d698139190c6c44f8f",
+  "three_tag": "r180",
+  "assets": [
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/NeoRacer.fbx",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/NeoRacer.fbx",
+      "git_blob_sha": "4bec75b5320467004ac3ae1c5141f378deab282b",
+      "sha256": "9bf4af3ef5c25be21abe17abbe466c7f508d1d867cc56709c5a66abdf037f3f8",
+      "bytes": 18129712
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/NeoRacer.fbx.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/NeoRacer.fbx.meta",
+      "git_blob_sha": "342c6c21a7bbc4fe37990f2554bac50871cc3a4f",
+      "sha256": "39cada7722ef51d5d6a89180cfab511c81a9bd234418d61d7ad8431f880c244f",
+      "bytes": 7675
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/LICENSE",
+      "path": "autodrive/LICENSE",
+      "git_blob_sha": "4610600a19f3ee2a8250b7e297d0021c9e173a07",
+      "sha256": "b9e7a136ae12a2b6e920435d3a532841ac1df6b2beb0339698b5baab2a68e560",
+      "bytes": 1322
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Brass.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Brass.mat",
+      "git_blob_sha": "99016476a88401d3a97e07fc2bf298ec2525c3fc",
+      "sha256": "72f0bd82a710362b600b919ce2d88c2f10ae9abcb9295a3b31ebfb7b07eca47d",
+      "bytes": 10316
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Camera%20Lens.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Camera Lens.mat",
+      "git_blob_sha": "d107948492b2a02009b12262ea220c72404a2c0a",
+      "sha256": "ff18cc11d335c757ef5eda66730a9bcb03c69e37b1d6dbe82482ebea789bcba4",
+      "bytes": 10414
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Foam.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Foam.mat",
+      "git_blob_sha": "a64f43ae4f3de343a86720137cb2387532df63b6",
+      "sha256": "00081387cd3f90abdd7b9018847ae4b683877a8dc5d6c6cdb8f2d141602d7434",
+      "bytes": 10267
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/High%20Gloss%20Plastic%20-%20Black.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/High Gloss Plastic - Black.mat",
+      "git_blob_sha": "369b95e29c02dbb6ddd8f3d627f88c137b7183e1",
+      "sha256": "35ccc4e9bacfb5938e0f8313e7a6368a3b8c4726d039292e806609ec04794c23",
+      "bytes": 10235
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/High%20Gloss%20Plastic%20-%20White.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/High Gloss Plastic - White.mat",
+      "git_blob_sha": "e9ee2189857c6e0fa4788435d9ccc81e4df2a9f3",
+      "sha256": "1707a449c0d66fe108cdf8c8bc4fe61c308268a8deabf1fae78f21f033730062",
+      "bytes": 10242
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/LED%20-%20Green.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/LED - Green.mat",
+      "git_blob_sha": "75cd9518a3f03fe9eca60381bc437812df8d633f",
+      "sha256": "f7d3385542f26c1034943220c38b20d7a99d42802a2da2afc61791a32deffda8",
+      "bytes": 10266
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/LED%20-%20Red.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/LED - Red.mat",
+      "git_blob_sha": "96c5a65bbd3cc1d8385ef88f8375e2cb639d2dd3",
+      "sha256": "99de6d6bc7497597da4aa0f439ae06f075e1fa4162dad214a5b40e67dac21458",
+      "bytes": 10264
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/LED%20-%20Yellow.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/LED - Yellow.mat",
+      "git_blob_sha": "7f651a3890051b35364430324a539fcafd8ca5eb",
+      "sha256": "257d83eef714681ec951737576ca2c6832f8f246cee59ea77a2a056841fb53c1",
+      "bytes": 10302
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Black.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Black.mat",
+      "git_blob_sha": "909439c22306435486d2cd2b9e93146f29191b95",
+      "sha256": "4c88d5c31adfc8181ecb999c152da486b84e3f9c039f58adc28b11062849846d",
+      "bytes": 10298
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Green.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Green.mat",
+      "git_blob_sha": "8a9845fd13ab5073b7b006b2b24e094de6547968",
+      "sha256": "8fd1caed4cbbddbf7b425f22df27fc501e75bcabd44b63f97fe0a931076f535a",
+      "bytes": 10343
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Grey.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Grey.mat",
+      "git_blob_sha": "b8c34834264c47aa5523f78bf051390aaba65b2d",
+      "sha256": "c3ce8255078d555902a873f7396f77119ea8198a1691a9aead4b189bc749a4f2",
+      "bytes": 10298
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Red.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Red.mat",
+      "git_blob_sha": "687f7ed1ebb65b4115491e37b9c1960847081bf6",
+      "sha256": "a844ca6a8ccecd9ff15c2cc0b2765228f1869d2366d1dcf863073172df5cd0af",
+      "bytes": 10324
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20White.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - White.mat",
+      "git_blob_sha": "e5e452cf177f3cb46bc40f9cdbf7c3e885ed0216",
+      "sha256": "4226bb2916a6e8590f5ba144573d8e71e5b923af11f653cd7432c19ac07f3831",
+      "bytes": 10249
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Yellow.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Yellow.mat",
+      "git_blob_sha": "5e1db0a008df04b605fd320eff8e12384990416d",
+      "sha256": "4c328e53a89ce671d7c3184649add6504d44ca2cc65238612478acba89c966ef",
+      "bytes": 10330
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Matte%20Aluminum.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Matte Aluminum.mat",
+      "git_blob_sha": "eaa6934c194ae3348f0e4458fff54eecc8150123",
+      "sha256": "1bd673a84b87f6bc6b502d6b4922bf1da14cf8abfb4c4cd9ee136dc98fc6bf76",
+      "bytes": 10318
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Matte%20Brass.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Matte Brass.mat",
+      "git_blob_sha": "148fe5398120ce822792baa3ad9f390c5e1aa176",
+      "sha256": "038eef15e31521d222ff1785953c8a66dd7e0c3c18d3ef2c9d9216310b0766dd",
+      "bytes": 10320
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Matte%20Metallic%20Paint%20-%20Black.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Matte Metallic Paint - Black.mat",
+      "git_blob_sha": "c739b5490bcedfacfebe81061b809bd04992adac",
+      "sha256": "fe592015859d240211bd8e7613f3294f7e85837d816463ce7363b18461b4598f",
+      "bytes": 10294
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Medium%20Gloss%20Plastic%20-%20Black.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Medium Gloss Plastic - Black.mat",
+      "git_blob_sha": "aed5cbbcfa2da3df54fc871b02c7c15503c3cd5c",
+      "sha256": "9f1cbd6b4c5300dce85105e2e6248b721d68a2f120c59ae0604c90a90c8251fa",
+      "bytes": 10297
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Polished%20Aluminum.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Polished Aluminum.mat",
+      "git_blob_sha": "52a0ca280bee37a6ce53636e3ed6e5827a989e22",
+      "sha256": "23d07a45860ec2330662822b4094f7032dddaaa8bfa898d81a81077a177487f6",
+      "bytes": 10321
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Polished%20Brass.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Polished Brass.mat",
+      "git_blob_sha": "a7fe4b50d8fe208f736d129291ae1c8bbbc5fb8c",
+      "sha256": "27fbe41261fa92636e7b1317903757837205b24dfd101d2e8f1767b5f4c8472e",
+      "bytes": 10323
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Polished%20Steel.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Polished Steel.mat",
+      "git_blob_sha": "393b1a4134e6ce47dc2b0efa3772229e70b605ff",
+      "sha256": "a8f32668a4a685da774665c32209394a6857808e292100aee0814e97d3d1a0e7",
+      "bytes": 10320
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Powdercoat%20-%20Black.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Powdercoat - Black.mat",
+      "git_blob_sha": "549ea9b940fe6b6386a62463f94b61561fc276d0",
+      "sha256": "bc8f438e7ef5f2cd278600920d232c2687cf1eb760a5622510d9c136d9df8a43",
+      "bytes": 10279
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Rubber.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Rubber.mat",
+      "git_blob_sha": "c0d3178afa9ec3783fb1dd8d4fcdbdfb2549dadc",
+      "sha256": "30dfc3055298c530385f3a342bf08c327ace1ebdcb67d47805c3a4017fb9bf13",
+      "bytes": 10267
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Satin%20Finish%20Plastic%20-%20Black.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Satin Finish Plastic - Black.mat",
+      "git_blob_sha": "05d98b0d8e99d51f4414c63bdd86b6b9bd1e29e6",
+      "sha256": "d5c65187ed42df581a748eee334db051aae859d82fb1ee86190b97e462dbb689",
+      "bytes": 10297
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Satin%20Finish%20Plastic%20-%20Red.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Satin Finish Plastic - Red.mat",
+      "git_blob_sha": "06d33b3b629e390676d1879cd2979ccfab270381",
+      "sha256": "d4ac8c3813285aed4856abae72e241bcfd69024450c6212e5e336ac57f082d36",
+      "bytes": 10238
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Shiny%20Metallic%20Paint%20-%20Red.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Shiny Metallic Paint - Red.mat",
+      "git_blob_sha": "6e5616bfe2d8175365555ddd0cfca6b106a307ab",
+      "sha256": "72683948b1b1e0a349e449e4de7822cca8bee27f842d078147eb843476cf03ff",
+      "bytes": 10255
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Soft%20Touch%20Plastic%20-%20Yellow.mat",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Soft Touch Plastic - Yellow.mat",
+      "git_blob_sha": "3eaf1a1f5ae4326520332d3816eea53007e4b8a9",
+      "sha256": "6dba7c09ea8baf2d345ea07d4a7eed9ad507fbc9d4864e54673b10046694b37e",
+      "bytes": 10314
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/build/three.module.js",
+      "path": "three/build/three.module.js",
+      "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+      "bytes": 603113
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/build/three.core.js",
+      "path": "three/build/three.core.js",
+      "sha256": "eb077d2417f61d3e6d9264c317cabc4ea35769ed6b0ab533067292a550784c20",
+      "bytes": 1403455
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/jsm/loaders/FBXLoader.js",
+      "path": "three/examples/jsm/loaders/FBXLoader.js",
+      "sha256": "d97724a6bea228003e02c64651d969a9a62003a00be314ef6995c390116f547d",
+      "bytes": 104876
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/jsm/libs/fflate.module.js",
+      "path": "three/examples/jsm/libs/fflate.module.js",
+      "sha256": "209a4412eb48ce609edb4391992a792ffcc3983d30ee7e2b0b89a8c470f3cd8a",
+      "bytes": 89384
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/jsm/curves/NURBSCurve.js",
+      "path": "three/examples/jsm/curves/NURBSCurve.js",
+      "sha256": "bef2607618a7778455e71a1f0bd206951c382d313e2e245808cc7d3533d60fb6",
+      "bytes": 3888
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/examples/jsm/curves/NURBSUtils.js",
+      "path": "three/examples/jsm/curves/NURBSUtils.js",
+      "sha256": "c6bd7c4137d585098923f189687898ea3e8762ea3ecbe255d749a56353894379",
+      "bytes": 10802
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r180/LICENSE",
+      "path": "three/LICENSE",
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "bytes": 1081
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Brass.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Brass.mat.meta",
+      "git_blob_sha": "e40e02349c060947fa006e8521b67a9c5a52396a",
+      "sha256": "3569774797a2868f201faa75166780709f6faafe47a3ce8688fd794f62db3977",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Camera%20Lens.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Camera Lens.mat.meta",
+      "git_blob_sha": "2680f2583f20395f2317943d6259cfdd7c9bc129",
+      "sha256": "91b61983cc3885bfebc2b7bd6c2ae4b1b7a19e19edd0a2e2041ae1daf0c614af",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Foam.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Foam.mat.meta",
+      "git_blob_sha": "cc642edd94663bb3fbe831d1e857690e6c235113",
+      "sha256": "60d167aa2d2a5bd80ed27357041288030b2cbfbb3fecc6af8776882bdeb5af42",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/High%20Gloss%20Plastic%20-%20Black.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/High Gloss Plastic - Black.mat.meta",
+      "git_blob_sha": "f69e1450296c7e6166c65cba337d7b08294e60a1",
+      "sha256": "f7ad385b46048ba958df5b26a95e80f21484496c137716ae461a40a8c99c6d61",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/High%20Gloss%20Plastic%20-%20White.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/High Gloss Plastic - White.mat.meta",
+      "git_blob_sha": "44efb9b4cb0c9159bda595b9f0c211520a2cae9d",
+      "sha256": "553c57f5587d5c1eba6010bb4920091f7854bdacd58d5dabccaf56e900d67ade",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/LED%20-%20Green.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/LED - Green.mat.meta",
+      "git_blob_sha": "d1cc50223449802a7f00356d8c70d423d9d79a71",
+      "sha256": "0a77bc3913ba4c952a9f9016adbe16fcac221bfe53916ff0757d4842813a0f0c",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/LED%20-%20Red.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/LED - Red.mat.meta",
+      "git_blob_sha": "3245981d1e932796a6b0cbdc4a32733a05bb26ed",
+      "sha256": "322f991c27be725c9690e6607369a05b5ad0dfceb40bfe800c2416caf4f19484",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/LED%20-%20Yellow.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/LED - Yellow.mat.meta",
+      "git_blob_sha": "5a0bcd493c87e4107c1bb835b8dc90e55d175c9c",
+      "sha256": "7c4e2804c0546054c1b75c7486a4cc5d15a60c69d3fcff695c688ac4555093ce",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Black.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Black.mat.meta",
+      "git_blob_sha": "4860f3e3a70875ea3218d32a9391877bac527447",
+      "sha256": "2461f09a820d42f468b588be46b738fa524f1a7d6f32d00b4a27de9331a05d0d",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Green.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Green.mat.meta",
+      "git_blob_sha": "8fabd00d34aa318e0151ad8a0b51ad57b023ec31",
+      "sha256": "eec86cdeb7643861111b5954d4723bf54e65751e83b2fec4e38da7876656f929",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Grey.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Grey.mat.meta",
+      "git_blob_sha": "f669e42f7cdae2c515bb7c0d29bc698af6f2a743",
+      "sha256": "d71b5d52481b18ad2cd70c85406d6ea653a2eb8fba789ff5bed2f95dacc0b067",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Red.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Red.mat.meta",
+      "git_blob_sha": "fa0666fc55f1c823300b84fe160ff7c313e5b381",
+      "sha256": "e7eb8376eed83894bfc46f57b4792e9e9a246e04f6113750544c9ab3cd90c2fa",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20White.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - White.mat.meta",
+      "git_blob_sha": "b8933e1ab068b2301a2049a0f3539207d4ea9c59",
+      "sha256": "a18d803b21a490bfcdd074f4736749aac1a434eddc9cb39954c440fcb349f7c3",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Low%20Gloss%20Plastic%20-%20Yellow.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Low Gloss Plastic - Yellow.mat.meta",
+      "git_blob_sha": "72a2e15387f0f6bcc879179654b1293efac20cdb",
+      "sha256": "18f4facf11ef91980604276f790bfd3ce872075e28eedb880f036375a33df18f",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Matte%20Aluminum.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Matte Aluminum.mat.meta",
+      "git_blob_sha": "c3011b8256de9579f8067830fc3601311b1b5555",
+      "sha256": "d12765465dad94bcac2fc4c43143c87e311d676e869713c0dbc5b23fbe9a0fd8",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Matte%20Brass.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Matte Brass.mat.meta",
+      "git_blob_sha": "5803a5a2feff1415f2dd4739863484bacc206353",
+      "sha256": "494fdafbde55ea6cac4364bc10cc25e5484f45d2a85e88735cec902a787554db",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Matte%20Metallic%20Paint%20-%20Black.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Matte Metallic Paint - Black.mat.meta",
+      "git_blob_sha": "6618b77e0eeb885df549b69c7a166f8b2ea9f412",
+      "sha256": "2ae8acba496ff5bada8f91646b07a490f4a2ad06272b0b0eca56f783cc66d262",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Medium%20Gloss%20Plastic%20-%20Black.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Medium Gloss Plastic - Black.mat.meta",
+      "git_blob_sha": "386b90afabe7a77448e8d8908e74a8e1ce0108e4",
+      "sha256": "d00c122fa18c5ab140eadafb1c34ee6134b53e55c68c07dfaf066e3599970aef",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Polished%20Aluminum.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Polished Aluminum.mat.meta",
+      "git_blob_sha": "0d0b25dd93e430d67aa57973939ed315b5c2493d",
+      "sha256": "ed6dc88a70be6ff80a7fd05b4ef4fb1d7e6036cd82a38ea5c361c22631ea9394",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Polished%20Brass.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Polished Brass.mat.meta",
+      "git_blob_sha": "b3fd6c529f9d78a80cdccb3785c80db9cdc407f0",
+      "sha256": "215fb4ff08c01bfcbaacfd1714c6fe38a680c45a084015bff5c9849b66ef3d07",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Polished%20Steel.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Polished Steel.mat.meta",
+      "git_blob_sha": "92098f241153e08ea92060b44fc3ee06ce82fcf3",
+      "sha256": "00efc91de762fb3c4c6b55a5e7f6ecdda2d30b2ef4dd3ad6889fca3cd53b2c80",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Powdercoat%20-%20Black.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Powdercoat - Black.mat.meta",
+      "git_blob_sha": "b377aaa23e8a156bc6614365bd0cd8029dfe903c",
+      "sha256": "360db6403a7063a91f37a35318aaf98a5064e50780ba53fcbef6caed273bb152",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Rubber.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Rubber.mat.meta",
+      "git_blob_sha": "fbf6b898b8eecf79cd998b7bab906d08d0fb985c",
+      "sha256": "78e963f48bf52086a5ed4fbd9aafc2c176ad3bc925e52b788151872f6d7cf411",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Satin%20Finish%20Plastic%20-%20Black.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Satin Finish Plastic - Black.mat.meta",
+      "git_blob_sha": "23a10cdc4b3d1d1097a25e8f8c33d5e0238ab778",
+      "sha256": "d4b07d2c0e2d17e2e9a7da3f2ddec5b0d09f2dd2b40fe2d754970da983147a6a",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Satin%20Finish%20Plastic%20-%20Red.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Satin Finish Plastic - Red.mat.meta",
+      "git_blob_sha": "f6bbbffde178a58ed19b6e0f977e27872c3f4b88",
+      "sha256": "6fe67c5df49b3bfa209b3c4d9ca52d848bf552613d6baad7baad1074f15ad677",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Shiny%20Metallic%20Paint%20-%20Red.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Shiny Metallic Paint - Red.mat.meta",
+      "git_blob_sha": "b3b9dc443924fb5efb3184e1cba491a478bdaf2d",
+      "sha256": "a9f90856e41c28b92945d7441cfec026d61989824445998c0b23ee38030e632b",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Models/Vehicle/NeoRacer/Materials/Soft%20Touch%20Plastic%20-%20Yellow.mat.meta",
+      "path": "autodrive/Assets/Models/Vehicle/NeoRacer/Materials/Soft Touch Plastic - Yellow.mat.meta",
+      "git_blob_sha": "e72567cd13946eb00b1418f9b5c8869b0707db18",
+      "sha256": "584dfc28e95de0c674ba3b0b40fee7f0ca3243b358377d7bbeb7b6c3a61cd5d9",
+      "bytes": 188
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Tinker-Twins/AutoDRIVE/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Prefabs/NeoRacer/NeoRacer.prefab",
+      "path": "autodrive/Assets/Prefabs/NeoRacer/NeoRacer.prefab",
+      "git_blob_sha": "1a1330e214873279851053cea19bceaa599fea17",
+      "sha256": "d5e583aa1bf468a045a295cc81a624e94495ea29f0a7819ebdf769e8b5a01e35",
+      "bytes": 578206
+    }
+  ]
+}

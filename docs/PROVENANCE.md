@@ -12,7 +12,9 @@ That experiment recorded 136 telemetry samples over 46.391 seconds, with approxi
 
 This repository adds a local Python display service, read-only input adapters, video/pose pairing protocol, synthetic self-test, Unity follower/render acknowledgement source, road-layout JSON importer, calibration tools, software tests and deployment documentation. Synthetic images are generated and labeled. No physical NeoRacer footage or executed NeoRacer Unity renders are included.
 
-The README also includes a labeled GIF and still image derived from the earlier Nigel recording, arranged in the current browser layout. Both panels show recorded simulation, including the left onboard-camera example. They are separate from the synthetic self-test and do not validate the live bridge or physical vehicle integration. See [preview provenance and reproduction](PREVIEW.md).
+The README's current GIF and still use the official AutoDRIVE NeoRacer FBX geometry rendered with Three.js/Chromium WebGL. Both views are generated from the same model on a scripted illustrative road loop. This does not execute Unity, simulate vehicle dynamics or validate the physical map, camera calibration or live bridge. See [NeoRacer model provenance](NEORACER_PREVIEW.md), the hash-pinned asset manifest and the preserved [AutoDRIVE license](third-party/AutoDRIVE-LICENSE.txt) and [Three.js license](third-party/threejs-LICENSE.txt).
+
+The earlier labeled Nigel GIF and still are retained separately. Both of those panels show recorded Nigel simulation, including the left onboard-camera example. They are separate from the new NeoRacer geometry preview and synthetic self-test. See [historical preview provenance](PREVIEW.md).
 
 Pinned upstream versions are recorded in `upstream.lock.json`. AutoDRIVE assets and binaries are not copied into this repository. CoSim fields and coordinate conventions reference the pinned official [Socket.cs](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/Socket.cs) and [CoSimManager.cs](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/CoSimManager.cs).
 

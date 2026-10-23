@@ -20,6 +20,12 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 - Final palette adjustment and repeated media checks: complete (A30/standby job 12008041, 52 seconds; queued A100 retry cancelled).
 - Animation decoding, source attribution, English-only text and documentation links: verified. Publish the media and reproduction instructions with this documentation update.
 
+## NeoRacer model preview
+- Locate and verify the official NeoRacer V1 mesh/prefab and its materials: complete; all imported materials mapped to the pinned Unity material definitions.
+- Generate a model-correct 3D preview on an allowed Slurm allocation, without presenting a visual-only renderer as executed Unity integration: complete. Four-angle probe passed on A30 job 12008087. Corrected inch units; an early full-render sample exposed a reversed vehicle, so the first full render was cancelled and replaced by front/rear-axle-based orientation with an explicit alignment check.
+- Final A30/standby job 12008196 completed in 3 minutes 45 seconds: 120 decoded frames, 20-second loop, both views changing, all materials matched, no JavaScript errors or overflow.
+- Media inspected; Nigel baseline retained separately; English README/provenance and reproduction scripts prepared for publication with this update. Physical hardware and Unity integration remain pending.
+
 ## Constraints
 - Laptop OS/GPU, video transport and localization are unknown. GitHub owner is confirmed RU0804.
 - Physical map is approximately 5 m × 5 m. No measured layout available; example map must be labeled illustrative.

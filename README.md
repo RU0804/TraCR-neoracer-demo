@@ -6,19 +6,22 @@ A NeoRacer V1 demonstration with **onboard video on the left and an AutoDRIVE vi
 
 ## What the display will look like
 
-![TraCR dual-view layout with recorded Nigel front and chase cameras; simulated example, not live NeoRacer footage](docs/media/autodrive-preview.gif)
+![TraCR dual-view layout using the official NeoRacer model on an illustrative course; model preview, not live footage or a Unity run](docs/media/neoracer-preview.gif)
 
-**Recorded example, played at 2x speed.** Both panels use genuine images from the earlier **AutoDRIVE Nigel / Tiny Town** run: approach a red light, wait, turn and stop. This GIF uses the current webpage's layout with explicit replay labels and historical telemetry. It does not demonstrate live synchronization.
+**Official NeoRacer model, scripted preview.** Both panels render the same NeoRacer geometry from the pinned AutoDRIVE source: a virtual onboard perspective on the left and a chase view on the right. This 20-second loop uses WebGL and an illustrative road layout. It is **not physical video, an executed Unity scene or a live synchronization test**.
 
-At the poster session, the **left panel will show the NeoRacer's physical camera**, and the **right panel will show AutoDRIVE following its measured pose** on a surveyed copy of the foam-board roads. That hardware integration and matching map still need to be completed. Tiny Town is only the preview example.
+At the poster session, the **left panel will show the NeoRacer's physical camera**, and the **right panel will show AutoDRIVE following its measured pose** on a surveyed copy of the foam-board roads. That hardware integration and matching map still need to be completed. The preview's course and camera placement are illustrative.
 
-[Open the GIF](docs/media/autodrive-preview.gif) · [View the full-resolution still](docs/media/autodrive-preview.png) · [Preview details and reproduction](docs/PREVIEW.md)
+[Open the NeoRacer GIF](docs/media/neoracer-preview.gif) · [View the full-resolution still](docs/media/neoracer-preview.png) · [Model source and reproduction](docs/NEORACER_PREVIEW.md)
+
+The earlier [Nigel / Tiny Town recorded Unity example](docs/PREVIEW.md) is retained separately. Nigel is a different vehicle; its geometry and experiment results are not presented as NeoRacer results.
 
 ## Current status
 
 | Component | Status |
 |---|---|
 | Local dual-view display, timestamp pairing, stale indicators, fullscreen and mobile layout | Implemented; see [validation records](docs/VALIDATION.md) |
+| Official NeoRacer geometry in a dual-view animation | Rendered with WebGL; illustrative scripted motion, not Unity or hardware integration |
 | Bounded video/pose buffers, one outstanding render request, acknowledgement validation | Implemented and covered by protocol tests |
 | USB / RTSP / HTTP MJPEG camera adapter | Implemented; physical camera integration pending |
 | Read-only ROS 2 camera and pose adapter | Implemented; JPEG decoding tested, ROS runtime unverified |

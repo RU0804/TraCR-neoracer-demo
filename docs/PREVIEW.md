@@ -1,4 +1,6 @@
-# README animation
+# Earlier Nigel animation
+
+The main README now uses the [official NeoRacer model preview](NEORACER_PREVIEW.md). This page preserves the earlier Nigel example as separate historical simulation evidence; Nigel is not the NeoRacer vehicle.
 
 ![Recorded AutoDRIVE example in the TraCR page layout](media/autodrive-preview.png)
 

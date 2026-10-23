@@ -2,6 +2,8 @@
 
 **The deliverable is integration source code. Unity Editor is unavailable in the current environment, and the NeoRacer scene has not been compiled, built or run here.** HTTP protocol tests use a stand-in Unity client and do not replace the acceptance checks below.
 
+A separate [NeoRacer geometry preview](NEORACER_PREVIEW.md) uses the official FBX in WebGL. Its images show the correct vehicle model but do not execute this Unity integration.
+
 ## Versions and import
 
 1. On the laptop, run `python scripts/fetch_autodrive.py` from the repository root. It downloads only the source pinned in `upstream.lock.json`; it does not install system packages or run vendor installers. Allow sufficient disk space and download time for Unity assets. After an interrupted download, preserve or manually move the incomplete directory and retry into an empty destination.

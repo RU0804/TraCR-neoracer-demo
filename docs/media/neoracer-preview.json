@@ -1,0 +1,60 @@
+{
+  "kind": "official_neoracer_geometry_preview",
+  "autodrive_commit": "75b7df5216524a3c6b3150d698139190c6c44f8f",
+  "mesh": "Assets/Models/Vehicle/NeoRacer/NeoRacer.fbx",
+  "renderer": "Three.js r180 / Chromium SwiftShader WebGL",
+  "unity_executed": false,
+  "physical_footage": false,
+  "live_bridge_exercised": false,
+  "vehicle_dynamics_simulated": false,
+  "path": "Scripted illustrative loop",
+  "map_measured": false,
+  "material_conversion": "Unity base color, metallic and smoothness mapped to WebGL; not shader-identical",
+  "camera_calibrated": false,
+  "fps": 6,
+  "frames": 120,
+  "duration_seconds": 20,
+  "size": [
+    1200,
+    845
+  ],
+  "size_meters": [
+    0.2684601661926039,
+    0.21612156918921582,
+    0.4537459343394595
+  ],
+  "mesh_count": 210,
+  "source_units": "inches",
+  "meters_per_source_unit": 0.0254,
+  "source_forward_vector": [
+    -0.9999999997965078,
+    2.0173422018835068e-05,
+    -1.3186511066609998e-07
+  ],
+  "aligned_forward_vector": [
+    -1.0188433825280264e-07,
+    2.013152376208315e-05,
+    0.9999999997973557
+  ],
+  "preview_forward_axis": "+Z",
+  "alignment_method": "Rear-to-front axle geometry centers",
+  "unmatched_materials": [],
+  "render_stats": {
+    "triangles": 599315,
+    "calls": 891
+  },
+  "javascript_errors": [],
+  "horizontal_overflow": false,
+  "slurm_job_id": "12008196",
+  "partition": "a30",
+  "artifacts": {
+    "neoracer-preview.png": {
+      "bytes": 146399,
+      "sha256": "bd1b53a5e18825721b2b06def9b92bccecbbde5c0d52db01f18f18c77e44c5f3"
+    },
+    "neoracer-preview.gif": {
+      "bytes": 3191136,
+      "sha256": "698e3d3538be057c7a7b5bd8c9998815adede6bd5019ac864821fc3c6c954ba0"
+    }
+  }
+}

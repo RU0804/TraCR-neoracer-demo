@@ -28,6 +28,19 @@ Final rendering preserved the interface accent colors with a full-frame GIF pale
 
 The PNG and sampled GIF frames were visually inspected for English labels and explicit recorded-simulation status. Text, filenames and relative documentation links were checked separately. These checks concern documentation media only; they do not run the live bridge, physical hardware or Unity.
 
+## NeoRacer geometry preview
+
+The [NeoRacer preview](NEORACER_PREVIEW.md) uses the official pinned AutoDRIVE FBX in WebGL, with a scripted path and illustrative course. A30/standby inspection job `12008087` completed in 33 seconds. The final render and media checks completed in **A30/standby job `12008196`, 3 minutes 45 seconds**, using four CPUs, 12 GB and one allocated GPU. Chromium used SwiftShader; Unity and native GPU graphics compatibility were not tested.
+
+- All 120 GIF frames decoded; duration is exactly 20 seconds at 6 fps, with infinite looping.
+- Both camera-image regions had 120 distinct decoded images; the animation does not only update labels over frozen views.
+- The source inch units were read from the FBX binary property and converted to meters. Front/rear axle geometry determines forward orientation, verified against the preview's +Z direction.
+- All imported materials mapped to the pinned Unity definitions. Generic FBX material-type warnings precede explicit material conversion; no final material was missing.
+- No JavaScript errors or horizontal overflow. PNG/GIF checksums match the generation manifest. The still and sampled GIF frames were visually inspected.
+- Source, comments, documentation, filenames and rendered labels were checked for English-only content. The live service and its source files were not changed.
+
+See [generation metadata](media/neoracer-preview.json) and [media validation](media/neoracer-validation.json). A queued A100 inspection request was cancelled after fallback; an early A100 capture was also cancelled when a reversed model was caught during visual review. Those trial images were not published. No new A10 work was submitted.
+
 ## Not executed; no passing claim is justified
 
 - AutoDRIVE NeoRacer scene import, C# compilation, camera rendering or a standalone application build.

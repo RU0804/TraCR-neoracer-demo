@@ -8,7 +8,8 @@ This repository continues the work described in `/scratch/gilbreth/zjcai/autodri
 - Camera, read-only ROS 2 and optional overhead AprilTag adapters.
 - Unity CoSim follower/render acknowledgement C# source and a road-layout JSON importer.
 - Calibration tools, pinned upstream versions, setup and field documentation, automated tests and GitHub CI configuration.
-- README GIF and still-image layout preview derived from the earlier Nigel / Tiny Town recording. Both panels are labeled recorded simulation; see `docs/PREVIEW.md`. These media do not exercise the live bridge or validate NeoRacer integration.
+- Historical GIF and still-image layout preview derived from the earlier Nigel / Tiny Town recording, retained separately. Both panels are labeled recorded simulation; see `docs/PREVIEW.md`. These media do not exercise the live bridge or validate NeoRacer integration.
+- The main README now shows the official NeoRacer model in a WebGL geometry preview, with virtual front and chase cameras on an illustrative scripted course. See `docs/NEORACER_PREVIEW.md`. This is not Unity execution or a dynamics/hardware test; the Nigel animation is retained separately.
 
 See `docs/VALIDATION.md` for software validation. **Physical vehicle integration, Unity C# compilation/builds, NeoRacer rendering and field time/space synchronization remain unverified.** Both self-test images are generated; their accuracy and latency must not be presented as hardware measurements.
 
