@@ -2,7 +2,7 @@
 
 The user created the public repository [RU0804/TraCR-neoracer-demo](https://github.com/RU0804/TraCR-neoracer-demo) and explicitly selected Public visibility. Preserve that setting. This workspace's origin is `https://github.com/RU0804/TraCR-neoracer-demo.git`. Source, validation records, screenshots and map-construction guidance have been uploaded; the first complete publication verified identical local and remote Git trees.
 
-Version source files, small validation screenshots and documentation. Exclude Python environments, downloaded Unity projects, binaries, recordings and local calibration files. Review `git status --short` and `git diff --cached --stat` before committing. Keep local configuration in `configs/local*.json` and tokens in environment variables.
+Version source files, small validation screenshots and documentation, including the explicitly requested README GIF and still derived from the historical Nigel simulation. Exclude Python environments, downloaded Unity projects, simulator binaries, raw recordings and local calibration files. Review `git status --short` and `git diff --cached --stat` before committing. Keep local configuration in `configs/local*.json` and tokens in environment variables.
 
 To obtain the repository on a development machine:
 

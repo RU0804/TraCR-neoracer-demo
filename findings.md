@@ -19,3 +19,7 @@ Repository creation/access blocker resolved by user: public RU0804/TraCR-neorace
 Public repository upload succeeded through connected GitHub Git-data tools. First create_commit call timed out; retry with explicit additional_parent_shas=[] succeeded. Full 50-file source tree matched local. Keep the pre-publication local history on a backup branch when adopting remote main.
 
 English-only audit: Chinese text was confined to 11 Markdown documents. Both binary artifacts are UI screenshots with English labels. Translation preserves the GPU rules, measured-map requirements and hardware/Unity validation boundaries.
+
+README visualization: original presentation assets contain Chinese, so the new English preview uses only the raw Nigel front/scene JPEGs and telemetry. Source intervals are retained at 2x speed and encoded at 6 fps; 136 samples span 46.391 seconds. The existing frontend HTML/CSS provides the layout, with replay labels and simulation metrics applied inside the recording browser only. Live service behavior is unchanged. Slurm A100-40GB job 12008027 rendered the GIF and still in 57 seconds; no Unity session or A10 job was started.
+
+Final media: full-frame palette statistics retain static interface colors better than difference-only statistics. A30/standby job 12008041 produced the final assets and decoded all 145 GIF frames in 52 seconds, after the A100 retry queued with an estimated wait over an hour. The queued A100 retry was cancelled. This is recorded-media processing, not validation of Unity graphics on A30.

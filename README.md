@@ -4,6 +4,16 @@ A NeoRacer V1 demonstration with **onboard video on the left and an AutoDRIVE vi
 
 **This is a working software prototype. Physical NeoRacer and Unity integration have not been validated.** Both images in self-test mode are synthetic, not physical vehicle footage or AutoDRIVE renders. The earlier Nigel offline simulation is a separate result.
 
+## What the display will look like
+
+![TraCR dual-view layout with recorded Nigel front and chase cameras; simulated example, not live NeoRacer footage](docs/media/autodrive-preview.gif)
+
+**Recorded example, played at 2x speed.** Both panels use genuine images from the earlier **AutoDRIVE Nigel / Tiny Town** run: approach a red light, wait, turn and stop. This GIF uses the current webpage's layout with explicit replay labels and historical telemetry. It does not demonstrate live synchronization.
+
+At the poster session, the **left panel will show the NeoRacer's physical camera**, and the **right panel will show AutoDRIVE following its measured pose** on a surveyed copy of the foam-board roads. That hardware integration and matching map still need to be completed. Tiny Town is only the preview example.
+
+[Open the GIF](docs/media/autodrive-preview.gif) · [View the full-resolution still](docs/media/autodrive-preview.png) · [Preview details and reproduction](docs/PREVIEW.md)
+
 ## Current status
 
 | Component | Status |

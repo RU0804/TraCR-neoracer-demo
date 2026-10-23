@@ -1,0 +1,17 @@
+{
+  "decoded_frames": 145,
+  "duration_ms": 24170,
+  "distinct_camera_regions": 130,
+  "loop": "infinite",
+  "artifact_checksums_match": true,
+  "size": [
+    1200,
+    859
+  ],
+  "slurm_job_id": "12008041",
+  "partition": "a30",
+  "qos": "standby",
+  "elapsed_seconds": 52,
+  "gif_sha256": "91bfd7b53985c8aa68093a6a95176d4f30e0ddf297d2bf29a891a34a5adb457b",
+  "scope": "Documentation media only; no physical vehicle, live bridge or Unity execution."
+}

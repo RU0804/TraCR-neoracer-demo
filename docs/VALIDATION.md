@@ -20,6 +20,14 @@ After correcting source-timestamp freshness and loopback Host validation, job **
 
 To reproduce browser checks, install `playwright` and Chromium. Run `tracr-demo --self-test` and `tracr-demo --port 8081` in separate terminals, then run `python scripts/check_browser.py` in a third terminal. On Gilbreth, use `scripts/submit_validation.sh` rather than running sustained rendering on a login node.
 
+## README preview checks
+
+The [README media](PREVIEW.md) uses recorded Nigel images in the existing frontend layout. Initial rendering completed in Slurm A100-40GB/normal job `12008027` (57 seconds); media checks completed in job `12008032` (10 seconds). Chromium reported no JavaScript errors or horizontal overflow. All 145 GIF frames decoded, the loop duration was 24.17 seconds, and 130 distinct camera-image regions confirmed changing scene content. Artifact checksums matched the generation report.
+
+Final rendering preserved the interface accent colors with a full-frame GIF palette. Job `12008041` on **A30/standby** completed rendering and repeated media checks in 52 seconds: 145 decoded frames, 24.17 seconds, 130 distinct camera regions, matching checksums, no browser errors and no horizontal overflow. Before fallback, `slist` showed A100-40GB `1/1/0/1` and A30 `N/A`; the queued A100 retry `12008036` had a scheduler estimate more than an hour away and was cancelled. No new A10 work or Unity execution occurred. See the [generation manifest](media/preview.json) and [media validation record](media/validation.json).
+
+The PNG and sampled GIF frames were visually inspected for English labels and explicit recorded-simulation status. Text, filenames and relative documentation links were checked separately. These checks concern documentation media only; they do not run the live bridge, physical hardware or Unity.
+
 ## Not executed; no passing claim is justified
 
 - AutoDRIVE NeoRacer scene import, C# compilation, camera rendering or a standalone application build.

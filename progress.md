@@ -28,3 +28,7 @@
 
 - English-only update: translated all 11 documents containing Chinese, including command comments and Mermaid labels. Source code, configuration and UI were already English. Both committed screenshots were visually inspected and contain English text. Added the English-only requirement to AGENTS.md and HANDOFF.md.
 - English-only verification passed across all 50 tracked paths: 48 text files (including escaped Unicode and HTML entities), two visually inspected English screenshots, and all relative documentation links. No application behavior changed.
+
+- Added README visualization using the historical Nigel / Tiny Town front and chase images. Both panels have permanent recorded-simulation labels. The field map and physical NeoRacer remain pending.
+- Slurm A100-40GB/normal job 12008027 generated a 1200 x 859 GIF and PNG in 57 seconds, with no browser errors or horizontal overflow. Source files remain untouched; the live frontend and protocol were not changed.
+- Improved the GIF palette to retain static UI colors. With an A100 retry queued and A30 entitlement still absent, submitted A30/standby job 12008041 and cancelled the duplicate queued A100 job 12008036. Final render and media validation completed in 52 seconds: 145 frames, 24.17 seconds, 130 distinct camera regions, checksum matches and no browser errors. The final GIF, PNG, source manifest, validation record and reproduction instructions are prepared for publication with this update.

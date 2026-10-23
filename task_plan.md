@@ -14,6 +14,12 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 - Translate all 11 documents containing Chinese while preserving technical scope and validation boundaries: complete.
 - Scan all tracked text and filenames and check screenshots and links: complete (48 text files, two inspected images, no CJK characters or broken links). Publish this verified snapshot to public main.
 
+## README visualization
+- Capture the existing page layout using recorded Nigel front and chase views: complete.
+- Render the English 2x replay GIF and still through Slurm on allowed resources: complete (A100-40GB job 12008027).
+- Final palette adjustment and repeated media checks: complete (A30/standby job 12008041, 52 seconds; queued A100 retry cancelled).
+- Animation decoding, source attribution, English-only text and documentation links: verified. Publish the media and reproduction instructions with this documentation update.
+
 ## Constraints
 - Laptop OS/GPU, video transport and localization are unknown. GitHub owner is confirmed RU0804.
 - Physical map is approximately 5 m × 5 m. No measured layout available; example map must be labeled illustrative.

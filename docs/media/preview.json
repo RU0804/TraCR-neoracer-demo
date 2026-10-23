@@ -1,0 +1,35 @@
+{
+  "kind": "recorded_simulation_layout_preview",
+  "simulator": "AutoDRIVE 0.2.0",
+  "vehicle": "Nigel",
+  "map": "Tiny Town",
+  "physical_footage": false,
+  "live_bridge_exercised": false,
+  "new_unity_execution": false,
+  "source_samples": 136,
+  "source_duration_seconds": 46.391,
+  "playback_speed": 2,
+  "gif_output_fps": 6,
+  "final_hold_seconds": 1,
+  "timing": "Source intervals preserved at 2x speed; resampled to 6 fps without interpolation.",
+  "source_digest_sha256": "c9cc95208644d90c9589a2a8cbf4cc9131b8eb5febe7a0c8d66610829351b710",
+  "source_digest_order": "telemetry.jsonl bytes, then front and scene JPEG bytes for each row in order",
+  "viewport": [
+    1200,
+    859
+  ],
+  "browser_errors": [],
+  "horizontal_overflow": false,
+  "slurm_job_id": "12008041",
+  "partition": "a30",
+  "artifacts": {
+    "autodrive-preview.gif": {
+      "bytes": 7454433,
+      "sha256": "91bfd7b53985c8aa68093a6a95176d4f30e0ddf297d2bf29a891a34a5adb457b"
+    },
+    "autodrive-preview.png": {
+      "bytes": 240172,
+      "sha256": "22d3c3ac6473272d90de2c8fdb1e2ea60a43232ef1e2daef4fd6f24cceac1195"
+    }
+  }
+}
