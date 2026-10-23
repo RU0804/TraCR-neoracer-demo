@@ -1,21 +1,21 @@
-# 成果来源和边界
+# Provenance and scope of results
 
-## 此前已有结果
+## Earlier results
 
-原项目位于 Gilbreth 的 `/scratch/gilbreth/zjcai/autodrive-demo`，交接文档为 `HANDOFF.md`。本仓库是独立的继续开发成果，未修改 `/home/zjcai/d2s-diffusion`、原始输出或历史日志。
+The original Gilbreth project is at `/scratch/gilbreth/zjcai/autodrive-demo`, with its handoff in `HANDOFF.md`. This repository is a separate continuation. It has not modified `/home/zjcai/d2s-diffusion`, the original outputs or historical logs.
 
-已成功运行的是 **AutoDRIVE Simulator 0.2.0 / Nigel / Tiny Town**，包括红灯停车、左转路线跟踪和目标点停车。约 46 秒的离线展示保留在原项目 `outputs/final_demo_presentation/` 和 `outputs/autodrive_demo_delivery.zip`。
+The successful earlier run used **AutoDRIVE Simulator 0.2.0 / Nigel / Tiny Town** and included stopping at a red light, following a left-turn route and stopping at a target point. Its approximately 46-second offline presentation remains in the original project's `outputs/final_demo_presentation/` and `outputs/autodrive_demo_delivery.zip`.
 
-原实验 136 条遥测、46.391 秒，路径 RMSE 约 2.82 cm，终点误差约 3.30 cm。这些数字仅适用于当时 Nigel 仿真路线，不能标到 NeoRacer、当前网页、真实车辆或实际泡沫板地图上。其视频输出 10 fps 也不是实时采样率。历史作业使用 A10，发生在新资源约束生效之前；不改写为 A100 成果。
+That experiment recorded 136 telemetry samples over 46.391 seconds, with approximately 2.82 cm path RMSE and 3.30 cm final position error. These measurements apply only to that Nigel simulation route, not NeoRacer, the current webpage, a physical vehicle or the foam-board map. The video's 10 fps output rate is not the telemetry sampling rate. The historical job used A10 before the new resource constraints took effect; its provenance must not be relabeled as A100.
 
-## 本仓库新增
+## New work in this repository
 
-Python 本地显示服务、只读输入适配器、位姿/视频配对协议、合成自检、Unity 跟随与渲染回执源码、道路 JSON 导入器、标定工具、软件测试及部署文档。所有 synthetic 图像由程序生成并标记。没有 NeoRacer 的实车录像或已运行 Unity 镜头。
+This repository adds a local Python display service, read-only input adapters, video/pose pairing protocol, synthetic self-test, Unity follower/render acknowledgement source, road-layout JSON importer, calibration tools, software tests and deployment documentation. Synthetic images are generated and labeled. No physical NeoRacer footage or executed NeoRacer Unity renders are included.
 
-上游固定版本记录于 `upstream.lock.json`。AutoDRIVE 资产和二进制未复制进仓库。CoSim 字段与坐标约定参考固定版本的官方源码：[Socket.cs](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/Socket.cs)、[CoSimManager.cs](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/CoSimManager.cs)。
+Pinned upstream versions are recorded in `upstream.lock.json`. AutoDRIVE assets and binaries are not copied into this repository. CoSim fields and coordinate conventions reference the pinned official [Socket.cs](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/Socket.cs) and [CoSimManager.cs](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/CoSimManager.cs).
 
-NeoRacer 实车接口候选参考 [Neobotics 驱动](https://github.com/Neobotics-Foundation-Inc/neoracer_ros2_driver) 以及交接中的源码核查，未把上游车辆配置当成用户实车的事实。
+Candidate physical NeoRacer interfaces come from the [Neobotics driver](https://github.com/Neobotics-Foundation-Inc/neoracer_ros2_driver) and the earlier source review. Upstream vehicle configuration is not treated as confirmed configuration of the user's car.
 
-## 许可证与再分发
+## Licensing and redistribution
 
-本仓库当前未指定开源许可证，应由项目负责人决定后添加 LICENSE。不要假设“上传 GitHub”等同于已选择开源授权。使用/下载 AutoDRIVE、NeoRacer 模型及其他第三方资产时保留其版权说明并按各自许可证执行；本仓库未重新授权第三方内容。
+No open-source license has been selected for this repository; the project owner should choose one before adding LICENSE. Publishing on GitHub does not itself select an open-source license. Preserve copyright notices and follow the applicable licenses when using or downloading AutoDRIVE, NeoRacer models and other third-party assets. This repository does not relicense third-party material.

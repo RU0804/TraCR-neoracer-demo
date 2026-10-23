@@ -1,43 +1,43 @@
-# Poster 现场运行手册
+# Poster demonstration runbook
 
-目标：师兄在笔记本浏览器中看到左侧 NeoRacer 车载视频、右侧 AutoDRIVE 视角。车在约 5 m × 5 m 泡沫板道路内遥控行驶。现场使用稳定局域网，不依赖 Gilbreth 排队或公网云渲染。
+The presenter uses a laptop browser to show NeoRacer onboard video on the left and an AutoDRIVE view on the right. The physical car is remotely driven on an approximately 5 m x 5 m foam-board road layout. Use a stable local network rather than depending on Gilbreth queues or public-cloud rendering.
 
-## 彩排前收集
+## Collect before rehearsal
 
-- 笔记本系统、CPU、显卡、内存；Unity NeoRacer 构建能否稳定打开。
-- 当前车载视频查看方式、地址或 ROS 话题、编码、分辨率和实际帧率。
-- 地图定位来源：已有地图定位、仅里程计，或可以安装俯视相机。
-- 实际道路尺寸图、车辆参考点、车顶标记与相机安装参数。
-- 统一的时钟方案；如只有接收时间，则明确保留“时间同步未验证”状态。
+- Laptop operating system, CPU, GPU and memory; whether the NeoRacer Unity build runs reliably.
+- Current video viewing method, address or ROS topic, encoding, resolution and measured frame rate.
+- Localization source: existing map localization, odometry only, or an overhead camera that can be installed.
+- Surveyed road plan, vehicle reference point, roof marker and camera mounting parameters.
+- A shared clock plan. If only receipt timestamps are available, retain the timing-unverified indication.
 
-## 启动顺序
+## Startup sequence
 
-1. 连接演示局域网，确认笔记本可以看到车载视频。遥控车辆保持原有安全驾驶流程。
-2. 开启 Python venv，在仓库根目录运行 `tracr-demo --config configs/demo.json`。跨设备 HTTP 输入时，在配置中改 `host` 并在每个相关进程环境设置同一个 `TRACR_TOKEN`（至少 20 字符）。
-3. 启动车载视频适配器和 **一种** 真实定位来源。相机和定位尽量保持单一发布者，避免不同源时间线交织。
-4. 打开配置好的 AutoDRIVE NeoRacer 程序。确认 TraCR HTTP 组件启用、原 Socket.IO 已断开、无竞争控制器。
-5. 浏览器进入 `http://127.0.0.1:8080`，查看等待提示逐项消失，检查画面来源和时间标记；使用 Full screen。
-6. 手动让车低速走直线、左转、右转、停车，确认虚拟车方向和位置相符。先测量，再对外称为实车同步演示。
+1. Connect to the demonstration LAN and verify onboard video is accessible from the laptop. Retain the existing remote-driving procedure.
+2. Activate the Python environment and run `tracr-demo --config configs/demo.json` from the repository root. For HTTP inputs from another device, change `host` and set the same `TRACR_TOKEN` of at least 20 characters in every relevant process environment.
+3. Start the onboard camera adapter and **one** physical localization source. Use one publisher per input timeline to avoid interleaving unrelated sources.
+4. Open the configured AutoDRIVE NeoRacer application. Confirm the TraCR HTTP component is enabled, the original Socket.IO connection is disconnected, and no competing controller updates the vehicle.
+5. Open `http://127.0.0.1:8080` in the browser. Check the waiting states as sources connect, verify source names and timing labels, and select Full screen.
+6. Drive slowly in a straight line, turn left and right, and stop. Check that virtual position and heading match. Complete measurements before describing the system as a validated physical synchronization demonstration.
 
-## 故障定位
+## Troubleshooting
 
-| 现象 | 下一步 |
+| Symptom | Next check |
 |---|---|
-| 左侧一直等待 | 确认视频适配器、URL/话题、编码、网络、防火墙；检查适配器终端 |
-| 有视频但右侧等待 | 查看位姿 freshness、map 坐标、时间差门限；仅视频无法产生位姿 |
-| 有位姿但无渲染 | 检查 Unity Console、组件引用、token、右侧相机、HTTP 请求；确认不是旧 Nigel 程序 |
-| 轨迹镜像或转向相反 | 核验 +x/+y 原点、yaw 符号、prefab 朝向及是否重复做轴转换 |
-| 车越跑越偏 | 检查是否只有轮里程计、地图变换和标记高度；不要只调整显示偏移掩盖漂移 |
-| 画面标 STALE | 检查视频/定位/Unity哪个输入停止；保持过期提示，恢复来源后应自动更新 |
-| 收到时钟错误 | 核验 UTC、ROS use_sim_time、曝光/接收时间定义和设备时钟偏差；不要盲目扩大门限 |
-| 动画流畅但实时感差 | 测摄像头缓冲、编码、网络、Unity 编码和浏览器刷新；提高帧率不等于降低延迟 |
+| Left panel keeps waiting | Check the video adapter, URL/topic, encoding, network and firewall; inspect its terminal |
+| Video is available but the right panel waits | Check pose freshness, map coordinates and timestamp tolerance; video alone cannot provide a pose |
+| Pose is available but no render arrives | Check Unity Console, component references, token, display camera and HTTP requests; confirm the application uses NeoRacer |
+| Mirrored trajectory or reversed turns | Verify the origin, +x/+y axes, yaw sign, prefab orientation and whether an axis transform was applied twice |
+| Alignment drifts over time | Check whether only odometry is available, and verify the map transform and marker height; display offsets do not correct drift |
+| A panel is marked STALE | Identify whether video, localization or Unity stopped; preserve the stale warning and verify automatic updates after recovery |
+| Timestamp errors | Check UTC, ROS use_sim_time, exposure/receipt semantics and device clock offsets before changing tolerances |
+| Smooth animation but poor responsiveness | Measure camera buffering, encoding, network delay, Unity encoding and browser refresh; frame rate does not determine latency |
 
-## 验收记录
+## Acceptance records
 
-每次彩排保存机器配置、上游 commit、相机参数、地图和标定版本、开始/结束时间。用 `python scripts/collect_metrics.py --seconds 120 --output recordings/run-001/status.jsonl` 保存服务状态。
+For each rehearsal, save the machine configuration, upstream commit, camera parameters, map/calibration versions, and start/end times. Capture service status with `python scripts/collect_metrics.py --seconds 120 --output recordings/run-001/status.jsonl`.
 
-分别报告：视频实际曝光到显示延迟、位姿帧龄、视频/位姿时间差、静止和动态空间误差、帧率、数据丢失时间、断流恢复时间。服务 P95 不含屏幕显示，也不能代替拍摄统一计时器/LED 的端到端测试。若使用 receipt 时间，跨路采样偏差仍未知。保留失败和遮挡片段。
+Report exposure-to-display video latency, pose age, video/pose timestamp difference, static and dynamic spatial error, frame rate, periods of data loss, and recovery time separately. Service P95 excludes screen display and cannot replace an end-to-end timing test using a shared visible timer or LED. With receipt timestamps, cross-stream sampling skew remains unknown. Keep failed and occluded segments in the records.
 
-必须测试：遮挡标记、拔掉视频输入、停止 Unity、断开网络，各至少一次；页面应明确报告过期而非继续伪装实时。恢复来源后自动更新。最后进行一次完整连续彩排，时长覆盖计划讲解过程并留余量。
+Test marker occlusion, camera disconnection, stopped Unity rendering and network loss at least once each. The interface must identify stale images rather than presenting them as live, and updates should resume when inputs recover. Finish with a continuous rehearsal covering the planned presentation duration plus a margin.
 
-如果正式链路现场未通过，可另外展示此前 Nigel 离线视频，但必须明确注明“Nigel 仿真历史记录”。不要把自检模式或离线视频描述为 NeoRacer 的实时数字映射。
+If the live pipeline does not pass field acceptance, the previous Nigel recording can be shown separately with an explicit historical Nigel simulation label. Do not describe self-test or offline playback as live NeoRacer state synchronization.

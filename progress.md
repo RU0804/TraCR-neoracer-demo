@@ -25,3 +25,6 @@
 - GitHub source tree upload matched the local Git tree. First create_commit call timed out after 300 s; inspecting remote refs before retry. No full-publication claim made.
 
 - Retry with explicit empty additional-parent list succeeded. Published the complete 50-file source snapshot to public main and verified identical local/remote Git trees. Final publication notes are included in the follow-up documentation commit.
+
+- English-only update: translated all 11 documents containing Chinese, including command comments and Mermaid labels. Source code, configuration and UI were already English. Both committed screenshots were visually inspected and contain English text. Added the English-only requirement to AGENTS.md and HANDOFF.md.
+- English-only verification passed across all 50 tracked paths: 48 text files (including escaped Unicode and HTML entities), two visually inspected English screenshots, and all relative documentation links. No application behavior changed.

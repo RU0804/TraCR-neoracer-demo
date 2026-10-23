@@ -17,3 +17,5 @@ User confirmed GitHub owner RU0804. New repository visibility defaults to privat
 Repository creation/access blocker resolved by user: public RU0804/TraCR-neoracer-demo, initially empty. Map builder only creates straight rectangular strips; curves, markings, foam walls and photo textures are not currently implemented.
 
 Public repository upload succeeded through connected GitHub Git-data tools. First create_commit call timed out; retry with explicit additional_parent_shas=[] succeeded. Full 50-file source tree matched local. Keep the pre-publication local history on a backup branch when adopting remote main.
+
+English-only audit: Chinese text was confined to 11 Markdown documents. Both binary artifacts are UI screenshots with English labels. Translation preserves the GPU rules, measured-map requirements and hardware/Unity validation boundaries.

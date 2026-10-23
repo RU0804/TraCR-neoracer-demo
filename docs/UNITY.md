@@ -1,37 +1,37 @@
-# AutoDRIVE / NeoRacer Unity 接入
+# AutoDRIVE / NeoRacer Unity integration
 
-**交付的是集成源码，当前环境没有 Unity Editor，尚未编译、构建或运行 NeoRacer 场景。** HTTP 协议测试使用仿造 Unity 客户端；它不能替代这一节的验收。
+**The deliverable is integration source code. Unity Editor is unavailable in the current environment, and the NeoRacer scene has not been compiled, built or run here.** HTTP protocol tests use a stand-in Unity client and do not replace the acceptance checks below.
 
-## 版本与导入
+## Versions and import
 
-1. 在笔记本仓库根目录运行 `python scripts/fetch_autodrive.py`。它只下载 `upstream.lock.json` 中的固定源码，不安装系统包、不执行厂商一键安装脚本。Unity 资产较大，需预留磁盘和下载时间。下载过程中断时，保留或手动移走不完整目录，再重试到空目录。
-2. 使用锁定源码要求的 Unity **2022.3.52f1** 打开 `upstream/AutoDRIVE-Simulator`。如 Git LFS 指针未获取完整，先在该仓库执行 `git lfs pull` 并核对资产。具体平台图形 API 和驱动要在演示笔记本测试。
-3. 将 `unity/TraCRPoseFollower.cs` 复制到上游工程 `Assets/TraCR/`，将 `unity/TraCRMapBuilder.cs` 放到 `Assets/TraCR/Editor/`。
-4. 选择 NeoRacer 场景（源树含 `NeoRacer - AuE-X930`），或在副本场景中放置 `Assets/Prefabs/NeoRacer/NeoRacer.prefab`。不要把旧 Nigel 0.2.0 二进制称作 NeoRacer 构建。
-5. 保存独立场景副本，保留上游原场景。使用菜单 `TraCR / Import measured road layout JSON` 导入测量好的道路。`configs/map.example.json` 是 **ILLUSTRATIVE ONLY**，其尺寸不能当作真实赛道。导入器只添加地面与道路块；标线、泡沫板边界、路标、弯道细节仍需按测量制作。
+1. On the laptop, run `python scripts/fetch_autodrive.py` from the repository root. It downloads only the source pinned in `upstream.lock.json`; it does not install system packages or run vendor installers. Allow sufficient disk space and download time for Unity assets. After an interrupted download, preserve or manually move the incomplete directory and retry into an empty destination.
+2. Open `upstream/AutoDRIVE-Simulator` with Unity **2022.3.52f1**, as required by the pinned source. If Git LFS assets are still pointers, run `git lfs pull` in that repository and verify the assets. Test the graphics API and driver on the actual demonstration laptop.
+3. Copy `unity/TraCRPoseFollower.cs` into the upstream project's `Assets/TraCR/` directory and `unity/TraCRMapBuilder.cs` into `Assets/TraCR/Editor/`.
+4. Select a NeoRacer scene, such as `NeoRacer - AuE-X930`, or place `Assets/Prefabs/NeoRacer/NeoRacer.prefab` in a separate scene copy. The older Nigel 0.2.0 binary is not a NeoRacer build.
+5. Save a separate scene copy and preserve the upstream scene. Import surveyed roads using `TraCR / Import measured road layout JSON`. `configs/map.example.json` is **ILLUSTRATIVE ONLY** and must not be treated as the measured course. The importer adds only ground and road blocks; markings, foam-board boundaries, signs and curve details still require modeling from measurements.
 
-## 跟随组件
+## Follower configuration
 
-在场景中新建 `TraCR Bridge` GameObject 并挂载 `TraCRPoseFollower`：
+Create a `TraCR Bridge` GameObject and attach `TraCRPoseFollower`:
 
-- `CoSim` 指向 NeoRacer 所属的 `CoSimManager`，其 `VehicleRigidBody` 指向实际车辆刚体；若 prefab 没有该组件，在正确车辆父对象添加并赋值。
-- `DisplayCamera` 指向用于右侧显示的实际 Unity 相机。可用车载相机作同视角对照，也可选择第三人称跟车相机。先选定一种并在现场彩排中固定。
-- `DisableWhileFollowing` 显式列出原 Socket、车辆/汽车/驱动控制器以及其他会改写刚体的脚本。展示链路不启动官方实车命令链。检查场景中没有第二个程序继续改写车辆位姿。
-- 原 Socket.IO 连接必须先断开，并停止相应服务器/客户端。仅禁用 MonoBehaviour 不会自动移除已经注册的 Socket 事件回调，不能只依赖组件禁用列表。
-- 设置 `ServerUrl=http://127.0.0.1:8080`；如设置了 token，在启动 Unity Hub/Editor 或 Player 的同一环境中设置 `TRACR_TOKEN`，不要保存到场景。
-- 配置 `BodyOriginOffset`：地图位姿所代表车体点到 prefab 刚体原点的偏移，单位米，车体 +x 前、+y 左、+z 上。`PrefabYawOffsetDegrees` 只用于模型朝向校正。先验证原点和三个朝向，避免盲目调符号。
-- 确认引用正确后在 Inspector 勾选 `FollowMeasuredPose`。组件进入运动学位姿跟随，禁用竞争控制器，并在收到目标后捕获相机。取消勾选或禁用组件后恢复原控制器启用状态与刚体设置；切换回动力学模式前需重新检查初始状态。
+- Assign the NeoRacer `CoSimManager` to `CoSim`, with its `VehicleRigidBody` pointing to the vehicle's actual rigidbody. If the prefab lacks this component, add it to the correct vehicle parent and assign the reference.
+- Assign the actual right-panel Unity camera to `DisplayCamera`. Use an onboard camera for a similar viewpoint, or a third-person chase camera. Select one view and keep it consistent during rehearsal.
+- Explicitly list the original Socket behavior, vehicle/drivetrain controllers and any other rigidbody writers in `DisableWhileFollowing`. The display pipeline does not start the physical vehicle command chain. Verify that no second program continues to overwrite the virtual pose.
+- Disconnect the original Socket.IO connection and stop its server/client first. Disabling a MonoBehaviour does not automatically unregister existing Socket event callbacks; the component-disable list alone is insufficient.
+- Set `ServerUrl=http://127.0.0.1:8080`. If a token is configured, set `TRACR_TOKEN` in the environment that launches Unity Hub/Editor or the Player, rather than saving it in the scene.
+- Set `BodyOriginOffset` to the offset from the mapped vehicle reference point to the prefab rigidbody origin, in meters and vehicle coordinates: +x forward, +y left, +z up. `PrefabYawOffsetDegrees` only corrects model orientation. Verify the origin and cardinal headings before changing signs.
+- After checking all references, enable `FollowMeasuredPose` in the Inspector. The component uses kinematic pose following, disables competing controllers and captures the camera after applying each target. Unchecking it or disabling the component restores controller enable states and rigidbody settings. Recheck the initial state before returning to dynamics-driven operation.
 
-组件使用上游 CoSim 的目标字段和直接更新路径，并显式施加刚体位姿以避免默认平滑引入未知滞后。它不依赖旧 Socket.IO 协议库，也不宣称已经验证旧 Bridge 图像与采样时间的对应关系。`core.cosim_payload()` 仅保留原生协议序列化参考，未实现全场景 Socket.IO 服务器。
+The component uses upstream CoSim target fields and direct rigidbody updates to avoid unspecified lag from default smoothing. It does not depend on legacy Socket.IO libraries or claim that legacy Bridge images have verified sampling-time associations. `core.cosim_payload()` is only a reference serializer for the native protocol; a complete scene-compatible Socket.IO server is not implemented.
 
-当前相机捕获实现使用内置渲染管线 `Camera.Render()`；若改为 URP/HDRP，需要改成对应管线的捕获钩子并验证。跟随相机若有插值，会影响观看效果；车辆本身不做动力学预测。`WaitForEndOfFrame` 依赖正常图形帧，不适合 `-nographics` 或不更新游戏视图的 Editor 状态。
+Camera capture currently uses `Camera.Render()` in the built-in render pipeline. URP/HDRP requires the appropriate pipeline capture hook and separate validation. Chase-camera interpolation can affect the view; the vehicle itself performs no dynamics prediction. `WaitForEndOfFrame` requires normal rendered frames and is unsuitable for `-nographics` or an Editor state where the Game view does not update.
 
-## 必须实测的验收
+## Required practical checks
 
-- 车辆在地图 (0,0)、+x、+y 和 yaw=0、+90°、180° 的位置/方向一致；车体参考点正确，轮胎与地面高度合理。
-- 右侧图像来自 NeoRacer prefab 的指定相机，并随已知输入移动；不是旧的 Tiny Town Nigel 图像。
-- 显示相机跟随时没有其他脚本在捕获前后改写车体。Inspector/Profiler 核查实际渲染、编码速率和 CPU/GPU 使用率。
-- 断定位后车辆保持最后位置，网页明确标为过期；重连产生新的有效配对。
-- 在实际笔记本构建并冷启动；验证离线网络、屏幕分辨率、电源设置和投影/外接显示器。
+- Verify position and orientation at map (0,0), along +x and +y, and at yaw 0, +90 and 180 degrees. Check the body reference point and tire/ground height.
+- Confirm that the right panel uses the selected camera on the NeoRacer prefab and responds to known inputs, rather than showing the earlier Tiny Town Nigel images.
+- Ensure no other script changes the vehicle before or after capture. Use the Inspector/Profiler to measure rendering and encoding rates and CPU/GPU use.
+- On localization loss, the virtual vehicle should hold its last position and the webpage should mark the image stale. Recovery must produce new valid pairs.
+- Build and cold-start the application on the actual laptop. Check offline networking, screen resolution, power settings and the projector/external display.
 
-官方参考：[CoSimManager](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/CoSimManager.cs)、[Socket 坐标变换](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/Socket.cs)。
+Official references: [CoSimManager](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/CoSimManager.cs) and [Socket coordinate conversion](https://github.com/Tinker-Twins/AutoDRIVE/blob/75b7df5216524a3c6b3150d698139190c6c44f8f/Assets/Scripts/Socket.cs).

@@ -1,28 +1,30 @@
-# TraCR NeoRacer 接续说明
+# TraCR NeoRacer handoff
 
-本仓库从 `/scratch/gilbreth/zjcai/autodrive-demo/HANDOFF.md` 接续。新目标：师兄笔记本现场展示，左侧车载视频，右侧 AutoDRIVE NeoRacer，泡沫板道路约 5 m × 5 m。原来的 Nigel 离线成果保持不变。
+This repository continues the work described in `/scratch/gilbreth/zjcai/autodrive-demo/HANDOFF.md`. The target is a laptop demonstration with onboard video on the left and AutoDRIVE NeoRacer on the right, using an approximately 5 m x 5 m foam-board road layout. The earlier Nigel offline results remain separate and unchanged.
 
-## 当前交付
+## Delivered components
 
-- Python 服务、浏览器双画面、有界时间匹配、断流提示、自检模式。
-- 视频、只读 ROS 2、可选俯视 AprilTag 适配器。
-- Unity CoSim 跟随/渲染回执 C# 源码和道路 JSON 导入器。
-- 标定工具、固定上游版本、安装与现场手册、自动测试、GitHub CI 配置。
+- Python service, browser dual-view display, bounded timestamp matching, stale indicators and self-test mode.
+- Camera, read-only ROS 2 and optional overhead AprilTag adapters.
+- Unity CoSim follower/render acknowledgement C# source and a road-layout JSON importer.
+- Calibration tools, pinned upstream versions, setup and field documentation, automated tests and GitHub CI configuration.
 
-软件验证见 `docs/VALIDATION.md`。**未验证真实车、Unity C# 编译/构建、NeoRacer 渲染或真实时空同步。** 自检两幅图都是程序生成；其精度和延迟不能当实测指标。
+See `docs/VALIDATION.md` for software validation. **Physical vehicle integration, Unity C# compilation/builds, NeoRacer rendering and field time/space synchronization remain unverified.** Both self-test images are generated; their accuracy and latency must not be presented as hardware measurements.
 
-## 下一步依赖
+## Remaining integration requirements
 
-1. 师兄笔记本系统和 GPU；在该机安装相应 Unity 版本并编译本仓库组件。
-2. 当前实车视频接口/ROS 2 话题列表，定位来源和质量状态。
-3. 场地测量图与坐标/车体点定义；没有地图定位时确认是否可安装俯视相机。
-4. 接车、标定、完成 `docs/RUNBOOK.md` 中连续运行及故障恢复检查。
-5. 用户已创建 RU0804/TraCR-neoracer-demo 并明确选择 Public。连接已确认可写，通过 GitHub API 发布；后续无需再询问账号或可见性。地图制作说明见 docs/MAP_WORKFLOW.md。
+1. Confirm the presenter's laptop OS and GPU; install the required Unity version and compile the supplied components on that machine.
+2. Identify the physical camera interface/ROS 2 topics, localization source and localization quality signals.
+3. Obtain a surveyed road layout and define map coordinates and the vehicle reference point. If no map localizer exists, determine whether an overhead camera can be installed.
+4. Connect the hardware, calibrate it, and complete the continuous-operation and failure-recovery checks in `docs/RUNBOOK.md`.
+5. The user created `RU0804/TraCR-neoracer-demo` and explicitly selected Public visibility. The connected GitHub API has write access and has been used for publication. Do not ask again about the owner or visibility. See `docs/MAP_WORKFLOW.md` for map construction.
 
-不要把这些未知项写成默认实车配置，也不要将源码就绪说成已经现场跑通。不要重跑 Nigel 来冒充 NeoRacer 实现。
+Do not turn these unknowns into assumed vehicle specifications or equate available source code with a successful field demonstration. A new Nigel run would not establish NeoRacer integration.
 
-## 资源规则
+## Resource and repository rules
 
-遵守用户 A100-40GB 优先、占用/排队才 A30 standby、完整 demo 禁止 A10 的规则，所有实质计算走 Slurm；具体见 `docs/GILBRETH.md`。调度和浏览器测试成功不等于 Unity 图形链路成功。
+Follow the user's A100-40GB preference, A30 standby fallback only when the allocation is occupied or queued, and prohibition on A10 for full demonstrations. Submit substantial computation through Slurm; see `docs/GILBRETH.md`. Passing scheduling and browser checks does not validate Unity graphics.
 
-现场方案为本地服务，不依赖 Gilbreth 常驻进程。原始项目与 `/home/zjcai/d2s-diffusion` 没有被修改。上游环境/大文件保留在原项目，当前仓库不打包它们。
+The field deployment uses a local service rather than persistent Gilbreth processes. The original project and `/home/zjcai/d2s-diffusion` were not modified. Existing environments and large upstream files remain in the original project and are not bundled here.
+
+All repository files, documentation, comments, configuration descriptions, diagrams and user-facing text must be in English.

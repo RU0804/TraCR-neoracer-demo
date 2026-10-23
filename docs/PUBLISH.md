@@ -1,26 +1,26 @@
-# GitHub 发布与更新
+# GitHub publication and updates
 
-用户已创建公开仓库：[RU0804/TraCR-neoracer-demo](https://github.com/RU0804/TraCR-neoracer-demo)。Public 是用户明确选择，保留该设置。此工作区的 origin 已配置为 `https://github.com/RU0804/TraCR-neoracer-demo.git`。源码、测试记录、界面截图和地图制作说明已上传；首次完整发布核对了本地与远端 Git 文件树一致性。
+The user created the public repository [RU0804/TraCR-neoracer-demo](https://github.com/RU0804/TraCR-neoracer-demo) and explicitly selected Public visibility. Preserve that setting. This workspace's origin is `https://github.com/RU0804/TraCR-neoracer-demo.git`. Source, validation records, screenshots and map-construction guidance have been uploaded; the first complete publication verified identical local and remote Git trees.
 
-源码、小型验证截图和文档进入 Git；Python 环境、Unity 工程下载、二进制、录像和本地标定不进入版本库。提交前检查 `git status --short` 和 `git diff --cached --stat`。本地配置使用 `configs/local*.json`，token 只放环境变量。
+Version source files, small validation screenshots and documentation. Exclude Python environments, downloaded Unity projects, binaries, recordings and local calibration files. Review `git status --short` and `git diff --cached --stat` before committing. Keep local configuration in `configs/local*.json` and tokens in environment variables.
 
-在配置了 GitHub 登录的开发电脑上，首次获取：
+To obtain the repository on a development machine:
 
 ```bash
 git clone https://github.com/RU0804/TraCR-neoracer-demo.git
 cd TraCR-neoracer-demo
 ```
 
-后续更新：
+To update it from a machine with GitHub write authentication:
 
 ```bash
 git pull --ff-only
-# 修改和验证后提交
+# Commit reviewed and validated changes before pushing.
 git push origin main
 ```
 
-不要将现有非空远端强推覆盖。此环境通过已连接 GitHub 的文件/Git 数据接口发布，不依赖本机 gh 登录。公开仓库可直接通过 HTTPS 获取。
+Do not force-push over an existing nonempty remote. This environment publishes through the connected GitHub file/Git-data APIs without a local gh login. The public repository can be fetched directly over HTTPS.
 
-如果从源码 ZIP 解压得到目录，目录不含 .git；优先直接 git clone，或使用提供的 Git bundle 保留本地历史。录制数据保存在被忽略的 `recordings/`，需要公开时单独确认数据来源与授权。
+A source ZIP does not contain `.git`. Prefer `git clone`, or use the provided Git bundle to retain local history. Keep recordings in the ignored `recordings/` directory and check data provenance and authorization before publishing them separately.
 
-本仓库目前没有开源 LICENSE；发布为 public 不代表已替项目负责人选择开源许可证。AutoDRIVE 模型和其他第三方资产也未重新授权或打包。
+The repository currently has no open-source LICENSE. Public visibility does not select a license on the project owner's behalf. AutoDRIVE models and other third-party assets are neither relicensed nor bundled.

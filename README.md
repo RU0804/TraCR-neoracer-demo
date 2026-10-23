@@ -1,73 +1,73 @@
 # TraCR-neoracer-demo
 
-NeoRacer V1 现场展示软件：**左侧车载视频，右侧跟随实测位姿的 AutoDRIVE 虚拟视角**。目标部署是师兄的笔记本和现场局域网，场地约 5 m × 5 m。
+A NeoRacer V1 demonstration with **onboard video on the left and an AutoDRIVE view following measured vehicle poses on the right**. The intended deployment is the presenter's laptop on a local network, with an approximately 5 m x 5 m physical road layout.
 
-**当前为可运行的软件原型，尚未完成 NeoRacer 实车与 Unity 联调。** 自检模式中的两幅图均为合成测试画面，不是实车录像，也不是 AutoDRIVE 渲染。已有 Nigel 离线仿真属于此前的独立成果。
+**This is a working software prototype. Physical NeoRacer and Unity integration have not been validated.** Both images in self-test mode are synthetic, not physical vehicle footage or AutoDRIVE renders. The earlier Nigel offline simulation is a separate result.
 
-## 当前状态
+## Current status
 
-| 内容 | 状态 |
+| Component | Status |
 |---|---|
-| 本地双画面、时间配对、断流提示、全屏与手机布局 | 已实现；验证记录见 [VALIDATION](docs/VALIDATION.md) |
-| 有限视频/位姿缓冲、单个在途渲染请求、回执校验 | 已实现，协议测试覆盖 |
-| USB / RTSP / HTTP MJPEG 视频适配器 | 已实现；尚未接真实相机 |
-| ROS 2 相机与位姿只读适配器 | 已实现；JPEG 解码有测试，ROS 运行时未验证 |
-| 可选 AprilTag 俯视定位与标定工具 | 已实现；几何单元测试，实际相机与检测性能待验证 |
-| AutoDRIVE CoSim 跟随及渲染回执组件 | 已提供 C# 源码；尚未在 Unity 编译/运行 |
-| 5 m × 5 m 道路导入器 | 已提供；示例布局不代表真实泡沫板地图 |
-| NeoRacer 实车同屏同步、真实延迟和空间误差 | **未验证，需现场设备** |
-| 自动驾驶控制、SLAM、新车辆动力学验证 | 不在当前实现范围 |
+| Local dual-view display, timestamp pairing, stale indicators, fullscreen and mobile layout | Implemented; see [validation records](docs/VALIDATION.md) |
+| Bounded video/pose buffers, one outstanding render request, acknowledgement validation | Implemented and covered by protocol tests |
+| USB / RTSP / HTTP MJPEG camera adapter | Implemented; physical camera integration pending |
+| Read-only ROS 2 camera and pose adapter | Implemented; JPEG decoding tested, ROS runtime unverified |
+| Optional overhead AprilTag localization and calibration tools | Implemented; geometry unit tests pass, physical camera and detection performance unverified |
+| AutoDRIVE CoSim follower and render acknowledgement component | C# source provided; not compiled or run in Unity |
+| Road importer for an approximately 5 m x 5 m layout | Source provided; the example does not reproduce the physical foam-board map |
+| Physical NeoRacer synchronization, measured latency and spatial error | **Unverified; requires field hardware** |
+| Autonomous driving control, SLAM and validation of new vehicle dynamics | Outside the current implementation |
 
-## 不接硬件先运行
+## Run without hardware
 
-建议笔记本使用 Python 3.10 或 3.11。当前自动检查环境为 Linux / Python 3.9；Windows 与 macOS 尚未实机验证。前端没有 CDN、Node 或云服务依赖。
+Use Python 3.10 or 3.11 on the demonstration laptop. Local automated validation used Linux and Python 3.9; Windows and macOS have not been tested on physical machines. The frontend requires no CDN, Node installation or cloud service.
 
 ```bash
 python -m venv .venv
 # Linux/macOS
 source .venv/bin/activate
-# Windows PowerShell 改用：.venv\Scripts\Activate.ps1
+# On Windows PowerShell, use: .venv\Scripts\Activate.ps1
 python -m pip install -e ".[camera,test]"
 tracr-demo --self-test
 ```
 
-浏览器打开 <http://127.0.0.1:8080>。屏幕会持续显示 **SYNTHETIC SELF-TEST**。退出服务用 Ctrl+C。
+Open <http://127.0.0.1:8080>. The display continuously identifies this mode as **SYNTHETIC SELF-TEST**. Stop the service with Ctrl+C.
 
-正式输入模式：
+For live inputs:
 
 ```bash
 tracr-demo --config configs/demo.json
 ```
 
-没有真实数据时会显示等待状态，不会自动切换成假车或历史录像。
+Without physical data, the display shows a waiting state. It does not automatically substitute synthetic images or recorded footage.
 
-## 接入现场设备
+## Connect field equipment
 
-1. **相机**：在第二个终端启动适配器。例如 USB 摄像头 `python adapters/camera.py --source 0`；已有 RTSP 则 `python adapters/camera.py --source rtsp://CAMERA_HOST/STREAM`。后者必须换成真实地址。编码格式、驱动、网络连通性待现场核验。
-2. **定位**：输入地图坐标中的实测位置、朝向。已有可靠 ROS 2 定位时使用 `adapters/ros2_readonly.py`；可安装俯视相机时使用 `adapters/apriltag.py`。单独车载前视视频不会自动得到绝对位姿。详见 [接车与标定](docs/CALIBRATION.md)。
-3. **AutoDRIVE**：按 [Unity 接入](docs/UNITY.md) 获取锁定源码，配置 NeoRacer prefab、相机、场景和 `TraCRPoseFollower`，在笔记本运行 Editor 或构建的程序。
-4. **场地**：按 [泡沫板地图制作流程](docs/MAP_WORKFLOW.md) 测量道路，建立对应 Unity 场景。当前导入器支持直线矩形道路段；示例不是实测地图，弯道、标线和立体边界需继续制作。
-5. **彩排**：按 [现场运行手册](docs/RUNBOOK.md) 验证直行、转向、断流恢复、空间对齐和两路延迟。
+1. **Camera:** start an adapter in a second terminal. For a USB camera, use `python adapters/camera.py --source 0`. For an existing RTSP stream, use `python adapters/camera.py --source rtsp://CAMERA_HOST/STREAM`, replacing the placeholder with the actual address. Verify encoding, drivers and connectivity on site.
+2. **Localization:** provide measured position and heading in map coordinates. Use `adapters/ros2_readonly.py` with an existing reliable ROS 2 localizer, or `adapters/apriltag.py` if an overhead camera can be installed. Onboard video alone does not automatically provide absolute pose. See [hardware integration and calibration](docs/CALIBRATION.md).
+3. **AutoDRIVE:** follow [Unity integration](docs/UNITY.md) to fetch the pinned source and configure the NeoRacer prefab, camera, scene and `TraCRPoseFollower`. Run the Editor or a built player on the laptop.
+4. **Map:** follow the [foam-board map workflow](docs/MAP_WORKFLOW.md) to survey the roads and build the matching Unity scene. The current importer supports straight rectangular road segments. The example is not a survey; curves, markings and raised boundaries still need to be modeled.
+5. **Rehearsal:** follow the [field runbook](docs/RUNBOOK.md) to verify straight driving, turns, recovery after disconnection, spatial alignment and latency on both views.
 
-相机、定位和 Unity 可以独立启动。只有时间差在容差内、Unity 回执对应正确视频/位姿 ID 时，才显示配对双画面。详见 [协议](docs/PROTOCOL.md)。
+The camera, localizer and Unity can start independently. A paired display requires timestamps within tolerance and a Unity acknowledgement matching the correct video and pose IDs. See the [protocol](docs/PROTOCOL.md).
 
-## 仓库结构
+## Repository layout
 
 ```text
-tracr_demo/        Python 服务和无外部资源依赖的浏览器界面
-adapters/          视频、ROS 2 只读和俯视 AprilTag 适配器
-unity/             AutoDRIVE 跟随、渲染回执和道路导入源码
-configs/           配置与未标定示例
-scripts/           标定、数据统计、上游获取、Slurm 验证
-tests/            协议、时间异常、断流和坐标转换测试
-docs/             部署、接车、验证、来源和发布说明
-upstream.lock.json 固定上游源码与 Unity 版本
+tracr_demo/        Python service and browser interface without external resources
+adapters/          Camera, read-only ROS 2 and overhead AprilTag adapters
+unity/             AutoDRIVE follower, render acknowledgement and road importer
+configs/           Configuration files and uncalibrated examples
+scripts/           Calibration, metrics, upstream fetching and Slurm validation
+tests/            Protocol, timestamp, disconnection and coordinate tests
+docs/             Deployment, integration, validation, provenance and publishing
+upstream.lock.json Pinned upstream source and Unity versions
 ```
 
-运行 `python -m pytest -q` 检查软件逻辑。浏览器检查见 `docs/VALIDATION.md`。`requirements-tested-linux-py39.txt` 记录本次 Linux 的精确依赖；其他平台按 `pyproject.toml` 安装并重新验收。
+Run `python -m pytest -q` to check software behavior. Browser checks are documented in `docs/VALIDATION.md`. `requirements-tested-linux-py39.txt` records the exact dependencies used for local Linux validation. Install from `pyproject.toml` and repeat acceptance checks on other platforms.
 
-## Gilbreth 与 GitHub
+## Gilbreth and GitHub
 
-Gilbreth 上的实质计算和浏览器渲染通过 Slurm；优先 `sukkusur / a100-40gb / normal`，额度占用或排队时才选 `a30 / standby`。完整演示禁止 A10。`scripts/submit_validation.sh` 每次读取组内额度，A30 配额变化时停止并要求重新核查。见 [GPU 约束](docs/GILBRETH.md)。这不代表 AutoDRIVE 的 Vulkan 路径已在 A100/A30 验证。
+Substantial computation and browser rendering on Gilbreth must run through Slurm. Prefer `sukkusur / a100-40gb / normal`; use `a30 / standby` only when the group allocation is occupied or committed to queued work. Full demonstrations must not use A10. `scripts/submit_validation.sh` checks group allocations before each submission and stops for review if A30 entitlement changes. See the [GPU constraints](docs/GILBRETH.md). These scheduling checks do not establish Unity Vulkan compatibility on A100/A30.
 
-仓库不包含 Unity 二进制、大型上游资产、实车录像、网络密码或虚构的实体测试结果。GitHub 发布步骤与许可证状态见 [PUBLISH](docs/PUBLISH.md)。来源边界见 [PROVENANCE](docs/PROVENANCE.md)。
+The repository excludes Unity binaries, large upstream assets, physical vehicle recordings, network credentials and fabricated hardware results. See [publishing and license status](docs/PUBLISH.md) and [provenance](docs/PROVENANCE.md). All repository content must be written in English.

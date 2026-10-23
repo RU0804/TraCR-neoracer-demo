@@ -1,5 +1,7 @@
 # TraCR NeoRacer demo
 
+- All repository content must be in English, including documentation, comments, configuration descriptions, diagrams, filenames and user-facing text. Do not add Chinese text.
+
 - Keep the previous Nigel baseline and this NeoRacer integration separate in all claims. Synthetic self-test images are not physical-car or AutoDRIVE evidence.
 - This project reads physical vehicle state only. Do not add physical control publishers or merge simulated sensor topics into real localization without explicit task scope.
 - Field laptop hardware, camera transport, localization and measured road layout are not yet confirmed. See HANDOFF.md and docs/VALIDATION.md.

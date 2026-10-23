@@ -10,6 +10,10 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 4. Validate software in Slurm on allowed resources and package a clean Git repository — complete.
 5. Record remaining hardware/Unity acceptance tasks — complete; GitHub publication complete at public RU0804/TraCR-neoracer-demo; source tree verified against local Git. Hardware/Unity acceptance remains pending.
 
+## English-only repository update
+- Translate all 11 documents containing Chinese while preserving technical scope and validation boundaries: complete.
+- Scan all tracked text and filenames and check screenshots and links: complete (48 text files, two inspected images, no CJK characters or broken links). Publish this verified snapshot to public main.
+
 ## Constraints
 - Laptop OS/GPU, video transport and localization are unknown. GitHub owner is confirmed RU0804.
 - Physical map is approximately 5 m × 5 m. No measured layout available; example map must be labeled illustrative.
