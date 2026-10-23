@@ -1,8 +1,10 @@
-# Photo-derived foam-mat course
+# Sketch-guided foam-mat course
 
 ![Map plan with six red stop lines](media/field-map-plan.svg)
 
-This draft follows the supplied photograph's main road loop, large central island, small upper-right island, white edges, yellow dividers and **six red stop lines**. It is a manual geometric interpretation of an oblique image, with smoothed tape contours. It is not a calibrated perspective reconstruction or a metric survey.
+Revision 2 follows the user's hand-drawn road sketch supplied on 2026-10-23. It replaces the earlier photo-inferred outline with a diagonal upper section, long left and right sides, a broad lower straight, a large central island and a **lower-left return branch** around a smaller island. White edges and yellow dividers use smoothed editable control points.
+
+The sketch does not show stop lines. The six red stop lines from the earlier field photo are provisionally relocated to the two branch junctions, with IDs S1-S6 retained. Their positions require confirmation. This is a manual interpretation of the sketch, not calibrated photogrammetry or a metric survey. The existing `map.photo-v1.json` filename remains the editable entry point; its `revision` field is now 2.
 
 The reported gray footprint is approximately 4.5-5 m. Pending confirmation of both dimensions, the draft assumes **4.75 m x 4.75 m**. Lane widths, curve radii and stop-line positions are approximate. `measured` remains `false`. The classroom photograph is not included in the repository.
 
@@ -21,9 +23,9 @@ The sampled strips are shared across SVG, WebGL and Unity. Yellow dashes are spl
 
 ## Vehicle placement and scripted stops
 
-The official NeoRacer mesh uses its original source units and axle-derived forward direction. Ground placement comes from the four named tire groups, with the additional 12 mm lift removed. The source CAD tire bottoms vary by about 1.6 mm; the preview checks a 2 mm contact tolerance and reduces shadow bias to avoid a detached-looking shadow.
+The official NeoRacer mesh uses its original source units and axle-derived forward direction. Ground placement uses the transformed mesh vertices of the four named tire groups. The earlier approximate bounding boxes extended about 14.3 mm below the actual tire surfaces; revision 2 corrects this remaining gap as well as retaining removal of the previous 12 mm body lift. The actual tire bottoms vary by about 0.044 mm; the preview checks a 2 mm contact tolerance and reduces shadow bias.
 
-The selected route is a **partial clockwise pass in the outer lane**, from the far straight through the upper-right turn and down the right straight. It is offset from the yellow divider. The checker samples the complete CAD bounding rectangle at intervals no greater than 1 cm, requiring it to remain inside the outer white boundary and outside the yellow divider, with clearance from every white/yellow marking. This checks the rendered footprint; it does not validate a steering model or the whole course.
+The selected route is a **partial clockwise pass in the outer lane**, along the lower straight, around the lower-left turn and up the left side. It is offset from the yellow divider. The checker samples the complete CAD bounding rectangle at intervals no greater than 1 cm, requiring it to remain inside the outer white boundary and outside the yellow divider, with clearance from every white/yellow marking. This checks the rendered footprint; it does not validate a steering model or the whole course.
 
 The animation accelerates and brakes along that route, stopping with the front bumper before **S2**, waiting two seconds, and repeating at **S6**. The nominal bumper gap is 7 cm; geometric verification includes tape width and heading. The other four stop lines belong to lanes/branches not traversed in this preview. The final hold is labeled as a completed pass before the GIF restarts.
 

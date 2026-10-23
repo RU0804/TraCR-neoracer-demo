@@ -9,7 +9,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --gpus-per-node=1
 #SBATCH --mem=12G
-#SBATCH --time=00:08:00
+#SBATCH --time=00:12:00
 set -euo pipefail
 case "${SLURM_JOB_PARTITION:-}" in a100-40gb|a30) ;; *) echo 'Use allocated A100-40GB or A30'; exit 2;; esac
 "${TRACR_BROWSER_PYTHON:-.venv/bin/python}" scripts/render_neoracer_preview.py \

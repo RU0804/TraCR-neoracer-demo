@@ -28,7 +28,7 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 
 ## Constraints
 - Laptop OS/GPU, video transport and localization are unknown. GitHub owner is confirmed RU0804.
-- Physical footprint was reported as 4.5-5 m; a photo draft now exists at provisional 4.75 m square scale. No measured layout is available; keep the map unmeasured.
+- Physical footprint was reported as 4.5-5 m; a sketch-guided draft now exists at provisional 4.75 m square scale. No measured layout is available; keep the map unmeasured.
 - A100-40GB sukkusur/normal first; if occupied or queued use A30/standby after checking slist. No A10. Substantial rendering/tests through Slurm.
 - No car control publishers. Do not claim physical hardware, NeoRacer Unity build or field synchronization has been validated.
 - /home/zjcai/d2s-diffusion and original baseline outputs must stay untouched.
@@ -42,3 +42,11 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 - Ground the model using the actual tire geometry, remove the extra body lift, and validate a lane-centered route with full vehicle footprint clearance: complete for the selected partial outer-lane route.
 - Add scripted stops before the front bumper crosses the relevant red lines; preserve WebGL-only scope: complete; S2/S6 stop gaps and two-second dwell schedule checked.
 - Render and inspect a revised GIF plus a map overview on allowed Slurm resources: complete. English documentation and all artifact checks pass; publish the verified snapshot with this update.
+
+## Sketch-guided map revision
+- Replace the previous road contours with the user's 2026-10-23 sketch: diagonal upper road, straight left/right sides, broad lower straight, and a lower-left return branch: complete.
+- Keep the four-tire grounding and full-footprint checks; rebuild the demo route for the new lanes: complete; browser checks pass with 35.65 mm minimum sampled paint clearance.
+- Asked about stop-line retention asynchronously; proceeded with the stated provisional retention assumption while awaiting confirmation. Scale remains unmeasured.
+- Render updated plan/overview/GIF on permitted Slurm resources and verify artifacts: complete (A30/standby job 12011032). Publish the verified English repository snapshot with this update.
+
+- Sketch-render trial error: changing the contact metadata assertion while job 12011014 still used its previously loaded scene caused a final KeyError. Removed the premature assertion and scheduled a fresh render; intermediate media are not the publication target.

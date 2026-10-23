@@ -2,7 +2,7 @@
 
 Roads assembled from foam board and tape can be reproduced in a custom Unity scene. AutoDRIVE supplies the vehicle and simulation framework. This project does not automatically reconstruct the full venue from onboard video.
 
-A user-supplied oblique photo now provides the road topology: a main loop, central island, small upper-right island and six red stop lines. The reported gray footprint is approximately 4.5-5 m, with its exact aspect ratio unconfirmed. The [photo-derived draft](PHOTO_MAP.md) provisionally uses 4.75 m x 4.75 m and remains `measured=false`.
+The latest user-supplied hand-drawn sketch now defines the road topology: a diagonal upper section, main loop and lower-left return branch with a small island. It supersedes the earlier oblique-photo interpretation. Six red stop lines from the field photo are retained at provisional branch-junction positions; the new sketch does not locate them. The reported gray footprint is approximately 4.5-5 m, with its exact aspect ratio unconfirmed. The [sketch-guided draft](PHOTO_MAP.md) provisionally uses 4.75 m x 4.75 m and remains `measured=false`.
 
 `configs/map.photo-v1.json` is the editable draft. Its generated `.geometry.json` shares the same sampled tape strips between WebGL and the updated Unity importer. Curved white edges, dashed yellow dividers and red stop lines are included. The separate `configs/map.example.json` remains an illustrative rectangular loop. The C# importer has not been compiled or run in Unity; it does not add autonomous stopping logic or detailed obstacle/sensor models.
 

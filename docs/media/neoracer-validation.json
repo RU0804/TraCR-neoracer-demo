@@ -5,90 +5,90 @@
   },
   "maximum_stopped_image_mae": {
     "S2": [
-      1.5634771732332708e-05,
-      5.36743231509985e-05
+      1.876172607879925e-05,
+      4.104507064488121e-05
     ],
     "S6": [
-      3.1269543464665416e-06,
-      2.841581813876391e-05
+      9.06816760475297e-05,
+      6.314626253058648e-06
     ]
   },
   "stopped_image_mae_limit": 0.001,
   "geometry_checks": {
-    "duration": 24,
-    "routeLength": 4.526440268894614,
+    "duration": 25,
+    "routeLength": 4.904988423905948,
     "stages": [
       {
         "start": 2,
-        "end": 5.488031227950247,
+        "end": 5.2017915223722015,
         "from": 0,
-        "to": 0.9758109297825863,
+        "to": 0.8756270328302704,
         "ramp": 0.7,
-        "cruise": 2.0880312279502466,
+        "cruise": 1.8017915223722014,
         "peak": 0.35,
         "id": "S2",
         "kind": "drive"
       },
       {
-        "start": 5.488031227950247,
-        "end": 7.488031227950247,
-        "s": 0.9758109297825863,
+        "start": 5.2017915223722015,
+        "end": 7.2017915223722015,
+        "s": 0.8756270328302704,
         "id": "S2",
         "kind": "stop"
       },
       {
-        "start": 7.488031227950247,
-        "end": 16.120192290642525,
-        "from": 0.9758109297825863,
-        "to": 3.7520673017248836,
+        "start": 7.2017915223722015,
+        "end": 15.630062732336583,
+        "from": 0.8756270328302704,
+        "to": 3.5805219563178032,
         "ramp": 0.7,
-        "cruise": 7.2321610626922785,
+        "cruise": 7.02827120996438,
         "peak": 0.35,
         "id": "S6",
         "kind": "drive"
       },
       {
-        "start": 16.120192290642525,
-        "end": 18.120192290642525,
-        "s": 3.7520673017248836,
+        "start": 15.630062732336583,
+        "end": 17.630062732336583,
+        "s": 3.5805219563178032,
         "id": "S6",
         "kind": "stop"
       },
       {
-        "start": 18.120192290642525,
-        "end": 21.03268648255604,
-        "from": 3.7520673017248836,
-        "to": 4.526440268894614,
+        "start": 17.630062732336583,
+        "end": 22.114252639731284,
+        "from": 3.5805219563178032,
+        "to": 4.904988423905948,
         "ramp": 0.7,
-        "cruise": 1.512494191913516,
+        "cruise": 3.0841899073947,
         "peak": 0.35,
         "id": "END",
         "kind": "drive"
       }
     ],
-    "minimum_paint_clearance_m": 0.018486250071109874,
-    "footprint_samples": 454,
-    "sample_spacing_m": 0.009992141873939545,
-    "worst_clearance_route_distance_m": 1.888514814174574,
+    "minimum_paint_clearance_m": 0.035650536783796,
+    "footprint_samples": 492,
+    "sample_spacing_m": 0.0099897931240447,
+    "worst_clearance_route_distance_m": 2.0479075904291637,
     "full_lap_validated": false,
     "stops": [
       {
         "id": "S2",
-        "route_distance_m": 0.9758109297825863,
-        "front_bumper_clearance_m": 0.06617630152192908,
+        "route_distance_m": 0.8756270328302704,
+        "front_bumper_clearance_m": 0.07,
         "dwell_seconds": 2
       },
       {
         "id": "S6",
-        "route_distance_m": 3.7520673017248836,
-        "front_bumper_clearance_m": 0.06999999999999981,
+        "route_distance_m": 3.5805219563178032,
+        "front_bumper_clearance_m": 0.06925591261458638,
         "dwell_seconds": 2
       }
     ],
     "tire_contacts": [
       {
         "name": "Front_Tire-1",
-        "bottom": 0.0015550968751132932
+        "bottom": 4.399012525982404e-05
       },
       {
         "name": "Front_Tire-1",
@@ -96,22 +96,25 @@
       },
       {
         "name": "Rear_Tire-1",
-        "bottom": 0.0015550765613549927
+        "bottom": 4.397646860869464e-05
       },
       {
         "name": "Rear_Tire-1",
-        "bottom": 2.854635139382111e-10
+        "bottom": 5.104710543157864e-10
       }
     ],
     "contact_tolerance_m": 0.002,
-    "map_source_sha256": "ca16f38f5b6fc629abe0e42e2ea95b8693eb0979cd574440de3dcb084760d550",
-    "map_measured": false
+    "tire_contact_method": "Transformed tire mesh vertices",
+    "map_source_sha256": "de41d012d4cf9e2ca1689c850139f7b3504cb6bda4df560eb9a77a0c955e15ad",
+    "map_measured": false,
+    "map_revision": 2,
+    "stop_line_status": "Six stop lines retained from the earlier field photo and provisionally relocated to the two branch junctions; the new sketch does not mark their positions."
   },
-  "decoded_frames": 144,
-  "duration_ms": 24000,
+  "decoded_frames": 150,
+  "duration_ms": 25000,
   "distinct_camera_regions": [
-    98,
-    99
+    105,
+    104
   ],
   "loop": "infinite",
   "artifact_checksums_match": true,
@@ -119,7 +122,7 @@
     1200,
     845
   ],
-  "slurm_job_id": null,
-  "partition": null,
+  "slurm_job_id": "12011032",
+  "partition": "a30",
   "scope": "Geometry preview media only; no physical hardware, live bridge or Unity execution."
 }

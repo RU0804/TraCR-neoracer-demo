@@ -1,4 +1,4 @@
-// Geometry preview only: official AutoDRIVE mesh, photo-derived road, scripted motion.
+// Geometry preview only: official AutoDRIVE mesh, sketch-guided road, scripted motion.
 // This does not execute Unity, vehicle physics, sensor simulation, or the live bridge.
 import * as THREE from 'three';
 import { FBXLoader } from '/upstream/preview-assets/three/examples/jsm/loaders/FBXLoader.js';
@@ -15,7 +15,7 @@ window.previewReady = (async () => {
     set('#mode', '3D MODEL PREVIEW');
     set('#fullscreen', 'Scripted motion');
     document.querySelector('#fullscreen').disabled = true;
-    set('#connection', 'NeoRacer / Photo-derived course');
+    set('#connection', 'NeoRacer / Sketch-guided course');
     set('#map-label', '4.75 m square draft / Survey pending');
     set('#notice', 'MODEL PREVIEW - Both views are rendered in WebGL using the official NeoRacer mesh. No physical video or Unity execution.');
     const panels = document.querySelectorAll('.panel');
@@ -34,14 +34,14 @@ window.previewReady = (async () => {
     document.querySelector('#real').alt = 'Illustrative virtual front camera, not physical footage';
     document.querySelector('#sim').alt = 'Official AutoDRIVE NeoRacer geometry rendered in WebGL';
     const titles = ['VEHICLE MODEL', 'SCRIPTED MOTION', 'ROAD LAYOUT', 'STOP LINE'];
-    const notes = ['Official AutoDRIVE FBX geometry', 'Visual demonstration / No physics', '4.75 m square / Survey pending', '2 s dwell / No physical control'];
+    const notes = ['Official AutoDRIVE FBX geometry', 'Visual demonstration / No physics', '4.75 m square / Survey pending', '2 s dwell / Stop positions provisional'];
     document.querySelectorAll('.metrics > div').forEach((metric, i) => {
         metric.querySelector('p').textContent = titles[i];
         metric.querySelector('span').textContent = notes[i];
     });
     set('#skew', 'NeoRacer V1');
     set('#latency', 'Scripted path');
-    set('#position', 'Photo draft');
+    set('#position', 'Sketch draft');
     set('#pairs', 'S2, then S6');
     set('footer > span:first-child', 'TraCR / NeoRacer geometry from AutoDRIVE / WebGL visualization');
     set('footer > span:last-child', 'Preview only / No live vehicle connected');
@@ -160,13 +160,14 @@ window.previewReady = (async () => {
     const size = new THREE.Box3().setFromObject(model).getSize(new THREE.Vector3());
     const center = new THREE.Box3().setFromObject(model).getCenter(new THREE.Vector3());
     if (tires.length !== 4) throw new Error(`Expected four tire groups; found ${tires.length}`);
-    const floor = Math.min(...tires.map(tire => new THREE.Box3().setFromObject(tire).min.y));
+    // Use transformed mesh vertices; rotated local bounding boxes overestimate the tire extent.
+    const floor = Math.min(...tires.map(tire => new THREE.Box3().setFromObject(tire,true).min.y));
     model.position.sub(new THREE.Vector3(center.x, floor, center.z));
     model.updateMatrixWorld(true);
     const alignedForward = new THREE.Box3().setFromObject(frontAxle).getCenter(new THREE.Vector3())
         .sub(new THREE.Box3().setFromObject(rearAxle).getCenter(new THREE.Vector3())).normalize();
     if (alignedForward.z < 0.99) throw new Error('Vehicle front does not align with the scripted path.');
-    const tireContacts = tires.map(tire => ({name: tire.name, bottom: new THREE.Box3().setFromObject(tire).min.y}));
+    const tireContacts = tires.map(tire => ({name: tire.name, bottom: new THREE.Box3().setFromObject(tire,true).min.y}));
     if (Math.max(...tireContacts.map(t => Math.abs(t.bottom))) > .002) throw new Error('Tire contact exceeds 2 mm tolerance.');
     const frontCamera = new THREE.PerspectiveCamera(80, 16 / 9, 0.01, 25);
     const chaseCamera = new THREE.PerspectiveCamera(45, 16 / 9, 0.01, 25);
@@ -261,7 +262,7 @@ window.previewReady = (async () => {
     if(stopChecks.some(stop=>stop.front_bumper_clearance_m<.055)) throw new Error('Front bumper is too close to a stop line.');
     window.previewInfo = {duration,routeLength,stages,minimum_paint_clearance_m:minClearance,footprint_samples:samples+1,
         sample_spacing_m:routeLength/samples,worst_clearance_route_distance_m:worstDistance,full_lap_validated:false,stops:stopChecks,tire_contacts:tireContacts,
-        contact_tolerance_m:.002,map_source_sha256:map.source_sha256,map_measured:map.measured};
+        contact_tolerance_m:.002,tire_contact_method:'Transformed tire mesh vertices',map_source_sha256:map.source_sha256,map_measured:map.measured,map_revision:map.revision,stop_line_status:map.stop_line_status};
     window.modelInfo = {
         rawSize: rawSize.toArray(), rawCenter: rawCenter.toArray(), unitScaleFactor: settings.centimetersPerUnit,
         sourceForward: sourceForward.toArray(), alignedForward: alignedForward.toArray(),

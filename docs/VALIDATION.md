@@ -41,13 +41,13 @@ Before the photo-map update, the [NeoRacer preview](NEORACER_PREVIEW.md) used th
 
 See [generation metadata](media/neoracer-preview.json) and [media validation](media/neoracer-validation.json). A queued A100 inspection request was cancelled after fallback; an early A100 capture was also cancelled when a reversed model was caught during visual review. Those trial images were not published. No new A10 work was submitted.
 
-## Photo-derived map and placement checks
+## Earlier photo-derived map and placement checks
 
-The new map draft includes the main loop, central and upper-right islands, and six red stop lines. `scripts/check_photo_map.py` checks the shared source hash, footprint bounds, dash lengths, boundary crossings and self-intersections. It passes with 11 markings and 121 sampled paint strips. The map is still unmeasured at a provisional 4.75 m square scale.
+The earlier map draft included the main loop, central and upper-right islands, and six red stop lines. `scripts/check_photo_map.py` checks the shared source hash, footprint bounds, dash lengths, boundary crossings and self-intersections. That revision passed with 11 markings and 121 sampled paint strips. Its scale was a provisional, unmeasured 4.75 m square.
 
-A100-40GB/normal inspection job `12008351` completed in 40 seconds. It verified all four tire groups within 1.56 mm of the mat and the full CAD bounding rectangle at 454 route samples spaced at most 1 cm apart. Minimum sampled white/yellow paint clearance was 18.49 mm. At S2/S6, the front bumper remains 66.18/70.00 mm before the tape. These are **preview geometry measurements**, not physical-car positioning accuracy or full-course validation.
+A100-40GB/normal inspection job `12008351` completed in 40 seconds. It reported all four tire-group bounding boxes within 1.56 mm of the mat (the later revision-2 vertex probe found this approximation left an actual mesh gap) and the full CAD bounding rectangle at 454 route samples spaced at most 1 cm apart. Minimum sampled white/yellow paint clearance was 18.49 mm. At S2/S6, the front bumper remains 66.18/70.00 mm before the tape. These are **preview geometry measurements**, not physical-car positioning accuracy or full-course validation.
 
-The render phase of A100-40GB/normal job `12008390` on n014 produced the final 1200 x 845, 24-second, 144-frame GIF and map overview. The job then failed an initially over-strict bit-identical pause check: inspection found only a few tiny rasterization/quantization differences in stationary camera regions, including one-channel changes of 1 in raw PNGs. The revised checker bounds mean absolute difference to 0.001 on the 0-255 scale instead of requiring identical bytes.
+The render phase of A100-40GB/normal job `12008390` on n014 produced that version's 1200 x 845, 24-second, 144-frame GIF and map overview. The job then failed an initially over-strict bit-identical pause check: inspection found only a few tiny rasterization/quantization differences in stationary camera regions, including one-channel changes of 1 in raw PNGs. The revised checker bounds mean absolute difference to 0.001 on the 0-255 scale instead of requiring identical bytes.
 
 Final lightweight media inspection passed in 0.93 seconds after rendering: all 144 frames decode, both views change during motion (98/99 distinct camera regions), both stops retain 12 stationary camera frames, and the largest stopped-image mean absolute difference is 0.000054. Duration is exactly 24 seconds; all artifact hashes match. The top view, overview, driving and both stop frames were visually inspected. No live frontend behavior changed. The English audit covers all 77 tracked/candidate paths with no CJK text or broken local Markdown links.
 
@@ -62,3 +62,13 @@ Chromium startup failed on A100 nodes n002/n011 before scene loading (GPU-proces
 - Device clock calibration, exposure-to-screen latency, physical frame rate or dropped-frame rate.
 
 Self-test frame rates, P95 values and zero timestamp differences come from data generated in the same process. They are software smoke-test results, not hardware performance measurements.
+
+## Sketch-guided revision 2
+
+The latest hand-drawn sketch replaces the earlier inferred outline with a diagonal upper road and a lower-left return branch. The six stop lines are provisionally relocated from the earlier photo; the sketch supplies no stop locations. The nominal 4.75 m square remains unmeasured. Map checks pass with 11 markings, six stops, 120 paint strips, matching source hashes, no boundary crossings and no self-intersections.
+
+A30/standby job `12011032` completed on `gilbreth-b009` in 00:01:46. The initial A30/standby capture job 12011021 reached its six-minute allocation limit; the final job reused complete PNGs and captured the remaining frames after checking unchanged renderer, map and asset-lock hashes. The full-render Slurm template now allows twelve minutes for slower nodes. The browser checks 492 full-vehicle rectangles at intervals no greater than 1 cm. Minimum sampled white/yellow paint clearance is 35.65 mm; stop gaps at S2/S6 are 70.00/69.26 mm. All four actual tire bottoms remain within 0.044 mm of the mat. Grounding now uses transformed mesh vertices: a separate probe found that the earlier approximate boxes left about 14.3 mm of actual mesh clearance, despite the old contact report. That residual visual gap is corrected in this render. These checks cover the selected partial route, not every lane, a complete lap or vehicle dynamics.
+
+The updated GIF is 1200 x 845, 25 seconds and 150 frames. Every frame decodes, artifact hashes match, both camera views change during motion (105/104 distinct cropped regions), and each stop retains 12 stationary frames. Maximum stopped-image mean absolute difference is 0.00009068, below the 0.001 limit on a 0-255 scale. The render reports no JavaScript errors or horizontal overflow. The plan, overview, driving and stopping frames were visually inspected. Python/JavaScript syntax, English-only content and local Markdown links pass checks.
+
+This remains a WebGL geometry preview. Unity compilation/execution, physical camera input, metric map survey and live synchronization remain unverified.

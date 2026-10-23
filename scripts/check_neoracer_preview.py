@@ -56,6 +56,7 @@ with Image.open(media / 'neoracer-preview.gif') as gif:
     checks = manifest['geometry_checks']
     assert checks['minimum_paint_clearance_m'] >= .015
     assert checks['sample_spacing_m'] <= .01
+    assert checks['tire_contact_method'] == 'Transformed tire mesh vertices'
     assert len(checks['tire_contacts']) == 4
     assert max(abs(t['bottom']) for t in checks['tire_contacts']) <= .002
     assert [s['id'] for s in checks['stops']] == ['S2','S6']
