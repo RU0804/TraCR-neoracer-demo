@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Render official NeoRacer geometry in the page layout, without running Unity."""
 import argparse
+import base64
 import functools
 import hashlib
 import http.server
@@ -100,9 +101,16 @@ header{height:76px}main{padding-top:24px}.intro{gap:16px}#notice{margin:18px 0}
             page.on("pageerror", lambda error: (errors.append(str(error)), print("Browser error:", error, flush=True)))
             page.on("console", lambda event: console.append({"type": event.type, "text": event.text}))
             page.goto(f"http://127.0.0.1:{server.server_port}/runtime/neoracer-preview/index.html")
-            page.wait_for_function("window.renderFrame !== undefined", timeout=180000)
+            page.wait_for_function("window.previewReady !== undefined", timeout=30000)
             page.evaluate("window.previewReady")
             info = page.evaluate("window.modelInfo")
+            preview = page.evaluate("window.previewInfo")
+            duration = preview["duration"]
+            (work / "geometry-validation.json").write_text(json.dumps(preview, indent=2) + "\n")
+            plan_page = browser.new_page(viewport={"width":1100,"height":880})
+            plan_page.goto(f"http://127.0.0.1:{server.server_port}/docs/media/field-map-plan.svg")
+            plan_page.screenshot(path=str(work / "map-plan.png"))
+            plan_page.close()
             (work / "model-info.json").write_text(json.dumps(info, indent=2) + "\n")
             height = math.ceil(page.locator("body").bounding_box()["height"])
             clip = {"x": 0, "y": 0, "width": 1200, "height": height}
@@ -113,14 +121,16 @@ header{height:76px}main{padding-top:24px}.intro{gap:16px}#notice{margin:18px 0}
                     stats = page.evaluate("([t,a]) => window.renderFrame(t,a)", [0, index * math.pi / 2])
                     page.screenshot(path=str(work / f"probe-{index}.png"), clip=clip)
             else:
+                overview = page.evaluate("window.renderMap()")
+                (output / "field-map-overview.png").write_bytes(base64.b64decode(overview.split(",",1)[1]))
                 started = time.monotonic()
-                for index in range(20 * args.fps):
+                for index in range(duration * args.fps):
                     stats = page.evaluate("t => window.renderFrame(t)", index / args.fps)
                     page.screenshot(path=str(frame_directory / f"frame-{index:04d}.png"), clip=clip)
-                    if index == 2 * args.fps:
+                    if index == round((preview["stages"][1]["start"] + 1) * args.fps):
                         page.screenshot(path=str(output / "neoracer-preview.png"), clip=clip)
                     if index % 20 == 0:
-                        print(f"Captured {index + 1}/{20 * args.fps} frames in {time.monotonic() - started:.1f}s", flush=True)
+                        print(f"Captured {index + 1}/{duration * args.fps} frames in {time.monotonic() - started:.1f}s", flush=True)
             assert not errors, errors
             assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
             assert page.locator('#mode').inner_text() == '3D MODEL PREVIEW'
@@ -144,9 +154,10 @@ header{height:76px}main{padding-top:24px}.intro{gap:16px}#notice{margin:18px 0}
         "kind": "official_neoracer_geometry_preview", "autodrive_commit": lock["autodrive_commit"],
         "mesh": "Assets/Models/Vehicle/NeoRacer/NeoRacer.fbx", "renderer": "Three.js r180 / Chromium SwiftShader WebGL",
         "unity_executed": False, "physical_footage": False, "live_bridge_exercised": False,
-        "vehicle_dynamics_simulated": False, "path": "Scripted illustrative loop", "map_measured": False,
+        "vehicle_dynamics_simulated": False, "path": "Scripted outer-lane pass with stops at S2 and S6", "map_measured": False,
         "material_conversion": "Unity base color, metallic and smoothness mapped to WebGL; not shader-identical",
-        "camera_calibrated": False, "fps": args.fps, "frames": 20 * args.fps, "duration_seconds": 20,
+        "camera_calibrated": False, "fps": args.fps, "frames": duration * args.fps, "duration_seconds": duration,
+        "map": "configs/map.photo-v1.geometry.json", "geometry_checks": preview,
         "size": [1200, height], "size_meters": info["sizeMeters"], "mesh_count": info["meshCount"],
         "source_units": "inches", "meters_per_source_unit": centimeters_per_unit / 100,
         "source_forward_vector": info["sourceForward"], "aligned_forward_vector": info["alignedForward"],
@@ -155,7 +166,7 @@ header{height:76px}main{padding-top:24px}.intro{gap:16px}#notice{margin:18px 0}
         "javascript_errors": errors, "horizontal_overflow": False,
         "slurm_job_id": os.environ.get("SLURM_JOB_ID"), "partition": os.environ.get("SLURM_JOB_PARTITION"), "artifacts": {},
     }
-    for name in ["neoracer-preview.png", "neoracer-preview.gif"]:
+    for name in ["neoracer-preview.png", "neoracer-preview.gif", "field-map-overview.png", "field-map-plan.svg"]:
         data = (output / name).read_bytes()
         report["artifacts"][name] = {"bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
     (output / "neoracer-preview.json").write_text(json.dumps(report, indent=2) + "\n")

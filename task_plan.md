@@ -28,7 +28,7 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 
 ## Constraints
 - Laptop OS/GPU, video transport and localization are unknown. GitHub owner is confirmed RU0804.
-- Physical map is approximately 5 m × 5 m. No measured layout available; example map must be labeled illustrative.
+- Physical footprint was reported as 4.5-5 m; a photo draft now exists at provisional 4.75 m square scale. No measured layout is available; keep the map unmeasured.
 - A100-40GB sukkusur/normal first; if occupied or queued use A30/standby after checking slist. No A10. Substantial rendering/tests through Slurm.
 - No car control publishers. Do not claim physical hardware, NeoRacer Unity build or field synchronization has been validated.
 - /home/zjcai/d2s-diffusion and original baseline outputs must stay untouched.
@@ -36,3 +36,9 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 ## Errors
 - A documentation tool call had a JS string syntax error before execution; split into smaller calls and completed.
 - gh CLI is unavailable; connected GitHub tools can edit existing repositories but do not expose repository creation. Target RU0804/TraCR-neoracer-demo confirmed; get_repo returned 404. This earlier blocker is resolved: user created a public repository and GitHub API access is now available; publishing through connected tools.
+
+## Photo-derived map and vehicle placement
+- Reconstruct the supplied oblique photo as an editable approximate vector map, including six red stop lines; provisional 4.75 m square until dimensions are clarified: complete; six stop lines, main loop and branch islands are included.
+- Ground the model using the actual tire geometry, remove the extra body lift, and validate a lane-centered route with full vehicle footprint clearance: complete for the selected partial outer-lane route.
+- Add scripted stops before the front bumper crosses the relevant red lines; preserve WebGL-only scope: complete; S2/S6 stop gaps and two-second dwell schedule checked.
+- Render and inspect a revised GIF plus a map overview on allowed Slurm resources: complete. English documentation and all artifact checks pass; publish the verified snapshot with this update.

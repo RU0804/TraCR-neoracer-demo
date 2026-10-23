@@ -28,9 +28,9 @@ Final rendering preserved the interface accent colors with a full-frame GIF pale
 
 The PNG and sampled GIF frames were visually inspected for English labels and explicit recorded-simulation status. Text, filenames and relative documentation links were checked separately. These checks concern documentation media only; they do not run the live bridge, physical hardware or Unity.
 
-## NeoRacer geometry preview
+## Earlier NeoRacer geometry preview
 
-The [NeoRacer preview](NEORACER_PREVIEW.md) uses the official pinned AutoDRIVE FBX in WebGL, with a scripted path and illustrative course. A30/standby inspection job `12008087` completed in 33 seconds. The final render and media checks completed in **A30/standby job `12008196`, 3 minutes 45 seconds**, using four CPUs, 12 GB and one allocated GPU. Chromium used SwiftShader; Unity and native GPU graphics compatibility were not tested.
+Before the photo-map update, the [NeoRacer preview](NEORACER_PREVIEW.md) used the official pinned AutoDRIVE FBX in WebGL, with a scripted path and illustrative course. A30/standby inspection job `12008087` completed in 33 seconds. That version's render and media checks completed in **A30/standby job `12008196`, 3 minutes 45 seconds**, using four CPUs, 12 GB and one allocated GPU. Chromium used SwiftShader; Unity and native GPU graphics compatibility were not tested.
 
 - All 120 GIF frames decoded; duration is exactly 20 seconds at 6 fps, with infinite looping.
 - Both camera-image regions had 120 distinct decoded images; the animation does not only update labels over frozen views.
@@ -41,12 +41,24 @@ The [NeoRacer preview](NEORACER_PREVIEW.md) uses the official pinned AutoDRIVE F
 
 See [generation metadata](media/neoracer-preview.json) and [media validation](media/neoracer-validation.json). A queued A100 inspection request was cancelled after fallback; an early A100 capture was also cancelled when a reversed model was caught during visual review. Those trial images were not published. No new A10 work was submitted.
 
+## Photo-derived map and placement checks
+
+The new map draft includes the main loop, central and upper-right islands, and six red stop lines. `scripts/check_photo_map.py` checks the shared source hash, footprint bounds, dash lengths, boundary crossings and self-intersections. It passes with 11 markings and 121 sampled paint strips. The map is still unmeasured at a provisional 4.75 m square scale.
+
+A100-40GB/normal inspection job `12008351` completed in 40 seconds. It verified all four tire groups within 1.56 mm of the mat and the full CAD bounding rectangle at 454 route samples spaced at most 1 cm apart. Minimum sampled white/yellow paint clearance was 18.49 mm. At S2/S6, the front bumper remains 66.18/70.00 mm before the tape. These are **preview geometry measurements**, not physical-car positioning accuracy or full-course validation.
+
+The render phase of A100-40GB/normal job `12008390` on n014 produced the final 1200 x 845, 24-second, 144-frame GIF and map overview. The job then failed an initially over-strict bit-identical pause check: inspection found only a few tiny rasterization/quantization differences in stationary camera regions, including one-channel changes of 1 in raw PNGs. The revised checker bounds mean absolute difference to 0.001 on the 0-255 scale instead of requiring identical bytes.
+
+Final lightweight media inspection passed in 0.93 seconds after rendering: all 144 frames decode, both views change during motion (98/99 distinct camera regions), both stops retain 12 stationary camera frames, and the largest stopped-image mean absolute difference is 0.000054. Duration is exactly 24 seconds; all artifact hashes match. The top view, overview, driving and both stop frames were visually inspected. No live frontend behavior changed. The English audit covers all 77 tracked/candidate paths with no CJK text or broken local Markdown links.
+
+Chromium startup failed on A100 nodes n002/n011 before scene loading (GPU-process launch error 1002); an in-process-GPU trial also failed and was reverted. A subsequent browser probe on n014 succeeded. Successful WebGL rendering on that node does not establish general native Unity graphics compatibility. No A10 was used.
+
 ## Not executed; no passing claim is justified
 
 - AutoDRIVE NeoRacer scene import, C# compilation, camera rendering or a standalone application build.
 - Unity graphics API compatibility on the demonstration laptop or permitted Gilbreth GPUs.
 - Physical camera and ROS 2 integration, marker detection performance or recovery from real occlusion.
-- Actual road reconstruction, map/vehicle reference-point calibration or measured spatial error.
+- Metric road survey, map/vehicle reference-point calibration or measured spatial error.
 - Device clock calibration, exposure-to-screen latency, physical frame rate or dropped-frame rate.
 
 Self-test frame rates, P95 values and zero timestamp differences come from data generated in the same process. They are software smoke-test results, not hardware performance measurements.

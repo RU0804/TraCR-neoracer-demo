@@ -9,7 +9,7 @@ This repository continues the work described in `/scratch/gilbreth/zjcai/autodri
 - Unity CoSim follower/render acknowledgement C# source and a road-layout JSON importer.
 - Calibration tools, pinned upstream versions, setup and field documentation, automated tests and GitHub CI configuration.
 - Historical GIF and still-image layout preview derived from the earlier Nigel / Tiny Town recording, retained separately. Both panels are labeled recorded simulation; see `docs/PREVIEW.md`. These media do not exercise the live bridge or validate NeoRacer integration.
-- The main README now shows the official NeoRacer model in a WebGL geometry preview, with virtual front and chase cameras on an illustrative scripted course. See `docs/NEORACER_PREVIEW.md`. This is not Unity execution or a dynamics/hardware test; the Nigel animation is retained separately.
+- The main README now shows the official NeoRacer model in a WebGL geometry preview, with virtual front and chase cameras on the photo-derived draft, with a scripted outer-lane pass and stops at S2/S6. See `docs/NEORACER_PREVIEW.md`. This is not Unity execution or a dynamics/hardware test; the Nigel animation is retained separately.
 
 See `docs/VALIDATION.md` for software validation. **Physical vehicle integration, Unity C# compilation/builds, NeoRacer rendering and field time/space synchronization remain unverified.** Both self-test images are generated; their accuracy and latency must not be presented as hardware measurements.
 
@@ -30,3 +30,7 @@ Follow the user's A100-40GB preference, A30 standby fallback only when the alloc
 The field deployment uses a local service rather than persistent Gilbreth processes. The original project and `/home/zjcai/d2s-diffusion` were not modified. Existing environments and large upstream files remain in the original project and are not bundled here.
 
 All repository files, documentation, comments, configuration descriptions, diagrams and user-facing text must be in English.
+
+## Photo-derived map update
+
+The user supplied an oblique course photo and identified six red markings as stop lines. The gray region was described as approximately 4.5-5 m; its aspect ratio is unconfirmed. `configs/map.photo-v1.json` provisionally uses a 4.75 m square and remains unmeasured. `scripts/build_photo_map.py` generates shared browser/Unity strip geometry and an English SVG plan. The revised preview removes the 12 mm body lift, grounds the tires, checks the full CAD bounding footprint against paint and demonstrates stops before the front bumper reaches S2/S6. This is a partial scripted pass, not full-lap or autonomous-driving validation. The updated Unity importer source handles curved tape strips but is still uncompiled. See `docs/PHOTO_MAP.md`.

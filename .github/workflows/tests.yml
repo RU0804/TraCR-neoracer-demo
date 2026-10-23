@@ -15,3 +15,4 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install -e '.[test,camera]'
       - run: python -m pytest -q
+      - run: python scripts/check_photo_map.py

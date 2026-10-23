@@ -7,13 +7,107 @@
   "physical_footage": false,
   "live_bridge_exercised": false,
   "vehicle_dynamics_simulated": false,
-  "path": "Scripted illustrative loop",
+  "path": "Scripted outer-lane pass with stops at S2 and S6",
   "map_measured": false,
   "material_conversion": "Unity base color, metallic and smoothness mapped to WebGL; not shader-identical",
   "camera_calibrated": false,
   "fps": 6,
-  "frames": 120,
-  "duration_seconds": 20,
+  "frames": 144,
+  "duration_seconds": 24,
+  "map": "configs/map.photo-v1.geometry.json",
+  "geometry_checks": {
+    "duration": 24,
+    "routeLength": 4.526440268894614,
+    "stages": [
+      {
+        "start": 2,
+        "end": 5.488031227950247,
+        "from": 0,
+        "to": 0.9758109297825863,
+        "ramp": 0.7,
+        "cruise": 2.0880312279502466,
+        "peak": 0.35,
+        "id": "S2",
+        "kind": "drive"
+      },
+      {
+        "start": 5.488031227950247,
+        "end": 7.488031227950247,
+        "s": 0.9758109297825863,
+        "id": "S2",
+        "kind": "stop"
+      },
+      {
+        "start": 7.488031227950247,
+        "end": 16.120192290642525,
+        "from": 0.9758109297825863,
+        "to": 3.7520673017248836,
+        "ramp": 0.7,
+        "cruise": 7.2321610626922785,
+        "peak": 0.35,
+        "id": "S6",
+        "kind": "drive"
+      },
+      {
+        "start": 16.120192290642525,
+        "end": 18.120192290642525,
+        "s": 3.7520673017248836,
+        "id": "S6",
+        "kind": "stop"
+      },
+      {
+        "start": 18.120192290642525,
+        "end": 21.03268648255604,
+        "from": 3.7520673017248836,
+        "to": 4.526440268894614,
+        "ramp": 0.7,
+        "cruise": 1.512494191913516,
+        "peak": 0.35,
+        "id": "END",
+        "kind": "drive"
+      }
+    ],
+    "minimum_paint_clearance_m": 0.018486250071109874,
+    "footprint_samples": 454,
+    "sample_spacing_m": 0.009992141873939545,
+    "worst_clearance_route_distance_m": 1.888514814174574,
+    "full_lap_validated": false,
+    "stops": [
+      {
+        "id": "S2",
+        "route_distance_m": 0.9758109297825863,
+        "front_bumper_clearance_m": 0.06617630152192908,
+        "dwell_seconds": 2
+      },
+      {
+        "id": "S6",
+        "route_distance_m": 3.7520673017248836,
+        "front_bumper_clearance_m": 0.06999999999999981,
+        "dwell_seconds": 2
+      }
+    ],
+    "tire_contacts": [
+      {
+        "name": "Front_Tire-1",
+        "bottom": 0.0015550968751132932
+      },
+      {
+        "name": "Front_Tire-1",
+        "bottom": -6.938893903907228e-18
+      },
+      {
+        "name": "Rear_Tire-1",
+        "bottom": 0.0015550765613549927
+      },
+      {
+        "name": "Rear_Tire-1",
+        "bottom": 2.854635139382111e-10
+      }
+    ],
+    "contact_tolerance_m": 0.002,
+    "map_source_sha256": "ca16f38f5b6fc629abe0e42e2ea95b8693eb0979cd574440de3dcb084760d550",
+    "map_measured": false
+  },
   "size": [
     1200,
     845
@@ -40,21 +134,35 @@
   "alignment_method": "Rear-to-front axle geometry centers",
   "unmatched_materials": [],
   "render_stats": {
-    "triangles": 599315,
-    "calls": 891
+    "triangles": 598371,
+    "calls": 907,
+    "state": {
+      "s": 4.526440268894614,
+      "speed": 0,
+      "label": "Pass complete / Replay",
+      "id": "Complete"
+    }
   },
   "javascript_errors": [],
   "horizontal_overflow": false,
-  "slurm_job_id": "12008196",
-  "partition": "a30",
+  "slurm_job_id": "12008390",
+  "partition": "a100-40gb",
   "artifacts": {
     "neoracer-preview.png": {
-      "bytes": 146399,
-      "sha256": "bd1b53a5e18825721b2b06def9b92bccecbbde5c0d52db01f18f18c77e44c5f3"
+      "bytes": 151663,
+      "sha256": "36a86f94c5a42cfcfdce8b2735aa3bdb6abd7af19f24c3b21294db2c9a92d015"
     },
     "neoracer-preview.gif": {
-      "bytes": 3191136,
-      "sha256": "698e3d3538be057c7a7b5bd8c9998815adede6bd5019ac864821fc3c6c954ba0"
+      "bytes": 3096312,
+      "sha256": "f5ef566cae413998a36a64ed124fe0697c1ea30f08438494231effa8de006b84"
+    },
+    "field-map-overview.png": {
+      "bytes": 55450,
+      "sha256": "304dfb7a1477ef043a6ee60db8be94cfc5f41a58922115cf04e61a0939f640a4"
+    },
+    "field-map-plan.svg": {
+      "bytes": 34736,
+      "sha256": "e9e375f1273b148cc24b6ea09427f571b3112ffa6d8ac956dec377bc00610cda"
     }
   }
 }

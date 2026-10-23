@@ -2,7 +2,9 @@
 
 Roads assembled from foam board and tape can be reproduced in a custom Unity scene. AutoDRIVE supplies the vehicle and simulation framework. This project does not automatically reconstruct the full venue from onboard video.
 
-Only the approximate 5 m x 5 m footprint is currently known; no measured road plan has been supplied. `configs/map.example.json` is an illustrative rectangular loop, **not a reconstruction of the physical map**. `TraCRMapBuilder.cs` currently imports straight road segments as rectangular surface blocks. It does not automatically create smooth curves, markings, foam-board boundaries, textures or detailed collision geometry, and it has not been compiled or run in Unity.
+A user-supplied oblique photo now provides the road topology: a main loop, central island, small upper-right island and six red stop lines. The reported gray footprint is approximately 4.5-5 m, with its exact aspect ratio unconfirmed. The [photo-derived draft](PHOTO_MAP.md) provisionally uses 4.75 m x 4.75 m and remains `measured=false`.
+
+`configs/map.photo-v1.json` is the editable draft. Its generated `.geometry.json` shares the same sampled tape strips between WebGL and the updated Unity importer. Curved white edges, dashed yellow dividers and red stop lines are included. The separate `configs/map.example.json` remains an illustrative rectangular loop. The C# importer has not been compiled or run in Unity; it does not add autonomous stopping logic or detailed obstacle/sensor models.
 
 ## Start with accurate dimensions and simple geometry
 
@@ -21,7 +23,7 @@ Following measured poses is state visualization. A vehicle that appears to follo
 
 ## Two construction approaches
 
-**Build from measurements:** derive road coordinates from an overhead image or sketch, prepare a dimensioned plan, and create road surfaces and simple structures in Unity. Geometry changes and map versions remain explicit, making this suitable for continued development. The existing JSON importer is a starting point; complex curves require additional work.
+**Build from measurements:** derive road coordinates from an overhead image or sketch, prepare a dimensioned plan, and create road surfaces and simple structures in Unity. Geometry changes and map versions remain explicit, making this suitable for continued development. The importer now accepts sampled curved paint strips from the photo draft, while accurate geometry still requires measurements.
 
 **Use a rectified overhead image as a ground texture:** for a mostly flat layout, take a clear overhead image without a vehicle obscuring the roads, correct lens distortion and perspective, and scale it using measured control points. Place it on a ground surface of the correct dimensions, then add simple models for raised boundaries. This retains the appearance of tape markings, but the image has no height, collision geometry or lidar surfaces. The repository does not yet implement this texture-import workflow. An oblique phone photo is not automatically an accurate map, and photographs do not replace localization or clock synchronization.
 
@@ -35,7 +37,7 @@ For the first demonstration, prefer a simple scene built to measured dimensions.
 4. Positions and heights of raised boards, ramps or obstacles. Identify whether each marking denotes a road edge or lane centerline.
 5. For matching forward-facing views, provide camera height above the ground, position relative to the vehicle reference point, pitch, and available intrinsics or field of view.
 
-Create a separate configuration for the actual layout when photographs and dimensions are available. Keep `measured=false` until the survey has been checked. Changing that flag alone does not turn `map.example.json` into a measured map.
+Refine the existing photo draft into a separate surveyed configuration when dimensions are available. Keep `measured=false` until the survey has been checked. Changing that flag alone does not turn `map.example.json` into a measured map.
 
 ## Use one coordinate system for the map and vehicle
 

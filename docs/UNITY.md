@@ -10,7 +10,7 @@ A separate [NeoRacer geometry preview](NEORACER_PREVIEW.md) uses the official FB
 2. Open `upstream/AutoDRIVE-Simulator` with Unity **2022.3.52f1**, as required by the pinned source. If Git LFS assets are still pointers, run `git lfs pull` in that repository and verify the assets. Test the graphics API and driver on the actual demonstration laptop.
 3. Copy `unity/TraCRPoseFollower.cs` into the upstream project's `Assets/TraCR/` directory and `unity/TraCRMapBuilder.cs` into `Assets/TraCR/Editor/`.
 4. Select a NeoRacer scene, such as `NeoRacer - AuE-X930`, or place `Assets/Prefabs/NeoRacer/NeoRacer.prefab` in a separate scene copy. The older Nigel 0.2.0 binary is not a NeoRacer build.
-5. Save a separate scene copy and preserve the upstream scene. Import surveyed roads using `TraCR / Import measured road layout JSON`. `configs/map.example.json` is **ILLUSTRATIVE ONLY** and must not be treated as the measured course. The importer adds only ground and road blocks; markings, foam-board boundaries, signs and curve details still require modeling from measurements.
+5. Save a separate scene copy and preserve the upstream scene. Import surveyed roads using `TraCR / Import road layout JSON`. `configs/map.example.json` is **ILLUSTRATIVE ONLY** and must not be treated as the measured course. For the supplied photo layout, run `python scripts/build_photo_map.py` and select `configs/map.photo-v1.geometry.json`. The importer adds flat ground and the same white, dashed yellow and red paint strips used in the WebGL preview. This includes sampled curves; measurements and Unity verification remain pending. Tape is visual geometry, not a physical wall or a stop controller. See [photo map details](PHOTO_MAP.md).
 
 ## Follower configuration
 
