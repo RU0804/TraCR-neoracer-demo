@@ -42,7 +42,6 @@ window.previewReady = (async () => {
     set('#skew', 'NeoRacer V1');
     set('#latency', 'Scripted path');
     set('#position', 'Sketch draft');
-    set('#pairs', 'S2, then S6');
     set('footer > span:first-child', 'TraCR / NeoRacer geometry from AutoDRIVE / WebGL visualization');
     set('footer > span:last-child', 'Preview only / No live vehicle connected');
 
@@ -113,6 +112,8 @@ window.previewReady = (async () => {
     for (const line of map.strips) strip(line.points.map(point), line.width_m, colors[line.kind], .0007);
     // Use the shared sampled polyline without a second smoothing pass.
     const route = map.preview_route, routePoints = route.points.map(point), lengths = [0];
+    set('#pairs', route.stop_ids.join(', then '));
+    if (route.traffic_side !== 'right') throw new Error('The preview requires right-hand traffic.');
     for (let i=1; i<routePoints.length; i++) lengths.push(lengths[i-1]+routePoints[i].distanceTo(routePoints[i-1]));
     const routeLength = lengths.at(-1);
     function poseAt(s) {
@@ -195,9 +196,24 @@ window.previewReady = (async () => {
         }
         throw new Error(`Route does not cross ${id}`);
     });
-    // The body reference is its geometric center. Stop the front bumper before the tape.
-    for (const stop of stops) stop.s=stop.crossing-size.z/2-stop.line.width_m/2-route.bumper_gap_m;
+    // Solve the approach using the rotated body footprint, including curved approaches.
+    for (const stop of stops) {
+        let low=Math.max(0,stop.crossing-size.z-stop.line.width_m-route.bumper_gap_m), high=stop.crossing;
+        if(clearance(footprint(low),stop.line)<route.bumper_gap_m) {
+            throw new Error(`Insufficient approach distance before ${stop.id}.`);
+        }
+        for(let i=0;i<40;i++) {
+            const middle=(low+high)/2;
+            if(clearance(footprint(middle),stop.line)>=route.bumper_gap_m) low=middle;
+            else high=middle;
+        }
+        stop.s=low;
+    }
     stops.sort((a,b)=>a.s-b.s);
+    if (stops.some((stop,i)=>!Number.isFinite(stop.s) || stop.s<=0 || stop.s>=routeLength ||
+        stop.id!==route.stop_ids[i] || (i>0 && stop.s<=stops[i-1].s))) {
+        throw new Error('Stop order or approach distance is invalid; leave space for the front bumper.');
+    }
     const stages=[]; let clock=2, last=0;
     for (const target of [...stops,{id:'END',s:routeLength}]) {
         const distance=target.s-last, a=route.acceleration_mps2, peak=Math.min(route.max_speed_mps,Math.sqrt(distance*a));
@@ -213,7 +229,7 @@ window.previewReady = (async () => {
     }
     const duration=Math.ceil(clock+2);
     function stateAt(time) {
-        if (time<2) return {s:0,speed:0,label:'Course overview',id:'S2'};
+        if (time<2) return {s:0,speed:0,label:'Course overview',id:route.stop_ids[0]};
         const stage=stages.find(stage=>time>=stage.start && time<stage.end);
         if (!stage) return {s:routeLength,speed:0,label:'Pass complete / Replay',id:'Complete'};
         if (stage.kind==='stop') return {s:stage.s,speed:0,label:`Stopped at ${stage.id}`,id:stage.id};
@@ -228,9 +244,12 @@ window.previewReady = (async () => {
         const {p,tangent}=poseAt(s), right=new THREE.Vector3(tangent.z,0,-tangent.x);
         return [[-1,-1],[1,-1],[1,1],[-1,1]].map(([x,z])=>p.clone().addScaledVector(right,x*size.x/2).addScaledVector(tangent,z*size.z/2));
     }
-    function pointSegment(p,a,b) {
+    function nearestPoint(p,a,b) {
         const delta=b.clone().sub(a), t=THREE.MathUtils.clamp(p.clone().sub(a).dot(delta)/delta.lengthSq(),0,1);
-        return p.distanceTo(a.clone().addScaledVector(delta,t));
+        return a.clone().addScaledVector(delta,t);
+    }
+    function pointSegment(p,a,b) {
+        return p.distanceTo(nearestPoint(p,a,b));
     }
     function inside(p,polygon) {
         let value=false;
@@ -256,11 +275,21 @@ window.previewReady = (async () => {
     const boundaries=map.markings.filter(line=>line.kind!=='stop');
     const outer=map.markings.find(line=>line.id==='outer-edge').points.map(point);
     const divider=map.markings.find(line=>line.id==='main-divider').points.map(point);
-    let minClearance=Infinity, worstDistance=0;
+    let minClearance=Infinity, worstDistance=0, minDividerLeftOffset=Infinity;
     const samples=Math.ceil(routeLength/.01);
     for(let i=0;i<=samples;i++) {
         const s=routeLength*i/samples, corners=footprint(s);
         if(!corners.every(p=>inside(p,outer)&&!inside(p,divider))) throw new Error(`Vehicle leaves the outer lane at ${s.toFixed(3)} m.`);
+        // With map y mapped to world +Z, the driver's left is (tangent.z, 0, -tangent.x).
+        const {p,tangent}=poseAt(s), left=new THREE.Vector3(tangent.z,0,-tangent.x);
+        let nearest, distance=Infinity;
+        for(let j=1;j<divider.length;j++) {
+            const candidate=nearestPoint(p,divider[j-1],divider[j]), d=p.distanceToSquared(candidate);
+            if(d<distance) {distance=d;nearest=candidate;}
+        }
+        const leftOffset=nearest.sub(p).dot(left);
+        if(leftOffset<=0) throw new Error(`Divider is not on the driver's left at ${s.toFixed(3)} m.`);
+        minDividerLeftOffset=Math.min(minDividerLeftOffset,leftOffset);
         for(const line of boundaries) {
             const value=clearance(corners,line);
             if(value<minClearance) {minClearance=value;worstDistance=s;}
@@ -268,8 +297,9 @@ window.previewReady = (async () => {
     }
     if(minClearance<.015) throw new Error(`Insufficient paint clearance: ${minClearance} m at ${worstDistance} m.`);
     const stopChecks=stops.map(stop=>({id:stop.id,route_distance_m:stop.s,front_bumper_clearance_m:clearance(footprint(stop.s),stop.line),dwell_seconds:route.stop_dwell_s}));
-    if(stopChecks.some(stop=>stop.front_bumper_clearance_m<.055)) throw new Error('Front bumper is too close to a stop line.');
+    if(stopChecks.some(stop=>stop.front_bumper_clearance_m<route.bumper_gap_m-1e-6)) throw new Error('Front bumper is too close to a stop line.');
     window.previewInfo = {duration,routeLength,stages,minimum_paint_clearance_m:minClearance,footprint_samples:samples+1,
+        route_label:route.label,traffic_side:route.traffic_side,minimum_divider_left_offset_m:minDividerLeftOffset,required_bumper_gap_m:route.bumper_gap_m,
         sample_spacing_m:routeLength/samples,worst_clearance_route_distance_m:worstDistance,full_lap_validated:false,stops:stopChecks,tire_contacts:tireContacts,
         contact_tolerance_m:.002,tire_contact_method:'Transformed tire mesh vertices',map_source_sha256:map.source_sha256,map_measured:map.measured,map_revision:map.revision,stop_line_status:map.stop_line_status};
     window.modelInfo = {

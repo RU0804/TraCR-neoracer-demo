@@ -65,6 +65,7 @@ def main():
         vertices = points[:-1] if closed else points
         return 'M '+' L '.join(f"{70+p['x']*scale:.2f},{130+p['y']*scale:.2f}" for p in vertices)+(' Z' if closed else '')
     svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="880" viewBox="0 0 1100 880">',
+         '<defs><marker id="route-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#65e0c7"/></marker></defs>',
          '<rect width="1100" height="880" fill="#10191f"/>',
          '<g font-family="Arial,sans-serif" fill="#eaf0f2">',
          '<text x="56" y="54" font-size="29" font-weight="bold">TraCR / Foam-mat course</text>',
@@ -75,11 +76,12 @@ def main():
         svg += [f'<path d="M {q} 130 V {130+mat_height:g} M 70 {r} H {70+mat_width:g}" stroke="#444647" stroke-width="1"/>']
     for line in geometry['strips']:
         svg += [f'<path d="{path(line["points"])}" fill="none" stroke="{colors[line["kind"]]}" stroke-width="{line["width_m"]*scale:.2f}" stroke-linejoin="miter" stroke-miterlimit="2"/>']
-    svg += [f'<path d="{path(geometry["preview_route"]["points"])}" fill="none" stroke="#65e0c7" stroke-width="2" stroke-dasharray="5 6"/>']
+    svg += [f'<path d="{path(geometry["preview_route"]["points"])}" fill="none" stroke="#65e0c7" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#route-arrow)"/>']
     svg.append(stop_labels(geometry, 70, 130, scale))
     svg += [f'<path d="M 70 815 V 830 H {70+mat_width:g} V 815" fill="none" stroke="#91a8b5"/>',
             f'<text x="{70+mat_width/2:g}" y="855" text-anchor="middle" font-size="17">{draft["width_m"]:g} m provisional</text>']
-    notes=[('THE SKETCH',144),('White / Road edges',184),('Yellow / Lane divider',218),('Red / Provisional stops',252),('THE PREVIEW',322),('Lower + left outer lane',362),('Stop at S2, then S6',396),('2 s dwell at each line',430),('Front bumper stays back',464),('Cyan / Scripted route',498),('SCOPE',568),('Approximate geometry',608),('No full-lap validation',642),('No physical car control',676),('No executed Unity scene',710)]
+    stop_order = ', then '.join(draft['preview_route']['stop_ids'])
+    notes=[('THE SKETCH',144),('White / Road edges',184),('Yellow / Lane divider',218),('Red / Provisional stops',252),('THE PREVIEW',322),('Right-hand outer lane',362),(f'Stop at {stop_order}',396),('2 s dwell at each line',430),('Front bumper stays back',464),('Cyan / Travel direction',498),('SCOPE',568),('Approximate geometry',608),('No full-lap validation',642),('No physical car control',676),('No executed Unity scene',710)]
     for text,y in notes:
         title=text in ('THE SKETCH','THE PREVIEW','SCOPE')
         svg += [f'<text x="770" y="{y}" font-size="{14 if title else 18}" fill="{"#65e0c7" if title else "#d3dee5"}">{text}</text>']

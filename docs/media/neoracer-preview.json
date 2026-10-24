@@ -7,82 +7,86 @@
   "physical_footage": false,
   "live_bridge_exercised": false,
   "vehicle_dynamics_simulated": false,
-  "path": "Scripted outer-lane pass with stops at S2 and S6",
+  "path": "Counterclockwise left and lower outer-lane pass; right-hand traffic; S6 then S2",
   "map_measured": false,
   "material_conversion": "Unity base color, metallic and smoothness mapped to WebGL; not shader-identical",
   "camera_calibrated": false,
   "fps": 6,
-  "frames": 144,
-  "duration_seconds": 24,
+  "frames": 150,
+  "duration_seconds": 25,
   "map": "configs/map.photo-v1.geometry.json",
   "geometry_checks": {
-    "duration": 24,
-    "routeLength": 4.791800578818279,
+    "duration": 25,
+    "routeLength": 5.091800578818271,
     "stages": [
       {
         "start": 2,
-        "end": 7.344648665229344,
+        "end": 3.343508936568086,
         "from": 0,
-        "to": 1.6256270328302702,
+        "to": 0.2256270328297887,
+        "ramp": 0.6717544682840431,
+        "cruise": -8.263607292863681e-17,
+        "peak": 0.33587723414202153,
+        "id": "S6",
+        "kind": "drive"
+      },
+      {
+        "start": 3.343508936568086,
+        "end": 5.343508936568086,
+        "s": 0.2256270328297887,
+        "id": "S6",
+        "kind": "stop"
+      },
+      {
+        "start": 5.343508936568086,
+        "end": 13.415100661711541,
+        "from": 0.2256270328297887,
+        "to": 2.805684136629998,
         "ramp": 0.7,
-        "cruise": 3.944648665229344,
+        "cruise": 6.671591725143456,
         "peak": 0.35,
         "id": "S2",
         "kind": "drive"
       },
       {
-        "start": 7.344648665229344,
-        "end": 9.344648665229343,
-        "s": 1.6256270328302702,
+        "start": 13.415100661711541,
+        "end": 15.415100661711541,
+        "s": 2.805684136629998,
         "id": "S2",
         "kind": "stop"
       },
       {
-        "start": 9.344648665229343,
-        "end": 17.449793176138723,
-        "from": 1.6256270328302702,
-        "to": 4.217427611648553,
+        "start": 15.415100661711541,
+        "end": 22.646861925106606,
+        "from": 2.805684136629998,
+        "to": 5.091800578818271,
         "ramp": 0.7,
-        "cruise": 6.7051445109093795,
-        "peak": 0.35,
-        "id": "S6",
-        "kind": "drive"
-      },
-      {
-        "start": 17.449793176138723,
-        "end": 19.449793176138723,
-        "s": 4.217427611648553,
-        "id": "S6",
-        "kind": "stop"
-      },
-      {
-        "start": 19.449793176138723,
-        "end": 21.790858796623652,
-        "from": 4.217427611648553,
-        "to": 4.791800578818279,
-        "ramp": 0.7,
-        "cruise": 0.9410656204849314,
+        "cruise": 5.831761263395066,
         "peak": 0.35,
         "id": "END",
         "kind": "drive"
       }
     ],
-    "minimum_paint_clearance_m": 0.026668873758657126,
-    "footprint_samples": 481,
-    "sample_spacing_m": 0.00998291787253808,
-    "worst_clearance_route_distance_m": 2.455797796644368,
+    "minimum_paint_clearance_m": 0.026732357659378675,
+    "footprint_samples": 511,
+    "route_label": "Counterclockwise left and lower outer-lane pass; right-hand traffic; S6 then S2",
+    "traffic_side": "right",
+    "minimum_divider_left_offset_m": 0.18999999999405062,
+    "required_bumper_gap_m": 0.07,
+    "sample_spacing_m": 0.009983922703565237,
+    "worst_clearance_route_distance_m": 2.0467041542308735,
     "full_lap_validated": false,
     "stops": [
       {
-        "id": "S2",
-        "route_distance_m": 1.6256270328302702,
-        "front_bumper_clearance_m": 0.07000000000000026,
+        "id": "S6",
+        "route_distance_m": 0.2256270328297887,
+        "front_bumper_clearance_m": 0.0700000000004814,
         "dwell_seconds": 2
       },
       {
-        "id": "S6",
-        "route_distance_m": 4.217427611648553,
-        "front_bumper_clearance_m": 0.07000000000000334,
+        "id": "S2",
+        "route_distance_m": 2.805684136629998,
+        "front_bumper_clearance_m": 0.07000000000004655,
         "dwell_seconds": 2
       }
     ],
@@ -106,9 +110,9 @@
     ],
     "contact_tolerance_m": 0.002,
     "tire_contact_method": "Transformed tire mesh vertices",
-    "map_source_sha256": "25e575a96cf98c73b0c7741460cc7e22cf6bbb48c4e40faf3eb02300f5b2b572",
+    "map_source_sha256": "56ea03e41b180e3629633127e6f941bd87b40e5214ff012a4690f5cf6d3e796b",
     "map_measured": false,
-    "map_revision": 8,
+    "map_revision": 9,
     "stop_line_status": "Stop IDs and alignment axes retain the user-directed placements. Revision 8 attaches S1, S3, S4 and S5 to the confirmed square island corners; S2 and S6 are unchanged. Absolute scale and physical stop-line positions remain unmeasured."
   },
   "size": [
@@ -137,10 +141,10 @@
   "alignment_method": "Rear-to-front axle geometry centers",
   "unmatched_materials": [],
   "render_stats": {
-    "triangles": 605591,
-    "calls": 914,
+    "triangles": 605013,
+    "calls": 885,
     "state": {
-      "s": 4.791800578818279,
+      "s": 5.091800578818271,
       "speed": 0,
       "label": "Pass complete / Replay",
       "id": "Complete"
@@ -148,24 +152,24 @@
   },
   "javascript_errors": [],
   "horizontal_overflow": false,
-  "slurm_job_id": "12012087",
-  "partition": "a30",
+  "slurm_job_id": "12012194",
+  "partition": "a100-40gb",
   "artifacts": {
     "neoracer-preview.png": {
-      "bytes": 175387,
-      "sha256": "075510016986036fb8abd38f5f6627c1f80033340c515dcb68aa821dd23b7db1"
+      "bytes": 150258,
+      "sha256": "25b5b4b71ff0ed884369aa79c18ff5b5008cd14ee9a9bce84ff2a358491d4624"
     },
     "neoracer-preview.gif": {
-      "bytes": 3710240,
-      "sha256": "b190d6107de80bd1e459677dbc55151eec3c29da7df2f3e29d97fae9f0057baf"
+      "bytes": 2338230,
+      "sha256": "a216af20ef31adccec40cc71c960d402302a0ff35bdc0fe89387d1f868109ee5"
     },
     "field-map-overview.png": {
       "bytes": 46332,
       "sha256": "d165c66e2102aece279440e735c0d4d22573161e25e6fc8d8138024cd3a45167"
     },
     "field-map-plan.svg": {
-      "bytes": 118830,
-      "sha256": "077fc70c0f4f7e158425c198929c964fd3a305d6c9e1293f7c1818e2f8cdc9ac"
+      "bytes": 119634,
+      "sha256": "007636e6e18d00ae3a045928543770c1ce1c5e063e16b1949d7336e4abedac52"
     }
   }
 }

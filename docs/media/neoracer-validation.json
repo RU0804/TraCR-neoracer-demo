@@ -1,87 +1,91 @@
 {
   "stopped_camera_frames": {
-    "S2": 12,
-    "S6": 12
+    "S6": 12,
+    "S2": 12
   },
   "maximum_stopped_image_mae": {
-    "S2": [
-      0.0,
-      0.00015470834319993685
-    ],
     "S6": [
-      0.0,
-      5.998894940405715e-05
+      6.879299562226391e-05,
+      9.471939379587971e-06
+    ],
+    "S2": [
+      1.876172607879925e-05,
+      4.420238377141053e-05
     ]
   },
   "stopped_image_mae_limit": 0.001,
   "geometry_checks": {
-    "duration": 24,
-    "routeLength": 4.791800578818279,
+    "duration": 25,
+    "routeLength": 5.091800578818271,
     "stages": [
       {
         "start": 2,
-        "end": 7.344648665229344,
+        "end": 3.343508936568086,
         "from": 0,
-        "to": 1.6256270328302702,
+        "to": 0.2256270328297887,
+        "ramp": 0.6717544682840431,
+        "cruise": -8.263607292863681e-17,
+        "peak": 0.33587723414202153,
+        "id": "S6",
+        "kind": "drive"
+      },
+      {
+        "start": 3.343508936568086,
+        "end": 5.343508936568086,
+        "s": 0.2256270328297887,
+        "id": "S6",
+        "kind": "stop"
+      },
+      {
+        "start": 5.343508936568086,
+        "end": 13.415100661711541,
+        "from": 0.2256270328297887,
+        "to": 2.805684136629998,
         "ramp": 0.7,
-        "cruise": 3.944648665229344,
+        "cruise": 6.671591725143456,
         "peak": 0.35,
         "id": "S2",
         "kind": "drive"
       },
       {
-        "start": 7.344648665229344,
-        "end": 9.344648665229343,
-        "s": 1.6256270328302702,
+        "start": 13.415100661711541,
+        "end": 15.415100661711541,
+        "s": 2.805684136629998,
         "id": "S2",
         "kind": "stop"
       },
       {
-        "start": 9.344648665229343,
-        "end": 17.449793176138723,
-        "from": 1.6256270328302702,
-        "to": 4.217427611648553,
+        "start": 15.415100661711541,
+        "end": 22.646861925106606,
+        "from": 2.805684136629998,
+        "to": 5.091800578818271,
         "ramp": 0.7,
-        "cruise": 6.7051445109093795,
-        "peak": 0.35,
-        "id": "S6",
-        "kind": "drive"
-      },
-      {
-        "start": 17.449793176138723,
-        "end": 19.449793176138723,
-        "s": 4.217427611648553,
-        "id": "S6",
-        "kind": "stop"
-      },
-      {
-        "start": 19.449793176138723,
-        "end": 21.790858796623652,
-        "from": 4.217427611648553,
-        "to": 4.791800578818279,
-        "ramp": 0.7,
-        "cruise": 0.9410656204849314,
+        "cruise": 5.831761263395066,
         "peak": 0.35,
         "id": "END",
         "kind": "drive"
       }
     ],
-    "minimum_paint_clearance_m": 0.026668873758657126,
-    "footprint_samples": 481,
-    "sample_spacing_m": 0.00998291787253808,
-    "worst_clearance_route_distance_m": 2.455797796644368,
+    "minimum_paint_clearance_m": 0.026732357659378675,
+    "footprint_samples": 511,
+    "route_label": "Counterclockwise left and lower outer-lane pass; right-hand traffic; S6 then S2",
+    "traffic_side": "right",
+    "minimum_divider_left_offset_m": 0.18999999999405062,
+    "required_bumper_gap_m": 0.07,
+    "sample_spacing_m": 0.009983922703565237,
+    "worst_clearance_route_distance_m": 2.0467041542308735,
     "full_lap_validated": false,
     "stops": [
       {
-        "id": "S2",
-        "route_distance_m": 1.6256270328302702,
-        "front_bumper_clearance_m": 0.07000000000000026,
+        "id": "S6",
+        "route_distance_m": 0.2256270328297887,
+        "front_bumper_clearance_m": 0.0700000000004814,
         "dwell_seconds": 2
       },
       {
-        "id": "S6",
-        "route_distance_m": 4.217427611648553,
-        "front_bumper_clearance_m": 0.07000000000000334,
+        "id": "S2",
+        "route_distance_m": 2.805684136629998,
+        "front_bumper_clearance_m": 0.07000000000004655,
         "dwell_seconds": 2
       }
     ],
@@ -105,16 +109,16 @@
     ],
     "contact_tolerance_m": 0.002,
     "tire_contact_method": "Transformed tire mesh vertices",
-    "map_source_sha256": "25e575a96cf98c73b0c7741460cc7e22cf6bbb48c4e40faf3eb02300f5b2b572",
+    "map_source_sha256": "56ea03e41b180e3629633127e6f941bd87b40e5214ff012a4690f5cf6d3e796b",
     "map_measured": false,
-    "map_revision": 8,
+    "map_revision": 9,
     "stop_line_status": "Stop IDs and alignment axes retain the user-directed placements. Revision 8 attaches S1, S3, S4 and S5 to the confirmed square island corners; S2 and S6 are unchanged. Absolute scale and physical stop-line positions remain unmeasured."
   },
-  "decoded_frames": 144,
-  "duration_ms": 24000,
+  "decoded_frames": 150,
+  "duration_ms": 25000,
   "distinct_camera_regions": [
-    100,
-    103
+    107,
+    108
   ],
   "loop": "infinite",
   "artifact_checksums_match": true,
@@ -122,7 +126,7 @@
     1200,
     845
   ],
-  "slurm_job_id": "12012087",
-  "partition": "a30",
+  "slurm_job_id": "12012194",
+  "partition": "a100-40gb",
   "scope": "Geometry preview media only; no physical hardware, live bridge or Unity execution."
 }

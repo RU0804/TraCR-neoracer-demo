@@ -292,24 +292,25 @@
     }
   ],
   "preview_route": {
-    "label": "Clockwise lower and left outer-lane pass; S2 then S6",
+    "label": "Counterclockwise left and lower outer-lane pass; right-hand traffic; S6 then S2",
+    "traffic_side": "right",
     "points": [
+      {
+        "x": 0.46,
+        "y": 1.75
+      },
+      {
+        "x": 0.46,
+        "y": 4.24
+      },
       {
         "x": 3.35,
         "y": 4.24
-      },
-      {
-        "x": 0.46,
-        "y": 4.24
-      },
-      {
-        "x": 0.46,
-        "y": 2.05
       }
     ],
     "stop_ids": [
-      "S2",
-      "S6"
+      "S6",
+      "S2"
     ],
     "max_speed_mps": 0.35,
     "acceleration_mps2": 0.5,
@@ -323,7 +324,7 @@
     ],
     "closed": false
   },
-  "revision": 8,
+  "revision": 9,
   "stop_line_status": "Stop IDs and alignment axes retain the user-directed placements. Revision 8 attaches S1, S3, S4 and S5 to the confirmed square island corners; S2 and S6 are unchanged. Absolute scale and physical stop-line positions remain unmeasured.",
   "curve_model": "Tangent-intersection vertices with per-vertex corner_cut_m: zero keeps a sharp vertex; positive cuts join exact lines with quintic Bezier fillets and zero endpoint curvature. Coordinates and scale remain provisional."
 }

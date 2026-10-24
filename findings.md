@@ -85,3 +85,9 @@ The corrected vertex-based browser check in A30/standby job 12011021 confirms ac
 - User clarified that the four corners must be square, not larger round bends. Set central-island cuts 5/7 and small-island cuts 0/2 to zero. All other vertices/cuts and stop alignment axes are retained.
 - Updated island endpoints: S1 y=3.65, S3 x=1.40, S4 x=1.05, S5 y=2.30. SVG/WebGL/Unity use miter joins, including the square closed seam at the small island upper-left.
 - Remote main remains d35250e before publication; the connected GitHub app has write permission. The publish operation will use a non-forced ref update against the observed parent.
+
+## Revision 9 / Right-hand traffic
+- The earlier lower-to-left route put the divider on the driver's right. The reversed left-to-lower route keeps it on the left; stop order is S6 then S2.
+- Reversing the exact endpoints leaves only 0.25 m to S6, shorter than the required body half-length, half tape width and 0.07 m gap. Start y=1.75 extends the approach by 0.30 m without changing road geometry.
+- Browser validation now checks signed divider position throughout the route and rejects invalid stop order or nonpositive approach distance.
+- S2 is approached while the car is still slightly rotated in the lower-left bend. The former half-length subtraction leaves only 59.48 mm clearance; binary search on the rotated full-body footprint preserves at least the configured 70 mm gap before the tape.

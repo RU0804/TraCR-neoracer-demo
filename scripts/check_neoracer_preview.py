@@ -59,9 +59,13 @@ with Image.open(media / 'neoracer-preview.gif') as gif:
     assert checks['tire_contact_method'] == 'Transformed tire mesh vertices'
     assert len(checks['tire_contacts']) == 4
     assert max(abs(t['bottom']) for t in checks['tire_contacts']) <= .002
-    assert [s['id'] for s in checks['stops']] == ['S2','S6']
+    assert checks['traffic_side'] == 'right'
+    assert checks['minimum_divider_left_offset_m'] > 0
+    assert [s['id'] for s in checks['stops']] == ['S6','S2']
+    assert all(stage['to'] > stage['from'] and stage['end'] > stage['start']
+               for stage in checks['stages'] if stage['kind'] == 'drive')
     for stop in checks['stops']:
-        assert stop['front_bumper_clearance_m'] >= .055
+        assert stop['front_bumper_clearance_m'] >= checks['required_bumper_gap_m'] - 1e-6
         assert stop['dwell_seconds'] == 2
     assert checks['map_source_sha256'] == hashlib.sha256((root/'configs/map.photo-v1.json').read_bytes()).hexdigest()
     # SwiftShader/antialiasing can vary a few channel values by 1; GIF quantization can amplify them.

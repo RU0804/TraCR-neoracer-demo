@@ -2,13 +2,13 @@
 
 ![Official NeoRacer model in the dual-view layout](media/neoracer-preview.png)
 
-[Play the 24-second GIF](media/neoracer-preview.gif) · [Generation manifest](media/neoracer-preview.json) · [Media checks](media/neoracer-validation.json)
+[Play the 25-second GIF](media/neoracer-preview.gif) · [Generation manifest](media/neoracer-preview.json) · [Media checks](media/neoracer-validation.json)
 
 This preview uses the **official NeoRacer 3D geometry from AutoDRIVE**, replacing the visually different Nigel vehicle in the main README illustration. Both the virtual front camera and chase camera view the same animated NeoRacer and sketch-guided foam-mat road draft.
 
 The renderer is Three.js in Chromium WebGL. **This is not an executed AutoDRIVE/Unity scene, a vehicle dynamics simulation, physical footage or a live synchronization test.** The route is scripted, and camera placement is illustrative. The [sketch-guided map](PHOTO_MAP.md) approximates the supplied layout at a provisional 4.75 m square scale; it is not a measured reconstruction. The frontend's normal live and synthetic self-test modes are unchanged.
 
-The browser and updated Unity map importer consume the same sampled paint strips. The browser rendering has been exercised; the C# importer has not been compiled or run in Unity. The animation covers a partial clockwise outer-lane pass, with two-second stops at S2 and S6. It does not establish that every lane or turn accommodates the vehicle.
+The browser and updated Unity map importer consume the same sampled paint strips. The browser rendering has been exercised; the C# importer has not been compiled or run in Unity. The animation covers a partial counterclockwise outer-lane pass for right-hand traffic, down the left side and then right along the bottom, with two-second stops at S6 and S2. It does not establish that every lane or turn accommodates the vehicle.
 
 ## Model source and conversion
 

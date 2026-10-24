@@ -9,7 +9,7 @@ This repository continues the work described in `/scratch/gilbreth/zjcai/autodri
 - Unity CoSim follower/render acknowledgement C# source and a road-layout JSON importer.
 - Calibration tools, pinned upstream versions, setup and field documentation, automated tests and GitHub CI configuration.
 - Historical GIF and still-image layout preview derived from the earlier Nigel / Tiny Town recording, retained separately. Both panels are labeled recorded simulation; see `docs/PREVIEW.md`. These media do not exercise the live bridge or validate NeoRacer integration.
-- The main README now shows the official NeoRacer model in a WebGL geometry preview, with virtual front and chase cameras on the sketch-guided draft, with a scripted outer-lane pass and stops at S2/S6. See `docs/NEORACER_PREVIEW.md`. This is not Unity execution or a dynamics/hardware test; the Nigel animation is retained separately.
+- The main README now shows the official NeoRacer model in a WebGL geometry preview, with virtual front and chase cameras on the sketch-guided draft, with a scripted right-hand outer-lane pass and stops at S6/S2. See `docs/NEORACER_PREVIEW.md`. This is not Unity execution or a dynamics/hardware test; the Nigel animation is retained separately.
 
 See `docs/VALIDATION.md` for software validation. **Physical vehicle integration, Unity C# compilation/builds, NeoRacer rendering and field time/space synchronization remain unverified.** Both self-test images are generated; their accuracy and latency must not be presented as hardware measurements.
 
@@ -33,7 +33,7 @@ All repository files, documentation, comments, configuration descriptions, diagr
 
 ## Photo-derived map update
 
-The user supplied an oblique course photo and identified six red markings as stop lines. The gray region was described as approximately 4.5-5 m; its aspect ratio is unconfirmed. `configs/map.photo-v1.json` provisionally uses a 4.75 m square and remains unmeasured. `scripts/build_photo_map.py` generates shared browser/Unity strip geometry and an English SVG plan. The revised preview removes the 12 mm body lift, grounds the tires, checks the full CAD bounding footprint against paint and demonstrates stops before the front bumper reaches S2/S6. This is a partial scripted pass, not full-lap or autonomous-driving validation. The updated Unity importer source handles curved tape strips but is still uncompiled. See `docs/PHOTO_MAP.md`.
+The user supplied an oblique course photo and identified six red markings as stop lines. The gray region was described as approximately 4.5-5 m; its aspect ratio is unconfirmed. `configs/map.photo-v1.json` provisionally uses a 4.75 m square and remains unmeasured. `scripts/build_photo_map.py` generates shared browser/Unity strip geometry and an English SVG plan. The revised preview removes the 12 mm body lift, grounds the tires, checks the full CAD bounding footprint against paint and demonstrates stops before the front bumper reaches S6/S2. This is a partial scripted pass, not full-lap or autonomous-driving validation. The updated Unity importer source handles curved tape strips but is still uncompiled. See `docs/PHOTO_MAP.md`.
 
 ## Sketch-guided revision 2
 
@@ -64,3 +64,7 @@ The user requested one final shortening of the large loop right vertical. Both u
 ## Map revision 8 / Confirmed square corners and publication
 
 The user explicitly confirmed that four physical corners are square: above S1 and S5, and the small island upper-left/lower-right. Their corner cuts are zero; all other cuts and vertices remain at revision 7. S1/S3/S4/S5 island-side endpoints attach to the new square boundaries while retaining the agreed alignment axes. The sampler supports zero cuts on interior vertices and closed seams. SVG, WebGL and Unity importer tape geometry use miter joins. The Unity source remains uncompiled in this environment. The fresh 24-second preview and map revision 8 are published on GitHub main in commit 69bb49bebadff9a03ee92c68e08f7abbacbf55ba; all 39 tests and media checks pass. The fetched remote source and validation report agree with the reviewed local snapshot.
+
+## Map revision 9 / Right-hand traffic
+
+The preview now travels down the left outer lane and right along the bottom, with S6 then S2 stops. Road contours and all six stop lines retain revision-8 coordinates. The new start is y=1.75 instead of the old endpoint y=2.05, leaving room to stop the front bumper before S6. Browser checks verify the main divider remains on the driver's left and that all stop approaches have positive distance. The stopping solver uses the rotated full-body footprint, including the angled approach to S2. A100 job 12012194 passes 39 tests and media checks: 25 seconds, 150 frames, 511 route samples, 26.73 mm minimum paint clearance and 70 mm gaps at both stops. The verified revision is ready for publication.

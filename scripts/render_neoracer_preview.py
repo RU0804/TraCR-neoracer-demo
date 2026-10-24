@@ -154,7 +154,7 @@ header{height:76px}main{padding-top:24px}.intro{gap:16px}#notice{margin:18px 0}
         "kind": "official_neoracer_geometry_preview", "autodrive_commit": lock["autodrive_commit"],
         "mesh": "Assets/Models/Vehicle/NeoRacer/NeoRacer.fbx", "renderer": "Three.js r180 / Chromium SwiftShader WebGL",
         "unity_executed": False, "physical_footage": False, "live_bridge_exercised": False,
-        "vehicle_dynamics_simulated": False, "path": "Scripted outer-lane pass with stops at S2 and S6", "map_measured": False,
+        "vehicle_dynamics_simulated": False, "path": preview["route_label"], "map_measured": False,
         "material_conversion": "Unity base color, metallic and smoothness mapped to WebGL; not shader-identical",
         "camera_calibrated": False, "fps": args.fps, "frames": duration * args.fps, "duration_seconds": duration,
         "map": "configs/map.photo-v1.geometry.json", "geometry_checks": preview,
