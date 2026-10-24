@@ -85,6 +85,6 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 ## Map revision 8 / Final corner correction and publication
 - Confirm the four named corners: complete; the user explicitly requires square corners matching the physical course.
 - Add explicit zero-cut corners, regenerate maps and a fresh preview, and run release checks: complete; 39 tests and all geometry/media checks pass in A30 job 12012087.
-- Publish the verified map/preview update to GitHub main and confirm the remote revision: pending; user explicitly authorized repository update.
+- Publish the verified map/preview update to GitHub main and confirm the remote revision: complete; release commit 69bb49bebadff9a03ee92c68e08f7abbacbf55ba is on main and the fetched source/media agree at revision 8.
 
 - Environment note: Node.js is unavailable in the login environment. The fresh browser render will parse and execute the updated JavaScript; no standalone Node syntax check is claimed.

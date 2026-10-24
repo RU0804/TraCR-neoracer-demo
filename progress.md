@@ -136,3 +136,7 @@
 - Uploaded and hash-verified 28 static/source blobs through the GitHub connector, without changing main. The tool output limit truncated an initial combined transfer; switched to bounded base64 chunks and verified every resulting Git blob SHA.
 
 - A30 job 12012087 completed on gilbreth-b000 in 8:13. All 144 frames decode over 24 seconds, source/artifact hashes match and both stops retain 12 stationary frames with passing image checks. Visually inspected the map and S2 still. The verified revision-8 snapshot is ready for GitHub main.
+
+- Published revision 8 to GitHub main in commit 69bb49bebadff9a03ee92c68e08f7abbacbf55ba using a non-forced update against the observed parent. The remote tree matches the reviewed local index exactly. Fetched the published commit, fast-forwarded the checkout and confirmed revision-8 source and media validation on origin/main.
+
+- GitHub Actions run 40053311260 succeeded for both Python 3.10 and 3.11. The map revision, media validation and source/tree hashes were verified again from the fetched public main. Recording publication completion in the repository handoff and planning notes.
