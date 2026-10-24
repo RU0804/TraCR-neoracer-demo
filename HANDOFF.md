@@ -40,3 +40,27 @@ The user supplied an oblique course photo and identified six red markings as sto
 The 2026-10-23 hand-drawn sketch supersedes the earlier inferred road contours. It has a diagonal upper section, long side straights, a broad lower straight and a lower-left return branch with a small island. The same editable JSON filename now has `revision=2`. The nominal 4.75 m square mat remains unmeasured. The sketch has no stop lines; six lines from the earlier field photo are retained near the two branch junctions as provisional placements, awaiting confirmation. The preview takes the lower/left outer lane and keeps two-second stops at S2/S6.
 
 Revision 2 also corrects a residual approximately 14.3 mm visual ground gap: tire placement and contact verification now use transformed mesh vertices, not the earlier rotated local bounding-box approximation. The old 1.56 mm contact report was a bounding-box result; actual corrected tire-bottom variation is about 0.044 mm.
+
+## Smooth map revision 3
+
+The user requested regular straight sections and smoother, continuous turns. The editable JSON now uses tangent-intersection vertices and `corner_cut_m`, compiled by `scripts/map_curves.py` into exact lines and quintic Bezier fillets with zero endpoint curvature. It retains the diagonal upper road, lower-left return branch and both islands. Stops remain provisional, with their endpoints moved onto the revised paint. The lower/left preview route uses the same curve construction. `docs/media/field-map-only.svg` shows just the map; `field-map-only-shape.svg` omits provisional stops, and `field-map-comparison.svg` compares the archived revision-2 geometry at the same scale. See `docs/PHOTO_MAP.md` for editing and reproduction instructions.
+
+## Map revision 4 / Stop placement review
+
+The user requested a longer upper-right diagonal and shorter right vertical. The shoulder vertices of all three main contours move downward by 0.35 m at the provisional scale; the diagonal straight gains about 0.225 m. Stop IDs S1-S6 and their endpoints are retained, and the standalone map and plan now show offset labels with leaders. `docs/PHOTO_MAP.md` lists all six endpoint pairs. The user intends to specify subsequent placement changes by ID. Revision-3 source and geometry are archived for the immediate before/after comparison.
+
+## Map revision 5 / Requested stop alignments
+
+The user moved S6 upward to the S5 upper-end height (y=2.30), S4 upward to the small rounded white island upper-left/top height (y=3.00), and S1 rightward into alignment with S2 (x=2.15). S4's right endpoint meets the corner top tangent at x=1.13. S1's upper endpoint intersects the sampled central-island lower corner at y=3.64640816; both stop segments meet at the main divider. IDs, road geometry, S2/S3/S5 and the geometric preview route are retained. The animated S6 stop follows its new position. Absolute dimensions remain unmeasured.
+
+## Map revision 6 / Small-island stop alignments
+
+S2 moves left to x=1.40, aligned with the small island right side. S3 moves from the right branch lane to the lane between the small island and yellow branch divider, at island-bottom height y=3.65; its white-boundary endpoint follows the bottom-right tangent at x=1.32. S5 moves left to x=1.05, aligned with the island left side, with its upper endpoint attached to the central island corner at y=2.22. S1, S4, S6, road geometry and the geometric preview route retain revision-5 coordinates. The animated S2 stop is regenerated from its new position. Revision-5 source and geometry are archived for comparison.
+
+## Map revision 7 / Shorter right vertical
+
+The user requested one final shortening of the large loop right vertical. Both upper-right shoulder vertices on the outer edge, main divider and central island move down another 0.20 m at the provisional scale. Their exact right straights change from 1.10/0.85/0.60 m to 0.90/0.65/0.40 m respectively. Corner cuts are retained, so all joins remain tangent- and curvature-continuous. All six stop coordinates, other vertices and preview-route coordinates match revision 6. Revision-6 source and geometry are archived for comparison.
+
+## Map revision 8 / Confirmed square corners and publication
+
+The user explicitly confirmed that four physical corners are square: above S1 and S5, and the small island upper-left/lower-right. Their corner cuts are zero; all other cuts and vertices remain at revision 7. S1/S3/S4/S5 island-side endpoints attach to the new square boundaries while retaining the agreed alignment axes. The sampler supports zero cuts on interior vertices and closed seams. SVG, WebGL and Unity importer tape geometry use miter joins. The Unity source remains uncompiled in this environment. The user authorized a fresh preview and update of GitHub main.

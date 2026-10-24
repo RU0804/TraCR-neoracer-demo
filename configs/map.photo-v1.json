@@ -4,7 +4,7 @@
   "measured": false,
   "width_m": 4.75,
   "height_m": 4.75,
-  "source": "Manual interpretation of the user-supplied road sketch, 2026-10-23. This supersedes the contours inferred from the earlier oblique field photograph.",
+  "source": "Sketch-guided course with the shortened right vertical. Revision 8 follows the confirmed physical layout: square corners above S1 and S5 and at the small island upper-left and lower-right. Other bends retain smooth fillets. Stop alignment axes are retained, with island-side endpoints on the square boundaries.",
   "dimension_status": "Provisional 4.75 m square retained from the earlier draft. Sketch dimensions, lane widths and stop-line locations are not surveyed.",
   "coordinates": "Meters; origin at the far-left mat corner in the plan, +x right, +y toward the near edge. Unity position = (-y, height, x).",
   "ground_color": "#4b4d4e",
@@ -17,84 +17,36 @@
       "points": [
         {
           "x": 0.25,
-          "y": 1.15
-        },
-        {
-          "x": 0.38,
-          "y": 0.65
-        },
-        {
-          "x": 0.75,
-          "y": 0.3
-        },
-        {
-          "x": 1.25,
           "y": 0.25
         },
         {
           "x": 1.75,
-          "y": 0.3
-        },
-        {
-          "x": 2.2,
-          "y": 0.65
-        },
-        {
-          "x": 2.8,
-          "y": 1.1
+          "y": 0.25
         },
         {
           "x": 3.45,
-          "y": 1.5
-        },
-        {
-          "x": 3.95,
-          "y": 1.6
-        },
-        {
-          "x": 4.3,
-          "y": 1.8
+          "y": 2.05
         },
         {
           "x": 4.45,
-          "y": 2.2
+          "y": 2.05
         },
         {
           "x": 4.45,
-          "y": 3.8
-        },
-        {
-          "x": 4.25,
-          "y": 4.25
-        },
-        {
-          "x": 3.9,
           "y": 4.45
-        },
-        {
-          "x": 2.6,
-          "y": 4.45
-        },
-        {
-          "x": 1.3,
-          "y": 4.45
-        },
-        {
-          "x": 0.65,
-          "y": 4.53
-        },
-        {
-          "x": 0.2,
-          "y": 4.15
-        },
-        {
-          "x": 0.2,
-          "y": 3.6
         },
         {
           "x": 0.25,
-          "y": 2.4
+          "y": 4.45
         }
+      ],
+      "corner_cut_m": [
+        0.95,
+        0.25,
+        0.4,
+        0.55,
+        0.95,
+        0.95
       ]
     },
     {
@@ -105,80 +57,36 @@
       "points": [
         {
           "x": 0.65,
-          "y": 1.25
-        },
-        {
-          "x": 0.75,
-          "y": 0.9
-        },
-        {
-          "x": 1.05,
           "y": 0.65
         },
         {
           "x": 1.65,
-          "y": 0.7
-        },
-        {
-          "x": 2.1,
-          "y": 1
-        },
-        {
-          "x": 2.65,
-          "y": 1.4
+          "y": 0.65
         },
         {
           "x": 3.35,
-          "y": 1.85
-        },
-        {
-          "x": 3.8,
-          "y": 2
+          "y": 2.45
         },
         {
           "x": 4.05,
-          "y": 2.2
+          "y": 2.45
         },
         {
           "x": 4.05,
-          "y": 2.6
-        },
-        {
-          "x": 4.05,
-          "y": 3.75
-        },
-        {
-          "x": 3.85,
-          "y": 4.05
-        },
-        {
-          "x": 3.4,
-          "y": 4.05
-        },
-        {
-          "x": 2.6,
-          "y": 4.05
-        },
-        {
-          "x": 1.5,
-          "y": 4.05
-        },
-        {
-          "x": 0.9,
           "y": 4.05
         },
         {
           "x": 0.65,
-          "y": 3.8
-        },
-        {
-          "x": 0.65,
-          "y": 3
-        },
-        {
-          "x": 0.65,
-          "y": 2.1
+          "y": 4.05
         }
+      ],
+      "corner_cut_m": [
+        0.55,
+        0.2,
+        0.25,
+        0.4,
+        0.55,
+        0.55
       ]
     },
     {
@@ -189,76 +97,46 @@
       "points": [
         {
           "x": 1.05,
-          "y": 2.25
+          "y": 1.05
         },
         {
-          "x": 1.1,
-          "y": 1.25
+          "x": 1.55,
+          "y": 1.05
         },
         {
-          "x": 1.3,
-          "y": 1.08
+          "x": 3.25,
+          "y": 2.85
         },
         {
-          "x": 1.65,
-          "y": 1.1
+          "x": 3.65,
+          "y": 2.85
         },
         {
-          "x": 2.05,
-          "y": 1.35
-        },
-        {
-          "x": 2.55,
-          "y": 1.7
-        },
-        {
-          "x": 3.2,
-          "y": 2.1
-        },
-        {
-          "x": 3.55,
-          "y": 2.28
-        },
-        {
-          "x": 3.7,
-          "y": 2.6
-        },
-        {
-          "x": 3.7,
-          "y": 3.4
-        },
-        {
-          "x": 3.6,
-          "y": 3.6
-        },
-        {
-          "x": 3.35,
+          "x": 3.65,
           "y": 3.65
         },
         {
-          "x": 2.5,
+          "x": 2.1,
           "y": 3.65
         },
         {
-          "x": 1.95,
-          "y": 3.65
+          "x": 2.1,
+          "y": 2.3
         },
         {
-          "x": 1.95,
-          "y": 3
-        },
-        {
-          "x": 1.95,
-          "y": 2.45
-        },
-        {
-          "x": 1.8,
-          "y": 2.22
-        },
-        {
-          "x": 1.5,
-          "y": 2.18
+          "x": 1.05,
+          "y": 2.3
         }
+      ],
+      "corner_cut_m": [
+        0.15,
+        0.15,
+        0.1,
+        0.25,
+        0.15,
+        0,
+        0.8,
+        0
       ]
     },
     {
@@ -269,28 +147,26 @@
       "points": [
         {
           "x": 1.05,
-          "y": 3
+          "y": 3.0
         },
         {
-          "x": 1.25,
-          "y": 3
+          "x": 1.4,
+          "y": 3.0
         },
         {
-          "x": 1.35,
-          "y": 3.15
-        },
-        {
-          "x": 1.35,
+          "x": 1.4,
           "y": 3.65
         },
         {
-          "x": 1.1,
+          "x": 1.05,
           "y": 3.65
-        },
-        {
-          "x": 1.02,
-          "y": 3.5
         }
+      ],
+      "corner_cut_m": [
+        0,
+        0.1,
+        0,
+        0.15
       ]
     },
     {
@@ -301,28 +177,21 @@
       "points": [
         {
           "x": 0.65,
-          "y": 2.6
-        },
-        {
-          "x": 1.1,
-          "y": 2.6
-        },
-        {
-          "x": 1.5,
           "y": 2.65
         },
         {
-          "x": 1.6,
-          "y": 2.95
+          "x": 1.75,
+          "y": 2.65
         },
         {
-          "x": 1.6,
-          "y": 3.5
-        },
-        {
-          "x": 1.6,
+          "x": 1.75,
           "y": 4.05
         }
+      ],
+      "corner_cut_m": [
+        0,
+        0.45,
+        0
       ]
     },
     {
@@ -332,11 +201,11 @@
       "closed": false,
       "points": [
         {
-          "x": 1.3,
+          "x": 2.15,
           "y": 3.65
         },
         {
-          "x": 1.3,
+          "x": 2.15,
           "y": 4.05
         }
       ]
@@ -348,11 +217,11 @@
       "closed": false,
       "points": [
         {
-          "x": 2.15,
+          "x": 1.4,
           "y": 4.05
         },
         {
-          "x": 2.15,
+          "x": 1.4,
           "y": 4.45
         }
       ]
@@ -364,12 +233,12 @@
       "closed": false,
       "points": [
         {
-          "x": 1.6,
-          "y": 3.45
+          "x": 1.4,
+          "y": 3.65
         },
         {
-          "x": 1.95,
-          "y": 3.45
+          "x": 1.75,
+          "y": 3.65
         }
       ]
     },
@@ -380,12 +249,12 @@
       "closed": false,
       "points": [
         {
-          "x": 1.02,
-          "y": 3.25
+          "x": 1.05,
+          "y": 3.0
         },
         {
           "x": 0.65,
-          "y": 3.25
+          "y": 3.0
         }
       ]
     },
@@ -396,12 +265,12 @@
       "closed": false,
       "points": [
         {
-          "x": 1.35,
-          "y": 2.2
+          "x": 1.05,
+          "y": 2.3
         },
         {
-          "x": 1.35,
-          "y": 2.6
+          "x": 1.05,
+          "y": 2.65
         }
       ]
     },
@@ -412,12 +281,12 @@
       "closed": false,
       "points": [
         {
-          "x": 0.22,
-          "y": 3.05
+          "x": 0.25,
+          "y": 2.3
         },
         {
           "x": 0.65,
-          "y": 3.05
+          "y": 2.3
         }
       ]
     }
@@ -427,42 +296,14 @@
     "points": [
       {
         "x": 3.35,
-        "y": 4.25
+        "y": 4.24
       },
       {
-        "x": 2.7,
-        "y": 4.25
+        "x": 0.46,
+        "y": 4.24
       },
       {
-        "x": 2,
-        "y": 4.25
-      },
-      {
-        "x": 1.3,
-        "y": 4.25
-      },
-      {
-        "x": 0.8,
-        "y": 4.25
-      },
-      {
-        "x": 0.54,
-        "y": 4.055
-      },
-      {
-        "x": 0.45,
-        "y": 3.7
-      },
-      {
-        "x": 0.44,
-        "y": 3.2
-      },
-      {
-        "x": 0.45,
-        "y": 2.65
-      },
-      {
-        "x": 0.45,
+        "x": 0.46,
         "y": 2.05
       }
     ],
@@ -474,8 +315,15 @@
     "acceleration_mps2": 0.5,
     "stop_dwell_s": 2,
     "bumper_gap_m": 0.07,
-    "scope": "Scripted partial pass, not a validated full-lap route or vehicle controller."
+    "scope": "Scripted partial pass, not a validated full-lap route or vehicle controller.",
+    "corner_cut_m": [
+      0,
+      0.74,
+      0
+    ],
+    "closed": false
   },
-  "revision": 2,
-  "stop_line_status": "Six stop lines retained from the earlier field photo and provisionally relocated to the two branch junctions; the new sketch does not mark their positions."
+  "revision": 8,
+  "stop_line_status": "Stop IDs and alignment axes retain the user-directed placements. Revision 8 attaches S1, S3, S4 and S5 to the confirmed square island corners; S2 and S6 are unchanged. Absolute scale and physical stop-line positions remain unmeasured.",
+  "curve_model": "Tangent-intersection vertices with per-vertex corner_cut_m: zero keeps a sharp vertex; positive cuts join exact lines with quintic Bezier fillets and zero endpoint curvature. Coordinates and scale remain provisional."
 }

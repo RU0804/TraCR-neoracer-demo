@@ -2,7 +2,7 @@
 
 ![Official NeoRacer model in the dual-view layout](media/neoracer-preview.png)
 
-[Play the 25-second GIF](media/neoracer-preview.gif) · [Generation manifest](media/neoracer-preview.json) · [Media checks](media/neoracer-validation.json)
+[Play the 24-second GIF](media/neoracer-preview.gif) · [Generation manifest](media/neoracer-preview.json) · [Media checks](media/neoracer-validation.json)
 
 This preview uses the **official NeoRacer 3D geometry from AutoDRIVE**, replacing the visually different Nigel vehicle in the main README illustration. Both the virtual front camera and chase camera view the same animated NeoRacer and sketch-guided foam-mat road draft.
 

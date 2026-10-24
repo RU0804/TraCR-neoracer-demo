@@ -1,0 +1,329 @@
+{
+  "schema_version": 2,
+  "label": "Sketch-guided foam-mat course",
+  "measured": false,
+  "width_m": 4.75,
+  "height_m": 4.75,
+  "source": "Sketch-guided course with the extended upper-right diagonal. Revision 6 aligns S2 with the small island right side, moves S3 to the branch lane between the small island and yellow divider at the island bottom height, and aligns S5 with the small island left side. Endpoints meet the rounded road boundaries.",
+  "dimension_status": "Provisional 4.75 m square retained from the earlier draft. Sketch dimensions, lane widths and stop-line locations are not surveyed.",
+  "coordinates": "Meters; origin at the far-left mat corner in the plan, +x right, +y toward the near edge. Unity position = (-y, height, x).",
+  "ground_color": "#4b4d4e",
+  "markings": [
+    {
+      "id": "outer-edge",
+      "kind": "white",
+      "width_m": 0.035,
+      "closed": true,
+      "points": [
+        {
+          "x": 0.25,
+          "y": 0.25
+        },
+        {
+          "x": 1.75,
+          "y": 0.25
+        },
+        {
+          "x": 3.45,
+          "y": 1.85
+        },
+        {
+          "x": 4.45,
+          "y": 1.85
+        },
+        {
+          "x": 4.45,
+          "y": 4.45
+        },
+        {
+          "x": 0.25,
+          "y": 4.45
+        }
+      ],
+      "corner_cut_m": [
+        0.95,
+        0.25,
+        0.4,
+        0.55,
+        0.95,
+        0.95
+      ]
+    },
+    {
+      "id": "main-divider",
+      "kind": "yellow",
+      "width_m": 0.025,
+      "closed": true,
+      "points": [
+        {
+          "x": 0.65,
+          "y": 0.65
+        },
+        {
+          "x": 1.65,
+          "y": 0.65
+        },
+        {
+          "x": 3.35,
+          "y": 2.25
+        },
+        {
+          "x": 4.05,
+          "y": 2.25
+        },
+        {
+          "x": 4.05,
+          "y": 4.05
+        },
+        {
+          "x": 0.65,
+          "y": 4.05
+        }
+      ],
+      "corner_cut_m": [
+        0.55,
+        0.2,
+        0.25,
+        0.4,
+        0.55,
+        0.55
+      ]
+    },
+    {
+      "id": "central-island",
+      "kind": "white",
+      "width_m": 0.035,
+      "closed": true,
+      "points": [
+        {
+          "x": 1.05,
+          "y": 1.05
+        },
+        {
+          "x": 1.55,
+          "y": 1.05
+        },
+        {
+          "x": 3.25,
+          "y": 2.65
+        },
+        {
+          "x": 3.65,
+          "y": 2.65
+        },
+        {
+          "x": 3.65,
+          "y": 3.65
+        },
+        {
+          "x": 2.1,
+          "y": 3.65
+        },
+        {
+          "x": 2.1,
+          "y": 2.3
+        },
+        {
+          "x": 1.05,
+          "y": 2.3
+        }
+      ],
+      "corner_cut_m": [
+        0.15,
+        0.15,
+        0.1,
+        0.25,
+        0.15,
+        0.08,
+        0.8,
+        0.08
+      ]
+    },
+    {
+      "id": "small-island",
+      "kind": "white",
+      "width_m": 0.035,
+      "closed": true,
+      "points": [
+        {
+          "x": 1.05,
+          "y": 3.0
+        },
+        {
+          "x": 1.4,
+          "y": 3.0
+        },
+        {
+          "x": 1.4,
+          "y": 3.65
+        },
+        {
+          "x": 1.05,
+          "y": 3.65
+        }
+      ],
+      "corner_cut_m": [
+        0.08,
+        0.1,
+        0.08,
+        0.15
+      ]
+    },
+    {
+      "id": "branch-divider",
+      "kind": "yellow",
+      "width_m": 0.025,
+      "closed": false,
+      "points": [
+        {
+          "x": 0.65,
+          "y": 2.65
+        },
+        {
+          "x": 1.75,
+          "y": 2.65
+        },
+        {
+          "x": 1.75,
+          "y": 4.05
+        }
+      ],
+      "corner_cut_m": [
+        0,
+        0.45,
+        0
+      ]
+    },
+    {
+      "id": "S1",
+      "kind": "stop",
+      "width_m": 0.055,
+      "closed": false,
+      "points": [
+        {
+          "x": 2.15,
+          "y": 3.64640816
+        },
+        {
+          "x": 2.15,
+          "y": 4.05
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "kind": "stop",
+      "width_m": 0.055,
+      "closed": false,
+      "points": [
+        {
+          "x": 1.4,
+          "y": 4.05
+        },
+        {
+          "x": 1.4,
+          "y": 4.45
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "kind": "stop",
+      "width_m": 0.055,
+      "closed": false,
+      "points": [
+        {
+          "x": 1.32,
+          "y": 3.65
+        },
+        {
+          "x": 1.75,
+          "y": 3.65
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "kind": "stop",
+      "width_m": 0.055,
+      "closed": false,
+      "points": [
+        {
+          "x": 1.13,
+          "y": 3.0
+        },
+        {
+          "x": 0.65,
+          "y": 3.0
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "kind": "stop",
+      "width_m": 0.055,
+      "closed": false,
+      "points": [
+        {
+          "x": 1.05,
+          "y": 2.22
+        },
+        {
+          "x": 1.05,
+          "y": 2.65
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "kind": "stop",
+      "width_m": 0.055,
+      "closed": false,
+      "points": [
+        {
+          "x": 0.25,
+          "y": 2.3
+        },
+        {
+          "x": 0.65,
+          "y": 2.3
+        }
+      ]
+    }
+  ],
+  "preview_route": {
+    "label": "Clockwise lower and left outer-lane pass; S2 then S6",
+    "points": [
+      {
+        "x": 3.35,
+        "y": 4.24
+      },
+      {
+        "x": 0.46,
+        "y": 4.24
+      },
+      {
+        "x": 0.46,
+        "y": 2.05
+      }
+    ],
+    "stop_ids": [
+      "S2",
+      "S6"
+    ],
+    "max_speed_mps": 0.35,
+    "acceleration_mps2": 0.5,
+    "stop_dwell_s": 2,
+    "bumper_gap_m": 0.07,
+    "scope": "Scripted partial pass, not a validated full-lap route or vehicle controller.",
+    "corner_cut_m": [
+      0,
+      0.74,
+      0
+    ],
+    "closed": false
+  },
+  "revision": 6,
+  "stop_line_status": "S2, S3 and S5 follow the user-directed small-island alignments in revision 6; S1, S4 and S6 retain revision-5 positions. IDs S1-S6 are stable. Absolute scale and physical stop-line positions remain unmeasured.",
+  "curve_model": "Tangent-intersection vertices with per-vertex corner_cut_m; exact lines joined by quintic Bezier fillets with zero endpoint curvature. Coordinates and scale remain provisional."
+}

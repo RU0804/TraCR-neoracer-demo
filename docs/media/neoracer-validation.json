@@ -5,83 +5,83 @@
   },
   "maximum_stopped_image_mae": {
     "S2": [
-      1.876172607879925e-05,
-      4.104507064488121e-05
+      0.0,
+      0.00015470834319993685
     ],
     "S6": [
-      9.06816760475297e-05,
-      6.314626253058648e-06
+      0.0,
+      5.998894940405715e-05
     ]
   },
   "stopped_image_mae_limit": 0.001,
   "geometry_checks": {
-    "duration": 25,
-    "routeLength": 4.904988423905948,
+    "duration": 24,
+    "routeLength": 4.791800578818279,
     "stages": [
       {
         "start": 2,
-        "end": 5.2017915223722015,
+        "end": 7.344648665229344,
         "from": 0,
-        "to": 0.8756270328302704,
+        "to": 1.6256270328302702,
         "ramp": 0.7,
-        "cruise": 1.8017915223722014,
+        "cruise": 3.944648665229344,
         "peak": 0.35,
         "id": "S2",
         "kind": "drive"
       },
       {
-        "start": 5.2017915223722015,
-        "end": 7.2017915223722015,
-        "s": 0.8756270328302704,
+        "start": 7.344648665229344,
+        "end": 9.344648665229343,
+        "s": 1.6256270328302702,
         "id": "S2",
         "kind": "stop"
       },
       {
-        "start": 7.2017915223722015,
-        "end": 15.630062732336583,
-        "from": 0.8756270328302704,
-        "to": 3.5805219563178032,
+        "start": 9.344648665229343,
+        "end": 17.449793176138723,
+        "from": 1.6256270328302702,
+        "to": 4.217427611648553,
         "ramp": 0.7,
-        "cruise": 7.02827120996438,
+        "cruise": 6.7051445109093795,
         "peak": 0.35,
         "id": "S6",
         "kind": "drive"
       },
       {
-        "start": 15.630062732336583,
-        "end": 17.630062732336583,
-        "s": 3.5805219563178032,
+        "start": 17.449793176138723,
+        "end": 19.449793176138723,
+        "s": 4.217427611648553,
         "id": "S6",
         "kind": "stop"
       },
       {
-        "start": 17.630062732336583,
-        "end": 22.114252639731284,
-        "from": 3.5805219563178032,
-        "to": 4.904988423905948,
+        "start": 19.449793176138723,
+        "end": 21.790858796623652,
+        "from": 4.217427611648553,
+        "to": 4.791800578818279,
         "ramp": 0.7,
-        "cruise": 3.0841899073947,
+        "cruise": 0.9410656204849314,
         "peak": 0.35,
         "id": "END",
         "kind": "drive"
       }
     ],
-    "minimum_paint_clearance_m": 0.035650536783796,
-    "footprint_samples": 492,
-    "sample_spacing_m": 0.0099897931240447,
-    "worst_clearance_route_distance_m": 2.0479075904291637,
+    "minimum_paint_clearance_m": 0.026668873758657126,
+    "footprint_samples": 481,
+    "sample_spacing_m": 0.00998291787253808,
+    "worst_clearance_route_distance_m": 2.455797796644368,
     "full_lap_validated": false,
     "stops": [
       {
         "id": "S2",
-        "route_distance_m": 0.8756270328302704,
-        "front_bumper_clearance_m": 0.07,
+        "route_distance_m": 1.6256270328302702,
+        "front_bumper_clearance_m": 0.07000000000000026,
         "dwell_seconds": 2
       },
       {
         "id": "S6",
-        "route_distance_m": 3.5805219563178032,
-        "front_bumper_clearance_m": 0.06925591261458638,
+        "route_distance_m": 4.217427611648553,
+        "front_bumper_clearance_m": 0.07000000000000334,
         "dwell_seconds": 2
       }
     ],
@@ -105,16 +105,16 @@
     ],
     "contact_tolerance_m": 0.002,
     "tire_contact_method": "Transformed tire mesh vertices",
-    "map_source_sha256": "de41d012d4cf9e2ca1689c850139f7b3504cb6bda4df560eb9a77a0c955e15ad",
+    "map_source_sha256": "25e575a96cf98c73b0c7741460cc7e22cf6bbb48c4e40faf3eb02300f5b2b572",
     "map_measured": false,
-    "map_revision": 2,
-    "stop_line_status": "Six stop lines retained from the earlier field photo and provisionally relocated to the two branch junctions; the new sketch does not mark their positions."
+    "map_revision": 8,
+    "stop_line_status": "Stop IDs and alignment axes retain the user-directed placements. Revision 8 attaches S1, S3, S4 and S5 to the confirmed square island corners; S2 and S6 are unchanged. Absolute scale and physical stop-line positions remain unmeasured."
   },
-  "decoded_frames": 150,
-  "duration_ms": 25000,
+  "decoded_frames": 144,
+  "duration_ms": 24000,
   "distinct_camera_regions": [
-    105,
-    104
+    100,
+    103
   ],
   "loop": "infinite",
   "artifact_checksums_match": true,
@@ -122,7 +122,7 @@
     1200,
     845
   ],
-  "slurm_job_id": "12011032",
+  "slurm_job_id": "12012087",
   "partition": "a30",
   "scope": "Geometry preview media only; no physical hardware, live bridge or Unity execution."
 }

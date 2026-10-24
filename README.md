@@ -8,7 +8,7 @@ A NeoRacer V1 demonstration with **onboard video on the left and an AutoDRIVE vi
 
 ![TraCR dual-view layout using the official NeoRacer model on the sketch-guided foam-mat course; model preview, not live footage or a Unity run](docs/media/neoracer-preview.gif)
 
-**Official NeoRacer model, scripted preview.** Both panels render the same NeoRacer geometry from the pinned AutoDRIVE source: a virtual onboard perspective on the left and a chase view on the right. This 25-second WebGL preview follows the outer lane of a sketch-guided road draft, braking before red stop lines S2 and S6 and waiting two seconds at each. It is **not physical video, an executed Unity scene or a live synchronization test**.
+**Official NeoRacer model, scripted preview.** Both panels render the same NeoRacer geometry from the pinned AutoDRIVE source: a virtual onboard perspective on the left and a chase view on the right. This 24-second WebGL preview follows the outer lane of a sketch-guided road draft, braking before red stop lines S2 and S6 and waiting two seconds at each. It is **not physical video, an executed Unity scene or a live synchronization test**.
 
 At the poster session, the **left panel will show the NeoRacer's physical camera**, and the **right panel will show AutoDRIVE following its measured pose** on a surveyed copy of the foam-board roads. Hardware integration, a measured map and camera calibration still need to be completed. The draft uses a provisional 4.75 m square footprint; the sketch and earlier oblique photo do not establish metric accuracy.
 
@@ -16,7 +16,7 @@ At the poster session, the **left panel will show the NeoRacer's physical camera
 
 ![Sketch-guided foam-mat map with six red stop lines and the preview route](docs/media/field-map-plan.svg)
 
-The latest hand-drawn sketch defines the road shape: a diagonal upper section, long left/right sides, a broad lower straight and a lower-left return branch around a small island. Six stop lines from the earlier field photo are provisionally placed near the branch junctions; the new sketch does not specify their positions. [Editable draft](configs/map.photo-v1.json) · [Rendered top view](docs/media/field-map-overview.png) · [Map details and Unity import](docs/PHOTO_MAP.md).
+Revision 8 matches the four confirmed square corners above S1/S5 and at the small island upper-left/lower-right. The long diagonal, shortened right vertical, smooth remaining bends and numbered stop alignments are retained. Island-side stop endpoints meet the new square boundaries. Absolute dimensions and physical stop positions remain unmeasured. [Map only](docs/media/field-map-only.png) · [Before/after comparison](docs/media/field-map-comparison.png) · [Editable draft](configs/map.photo-v1.json) · [Map files and Unity import](docs/PHOTO_MAP.md).
 
 The preview grounds the model from its four tire groups and checks the whole vehicle footprint along the selected route. The animation demonstrates a **partial pass**, not a validated full lap or autonomous driving.
 

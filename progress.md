@@ -65,3 +65,74 @@
 - Initial A30 capture 12011021 reached its allocation time limit after saving both complete stop windows. A100 continuation 12011028 remained queued. Rechecked slist (A100 queued, A30 entitlement N/A), submitted the A30/standby continuation, and cancelled the still-pending A100 duplicate after checking its current state.
 
 - A30/standby render and media-check job 12011032 completed on gilbreth-b009 in 00:01:46: 150 frames, 25 seconds, matching artifact hashes, no browser errors/overflow, and 12 stationary frames at each stop. Actual transformed tire vertices are within 0.044 mm of the mat. Browser lane geometry matches the independent calculation: 492 footprint samples, 35.65 mm minimum paint clearance and 70.00/69.26 mm stop gaps. Visually inspected the plan, overview, driving and stop frames. English/source/link checks pass; preparing the verified snapshot for public main.
+
+## 2026-10-23 / Smooth map revision 3
+- Inspected upstream and local revision 2, generator, topology checker and standalone WebGL overview. Started isolated fix/smooth-sketch-map branch.
+
+- Replaced global Catmull-Rom smoothing with tangent-intersection vertices, exact lines and quintic corner fillets. Added map-only, stop-free shape and same-scale comparison SVG generators; preserved revision-2 geometry and overview.
+- A100 validation job 12011141 queued with a roughly 30-minute estimate. Rechecked entitlement (A30 N/A), submitted A30/standby replacement, and cancelled only the pending A100 duplicate.
+
+- A30/standby validation job 12011146 completed on gilbreth-d001 in 49 seconds. Nine map tests pass; 11 markings, six stops, 119 paint strips, matching source hash, zero boundary crossings and zero self-intersections. Inspected comparison and clean shape views.
+
+- A100-40GB/normal job 12011152 started on gilbreth-n009 after a fresh allocation check. Browser geometry validation passed at revision 3: 481 footprint samples, 26.67 mm minimum paint clearance, 70 mm stop gaps, 24-second route schedule. Full capture/encoding is in progress; a concurrent allowed Slurm step runs the updated stop-endpoint and topology checks.
+
+- Final stop/branch connectivity checks passed in the overlapping A100 step; stop endpoint error is below 1e-18 m. Geometry and all four generated SVGs regenerate byte-for-byte. English-only content and local Markdown links pass. Visually inspected the updated WebGL map overview and S2 still.
+
+- A100 job 12011152 completed on gilbreth-n009 in 6:24. The final 24-second GIF has 144 valid frames and matching artifact hashes; each stop retains 12 stationary frames, maximum stopped-image MAE 0.000133 < 0.001. No browser errors or overflow. Visually checked the decoded driving frame in addition to the map and S2 still. Documentation now describes the new curve model, editable paths, provisional dimensions and updated preview. Work remains local on fix/smooth-sketch-map; no remote push performed.
+
+- Started revision 4 on the existing local branch. Adjusted only the upper-right shoulder vertices; road smoothing parameters and stop coordinates are retained.
+
+- Added six offset stop labels to standalone SVGs and the annotated plan. XML checks confirm each ID occurs exactly once per annotated map, and a source comparison confirms no stop endpoint moved.
+- A100 job 12011393 queued for resources. Rechecked group usage and A30 entitlement (N/A), submitted A30/standby replacement and cancelled only the pending A100 duplicate.
+
+- A30/standby job 12011396 started on gilbreth-b008. Standalone and comparison PNGs are rendered and visually inspected: six legible labels sit beside their lines, and the longer diagonal/shorter right side are clear. Nine curve tests pass.
+
+- A30 job 12011396 completed in 4:35 on gilbreth-b008. Revision-4 map/route checks and all 144 preview-frame/media checks pass; source and artifact hashes agree. Current stop coordinates are documented and verified against JSON. The user can now specify position changes by S1-S6. All changes remain on the local fix/smooth-sketch-map branch.
+
+- Archived revision-4 source/geometry and applied the three requested stop alignments with endpoints snapped to actual curved boundaries.
+
+- A100-40GB/normal job 12011446 started on gilbreth-n016 after checking group usage. Labeled maps are rendered and visually inspected. Requested alignment assertions pass; all nine map tests and topology checks pass, including stop endpoint error below 1.5e-9 m.
+
+- Job 12011446 completed on gilbreth-n016 in 4:37. The synchronized revision-5 preview has 144 decoded frames over 24 seconds, matching artifact hashes and 12 stationary frames at each stop. S6 stopping now follows its new position; both bumper gaps remain 70 mm. Final labeled map inspected. All changes remain local on fix/smooth-sketch-map.
+
+- Archived revision-5 source and geometry. Revision 6 moves S2 to x=1.40, S3 to y=3.65 between the small island and branch divider, and S5 to x=1.05. S3/S5 endpoints extend to the relevant corner tangents to stay attached.
+
+- A100 job 12011482 remained pending for resources with no start estimate. Rechecked group usage and A30 entitlement (N/A), submitted A30/standby job 12011483, and cancelled only the pending A100 duplicate.
+
+- A30/standby render job 12011483 started on gilbreth-b006. A separate CPU-only static-map submission was rejected because this cluster requires a GPU request; no CPU-only job ran. The full allowed A30 job handles all rendering.
+
+- A30 job 12011483 passes nine curve tests, topology/connectivity and browser route checks. Revision-6 labeled map is rendered and visually inspected; animation capture is in progress.
+
+- A30/standby job 12011483 completed all render/media checks on gilbreth-b006: 144 decoded frames, 24 seconds, matching hashes, 12 stationary frames per stop and passing stopped-image checks. Inspected the relocated S2 stop frame. Source, generated geometry, labeled maps and preview now agree at revision 6; work remains local on fix/smooth-sketch-map.
+
+- Archived revision-6 source/geometry. Revision 7 lowers both shoulder vertices on the outer edge, main divider and central island by 0.20 m; all six stops and the preview route remain unchanged. Adjusted straightness-test sampling windows to lie inside the shorter straights.
+
+- A100 job 12011933 remained pending for resources with no start estimate. Rechecked group usage and A30 entitlement (N/A), submitted A30/standby job 12011935, and cancelled only the pending A100 duplicate.
+
+- A30 job 12011935 failed on gilbreth-b006 after 32 seconds with a Page.captureScreenshot protocol error. Changed only the static SVG browser launch to use software 2D rendering; retrying through an allowed Slurm allocation after rechecking group usage.
+
+- A100 retry 12011936 was pending for resources with no start estimate. A30 entitlement remains N/A; A30/standby retry 12011937 replaces the cancelled pending A100 job.
+
+- Retry 12011937 was assigned an approximately 15-minute queue estimate. Enabled an eight-minute minimum allocation for backfill while retaining the twelve-minute requested limit; previous complete renders took under five minutes on this path.
+
+- Full A30 retry 12011937 started on gilbreth-d001 ahead of its queue estimate. Cancelled pending A100 static-only duplicate 12011939 before it ran.
+
+- A30 retry 12011937 successfully renders the map with GPU acceleration disabled for the 2D SVG capture. Nine curve tests and topology/connectivity checks pass; visually inspected the new map. WebGL animation capture is in progress.
+
+- A30/standby retry 12011937 completed on gilbreth-d001 in 10:44. All 144 frames decode over 24 seconds, source/artifact hashes match, and both stops retain 12 stationary frames with passing image checks. Revision-7 source, shared geometry, standalone/comparison maps, overview and animation are synchronized. English/link and whitespace checks pass. Changes remain local on fix/smooth-sketch-map.
+
+- User authorized a fresh version and repository update. Asked whether four named corners currently look too square and should be rounded further, or should instead match square physical corners. GitHub connector confirms push/admin access; fetched origin/main remains d35250e, with no upstream divergence.
+
+- All four named corners use the same small 0.08 m cut. With the original smooth-curve request as context, stated the working assumption that they should look more rounded. Enlarged central-island cuts to 0.20 m and small-island cuts to 0.15 m; only island-side stop endpoints move to follow the curves.
+
+- User clarified that the physical course has four square corners. Cancelled the pending rounded-corner render 12012085 before execution. Restored revision-7 geometry, set the four specified corner cuts to zero, and attached S1/S3/S4/S5 endpoints to the square boundaries. Added support and regression checks for explicit sharp vertices, including closed seams.
+
+- A100 job 12012086 remained pending with no start estimate. Rechecked group usage and A30 entitlement (N/A); A30/standby job 12012087 replaces the pending A100 duplicate.
+
+- A30 job 12012087 started on gilbreth-b000 and passes all 39 tests plus topology checks. SVG paths now close explicitly so the small island seam receives a true miter join; an overlapping allocated Slurm step refreshes standalone PNGs after the SVG fix. The generated map hash remains unchanged.
+
+- Visually inspected the revision-8 standalone map: all four requested corners are square and the other bends retain their curves. Browser route checks pass. Uploaded the three verified static PNG blobs through the GitHub connector; main is not yet changed.
+
+- Uploaded and hash-verified 28 static/source blobs through the GitHub connector, without changing main. The tool output limit truncated an initial combined transfer; switched to bounded base64 chunks and verified every resulting Git blob SHA.
+
+- A30 job 12012087 completed on gilbreth-b000 in 8:13. All 144 frames decode over 24 seconds, source/artifact hashes match and both stops retain 12 stationary frames with passing image checks. Visually inspected the map and S2 still. The verified revision-8 snapshot is ready for GitHub main.

@@ -50,3 +50,41 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 - Render updated plan/overview/GIF on permitted Slurm resources and verify artifacts: complete (A30/standby job 12011032). Publish the verified English repository snapshot with this update.
 
 - Sketch-render trial error: changing the contact metadata assertion while job 12011014 still used its previously loaded scene caused a final KeyError. Removed the premature assertion and scheduled a fresh render; intermediate media are not the publication target.
+
+## Smooth map revision 3 (2026-10-23)
+- Locate authoritative map data and inspect existing standalone visualization: complete.
+- Replace unconstrained smoothing with exact straights and controlled continuous bends; preserve sketch topology and provisional stops: complete.
+- Produce map-only before/after views and regenerate shared geometry: complete.
+- Verify topology, continuity, straightness, route clearance and updated preview artifacts on allowed Slurm resources: complete; A30 job 12011146 and A100 job 12011152 passed.
+- Document editable files and deliver the local reviewable branch: complete on fix/smooth-sketch-map; no remote push performed.
+
+- Environment note: repository .venv has NumPy/Pillow but lacks Playwright. Reuse existing autodrive-demo/envs/report-check interpreter and pinned browser directory for rendering.
+
+## Map revision 4 / Longer diagonal and stop identifiers
+- Lower the right shoulder to lengthen the diagonal and shorten the right vertical: complete.
+- Label all six stop lines S1-S6 while keeping their existing IDs and coordinates: complete.
+- Regenerate map views, verify geometry, and synchronize preview artifacts: complete; A30/standby job 12011396 passed, with labeled PNGs and a verified revision-4 animation.
+
+## Map revision 5 / User-directed stop placements
+- Align S6 with the upper endpoint of S5, S4 with the small island upper-left/top edge, and S1 vertically with S2: complete.
+- Snap endpoints to the actual rounded paint boundaries and regenerate labeled views: complete.
+- Verify alignments/connectivity and synchronize preview stopping behavior: complete; alignments, nine map tests, topology checks and all preview media checks pass in A100/normal job 12011446.
+
+## Map revision 6 / Small-island stop alignments
+- Align S2 with the small island right side, move S3 to the adjacent branch lane at island bottom height, and align S5 with the island left side: complete.
+- Regenerate labeled views, verify connectivity and synchronize the relocated S2 stop in the preview: complete; all geometry and media checks pass in A30/standby job 12011483.
+
+- Editing note: a multi-file patch matched only the first document; subsequent replacements verified exact text before updating the remaining documentation. A pending job had not yet created its log, so monitoring uses its queue state until launch.
+
+## Map revision 7 / Shorter right vertical
+- Lower all three upper-right shoulder contours by another 0.20 m while retaining all stops: complete.
+- Regenerate map views, verify straightness/continuity and synchronize preview artifacts: complete; nine curve tests, topology/route checks and all media checks pass in A30 job 12011937.
+
+- Render error: A30 job 12011935 failed in Chromium Page.captureScreenshot before writing the standalone PNG. Static SVG rendering now disables GPU acceleration; the WebGL renderer retains its existing SwiftShader path.
+
+## Map revision 8 / Final corner correction and publication
+- Confirm the four named corners: complete; the user explicitly requires square corners matching the physical course.
+- Add explicit zero-cut corners, regenerate maps and a fresh preview, and run release checks: complete; 39 tests and all geometry/media checks pass in A30 job 12012087.
+- Publish the verified map/preview update to GitHub main and confirm the remote revision: pending; user explicitly authorized repository update.
+
+- Environment note: Node.js is unavailable in the login environment. The fresh browser render will parse and execute the updated JavaScript; no standalone Node syntax check is claimed.

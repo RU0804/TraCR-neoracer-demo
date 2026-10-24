@@ -79,12 +79,21 @@ window.previewReady = (async () => {
     const colors = {white: '#f5f6f0', yellow: '#f1dc25', stop: '#ff3826'};
     function strip(points, width, color, height) {
         const positions = [], indices = [];
+        const last = points.length - 1;
+        const closed = points[0].distanceToSquared(points[last]) < 1e-16;
         points.forEach((p, i) => {
-            const before = points[Math.max(0, i - 1)], after = points[Math.min(points.length - 1, i + 1)];
-            const tangent = after.clone().sub(before).normalize();
-            const normal = new THREE.Vector3(-tangent.z, 0, tangent.x);
+            const before = points[closed && i === 0 ? last - 1 : Math.max(0, i - 1)];
+            const after = points[closed && i === last ? 1 : Math.min(last, i + 1)];
+            const incoming = p.clone().sub(before).normalize(), outgoing = after.clone().sub(p).normalize();
+            if (incoming.lengthSq() === 0) incoming.copy(outgoing);
+            if (outgoing.lengthSq() === 0) outgoing.copy(incoming);
+            const normalIn = new THREE.Vector3(-incoming.z, 0, incoming.x);
+            const normalOut = new THREE.Vector3(-outgoing.z, 0, outgoing.x);
+            // A miter keeps square tape corners square, including the closed seam.
+            const normal = normalIn.clone().add(normalOut).normalize();
+            const offset = width / 2 / Math.max(.5, normal.dot(normalIn));
             for (const side of [-1, 1]) {
-                const v = p.clone().addScaledVector(normal, side * width / 2);
+                const v = p.clone().addScaledVector(normal, side * offset);
                 positions.push(v.x, height, v.z);
             }
             if (i < points.length - 1) {const k = 2*i; indices.push(k,k+2,k+1,k+1,k+2,k+3);}

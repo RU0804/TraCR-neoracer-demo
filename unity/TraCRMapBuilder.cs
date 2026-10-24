@@ -78,10 +78,20 @@ public static class TraCRMapBuilder
     {
         int n=strip.points.Length;
         var vertices=new Vector3[2*n]; var triangles=new int[6*(n-1)];
+        bool closed=strip.points[0].x==strip.points[n-1].x && strip.points[0].y==strip.points[n-1].y;
         for(int i=0;i<n;i++) {
-            var p=strip.points[i]; var before=strip.points[Math.Max(0,i-1)]; var after=strip.points[Math.Min(n-1,i+1)];
-            var tangent=new Vector2(after.x-before.x,after.y-before.y).normalized;
-            var normal=new Vector2(-tangent.y,tangent.x)*strip.width_m/2;
+            var p=strip.points[i];
+            var before=strip.points[closed && i==0?n-2:Math.Max(0,i-1)];
+            var after=strip.points[closed && i==n-1?1:Math.Min(n-1,i+1)];
+            var incoming=new Vector2(p.x-before.x,p.y-before.y).normalized;
+            var outgoing=new Vector2(after.x-p.x,after.y-p.y).normalized;
+            if(incoming.sqrMagnitude==0) incoming=outgoing;
+            if(outgoing.sqrMagnitude==0) outgoing=incoming;
+            var normalIn=new Vector2(-incoming.y,incoming.x);
+            var normalOut=new Vector2(-outgoing.y,outgoing.x);
+            // Match the preview's miter joins and its limit of twice the half width.
+            var miter=(normalIn+normalOut).normalized;
+            var normal=miter*(strip.width_m/2/Mathf.Max(.5f,Vector2.Dot(miter,normalIn)));
             vertices[2*i]=new Vector3(-(p.y-normal.y),.0007f,p.x-normal.x);
             vertices[2*i+1]=new Vector3(-(p.y+normal.y),.0007f,p.x+normal.x);
             if(i<n-1) {

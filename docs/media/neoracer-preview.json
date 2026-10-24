@@ -12,77 +12,77 @@
   "material_conversion": "Unity base color, metallic and smoothness mapped to WebGL; not shader-identical",
   "camera_calibrated": false,
   "fps": 6,
-  "frames": 150,
-  "duration_seconds": 25,
+  "frames": 144,
+  "duration_seconds": 24,
   "map": "configs/map.photo-v1.geometry.json",
   "geometry_checks": {
-    "duration": 25,
-    "routeLength": 4.904988423905948,
+    "duration": 24,
+    "routeLength": 4.791800578818279,
     "stages": [
       {
         "start": 2,
-        "end": 5.2017915223722015,
+        "end": 7.344648665229344,
         "from": 0,
-        "to": 0.8756270328302704,
+        "to": 1.6256270328302702,
         "ramp": 0.7,
-        "cruise": 1.8017915223722014,
+        "cruise": 3.944648665229344,
         "peak": 0.35,
         "id": "S2",
         "kind": "drive"
       },
       {
-        "start": 5.2017915223722015,
-        "end": 7.2017915223722015,
-        "s": 0.8756270328302704,
+        "start": 7.344648665229344,
+        "end": 9.344648665229343,
+        "s": 1.6256270328302702,
         "id": "S2",
         "kind": "stop"
       },
       {
-        "start": 7.2017915223722015,
-        "end": 15.630062732336583,
-        "from": 0.8756270328302704,
-        "to": 3.5805219563178032,
+        "start": 9.344648665229343,
+        "end": 17.449793176138723,
+        "from": 1.6256270328302702,
+        "to": 4.217427611648553,
         "ramp": 0.7,
-        "cruise": 7.02827120996438,
+        "cruise": 6.7051445109093795,
         "peak": 0.35,
         "id": "S6",
         "kind": "drive"
       },
       {
-        "start": 15.630062732336583,
-        "end": 17.630062732336583,
-        "s": 3.5805219563178032,
+        "start": 17.449793176138723,
+        "end": 19.449793176138723,
+        "s": 4.217427611648553,
         "id": "S6",
         "kind": "stop"
       },
       {
-        "start": 17.630062732336583,
-        "end": 22.114252639731284,
-        "from": 3.5805219563178032,
-        "to": 4.904988423905948,
+        "start": 19.449793176138723,
+        "end": 21.790858796623652,
+        "from": 4.217427611648553,
+        "to": 4.791800578818279,
         "ramp": 0.7,
-        "cruise": 3.0841899073947,
+        "cruise": 0.9410656204849314,
         "peak": 0.35,
         "id": "END",
         "kind": "drive"
       }
     ],
-    "minimum_paint_clearance_m": 0.035650536783796,
-    "footprint_samples": 492,
-    "sample_spacing_m": 0.0099897931240447,
-    "worst_clearance_route_distance_m": 2.0479075904291637,
+    "minimum_paint_clearance_m": 0.026668873758657126,
+    "footprint_samples": 481,
+    "sample_spacing_m": 0.00998291787253808,
+    "worst_clearance_route_distance_m": 2.455797796644368,
     "full_lap_validated": false,
     "stops": [
       {
         "id": "S2",
-        "route_distance_m": 0.8756270328302704,
-        "front_bumper_clearance_m": 0.07,
+        "route_distance_m": 1.6256270328302702,
+        "front_bumper_clearance_m": 0.07000000000000026,
         "dwell_seconds": 2
       },
       {
         "id": "S6",
-        "route_distance_m": 3.5805219563178032,
-        "front_bumper_clearance_m": 0.06925591261458638,
+        "route_distance_m": 4.217427611648553,
+        "front_bumper_clearance_m": 0.07000000000000334,
         "dwell_seconds": 2
       }
     ],
@@ -106,10 +106,10 @@
     ],
     "contact_tolerance_m": 0.002,
     "tire_contact_method": "Transformed tire mesh vertices",
-    "map_source_sha256": "de41d012d4cf9e2ca1689c850139f7b3504cb6bda4df560eb9a77a0c955e15ad",
+    "map_source_sha256": "25e575a96cf98c73b0c7741460cc7e22cf6bbb48c4e40faf3eb02300f5b2b572",
     "map_measured": false,
-    "map_revision": 2,
-    "stop_line_status": "Six stop lines retained from the earlier field photo and provisionally relocated to the two branch junctions; the new sketch does not mark their positions."
+    "map_revision": 8,
+    "stop_line_status": "Stop IDs and alignment axes retain the user-directed placements. Revision 8 attaches S1, S3, S4 and S5 to the confirmed square island corners; S2 and S6 are unchanged. Absolute scale and physical stop-line positions remain unmeasured."
   },
   "size": [
     1200,
@@ -137,10 +137,10 @@
   "alignment_method": "Rear-to-front axle geometry centers",
   "unmatched_materials": [],
   "render_stats": {
-    "triangles": 598433,
-    "calls": 915,
+    "triangles": 605591,
+    "calls": 914,
     "state": {
-      "s": 4.904988423905948,
+      "s": 4.791800578818279,
       "speed": 0,
       "label": "Pass complete / Replay",
       "id": "Complete"
@@ -148,36 +148,24 @@
   },
   "javascript_errors": [],
   "horizontal_overflow": false,
-  "slurm_job_id": "12011032",
+  "slurm_job_id": "12012087",
   "partition": "a30",
   "artifacts": {
     "neoracer-preview.png": {
-      "bytes": 182267,
-      "sha256": "8befd146c52b1576117a63792bfc1bbcaa7ef93cdb8f8e3c48fc8c0b70f61bb3"
+      "bytes": 175387,
+      "sha256": "075510016986036fb8abd38f5f6627c1f80033340c515dcb68aa821dd23b7db1"
     },
     "neoracer-preview.gif": {
-      "bytes": 4150244,
-      "sha256": "365766a885c4bd0c785e2ef8a244ab36980442fbd6797185f81c9eb8524dc895"
+      "bytes": 3710240,
+      "sha256": "b190d6107de80bd1e459677dbc55151eec3c29da7df2f3e29d97fae9f0057baf"
     },
     "field-map-overview.png": {
-      "bytes": 51096,
-      "sha256": "74926182927e496ea1d5048b712482e17c667c9fd57dd5c0df8e3fabe569246e"
+      "bytes": 46332,
+      "sha256": "d165c66e2102aece279440e735c0d4d22573161e25e6fc8d8138024cd3a45167"
     },
     "field-map-plan.svg": {
-      "bytes": 34608,
-      "sha256": "5ad0c9af3dbae115f2015e9c558f30c4dd2e8c8f7a6a20e6a1cd29ef898c9cc9"
+      "bytes": 118830,
+      "sha256": "077fc70c0f4f7e158425c198929c964fd3a305d6c9e1293f7c1818e2f8cdc9ac"
     }
-  },
-  "capture_job_ids": [
-    "12011021",
-    "12011032"
-  ],
-  "capture_note": "Resumed existing PNG frames after the first allocation time limit; map, renderer, asset lock and source hashes unchanged.",
-  "capture_source_sha256": {
-    "scripts/render_neoracer_preview.py": "c9f759e78088629a46cafbfa814e4b2a29b9e84e9931d0727cede8f1e3d8a501",
-    "scripts/preview/neoracer.js": "4ff3b0e55c616889865a25f84e21852ab7cdabcc25c348e9cc9a676c4646ccb4",
-    "configs/map.photo-v1.json": "de41d012d4cf9e2ca1689c850139f7b3504cb6bda4df560eb9a77a0c955e15ad",
-    "configs/map.photo-v1.geometry.json": "1eebc82e879cae8615ab2a042995ff5a3a65728b50abf71665fcd86740c11266",
-    "configs/preview-assets.lock.json": "1a14851fae7ccbd5d6824935d4587c0a5cd1a47e13be05fa451a1c747d7e6d4d"
   }
 }
