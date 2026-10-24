@@ -92,4 +92,4 @@ Create a portable laptop demo repository with left onboard camera and right Auto
 ## Map revision 9 / Right-hand traffic
 - Reverse the selected outer-lane route and stop order while retaining road/stop geometry: complete. Extend the new start by 0.30 m to allow approach clearance at S6.
 - Check the divider remains on the driver's left, regenerate the preview and verify media: complete; A100 job 12012194 passes 39 tests, 511 direction/footprint samples and all 150-frame media checks.
-- Publish the verified revision to GitHub main and check CI: pending.
+- Publish the verified revision to GitHub main and check CI: complete; commit 609bbb69f4f2c0d83f0e1629f7c333a4f659381d is published and GitHub Actions run 40054969299 passes Python 3.10/3.11.
